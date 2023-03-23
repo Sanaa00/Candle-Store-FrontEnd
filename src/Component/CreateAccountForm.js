@@ -78,8 +78,11 @@ function CreateAccountForm() {
             {formik.errors.confirmpasssword}
           </span>
           <div className="mt-10 flex flex-col justify-center items-center">
-            <Button text="Order Now" width="96" type="submit" />
-            <Link to="/login" className="mt-2">
+            <Button text="Create" width="96" type="submit" />
+            <Link
+              to="/login"
+              className="mt-2 text-blue-700 underline hover:text-blue-500 duration-400 hover:duration-500"
+            >
               Have Account? Login{" "}
             </Link>
           </div>
