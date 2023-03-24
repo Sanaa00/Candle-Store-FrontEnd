@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { HiOutlineUserCircle } from "react-icons/hi";
-import { HiOutlineShoppingBag } from "react-icons/hi";
-import { AiOutlineHeart } from "react-icons/ai";
+import { HiOutlineUserCircle, HiUserCircle } from "react-icons/hi";
+import { HiOutlineShoppingBag, HiShoppingBag } from "react-icons/hi";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import Container from "./Container";
 
 function Navbar() {
@@ -41,16 +41,31 @@ function Navbar() {
         </ul>
         <ul className="flex items-center justify-between w-32">
           <NavLink to="/shopBag">
-            {" "}
-            <HiOutlineShoppingBag className="w-6 h-6 hover:text-greeen" />
+            {({ isActive }) =>
+              isActive ? (
+                <HiShoppingBag className="w-6 h-6 hover:text-greeen " />
+              ) : (
+                <HiOutlineShoppingBag className="w-6 h-6 hover:text-greeen" />
+              )
+            }
           </NavLink>
           <NavLink to="/favourite">
-            {" "}
-            <AiOutlineHeart className="w-6 h-6 hover:text-greeen" />
+            {({ isActive }) =>
+              isActive ? (
+                <AiFillHeart className="w-6 h-6 hover:text-greeen" />
+              ) : (
+                <AiOutlineHeart className="w-6 h-6 hover:text-greeen" />
+              )
+            }
           </NavLink>
           <NavLink to="/createAcount">
-            {" "}
-            <HiOutlineUserCircle className="w-6 h-6 hover:text-greeen" />
+            {({ isActive }) =>
+              isActive ? (
+                <HiUserCircle className="w-6 h-6 hover:text-greeen" />
+              ) : (
+                <HiOutlineUserCircle className="w-6 h-6 hover:text-greeen" />
+              )
+            }
           </NavLink>
         </ul>
       </div>
