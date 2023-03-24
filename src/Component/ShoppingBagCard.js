@@ -29,7 +29,7 @@ function ShoppingBagCard() {
                     <div className="flex justify-between items-center w-full">
                       <p className="font-semibold text-greeen ">{bag.name}</p>
                       <div className="flex ">
-                        <div onClick={() => dispatch(addToFav(bag))}>
+                        <div onClick={() => dispatch(addToFav(bag.id))}>
                           {" "}
                           <AiOutlineHeart className="w-6 h-6 mr-5" />
                         </div>

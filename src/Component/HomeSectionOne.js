@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import homebg from "../images/homebg.png";
 import Container from "./Container";
+import LinkButton from "./LinkButton";
 function HomeSectionOne() {
   return (
     <div>
@@ -27,12 +26,13 @@ function HomeSectionOne() {
             </p>
             <div className="mt-10 z-50">
               {" "}
-              <Link
+              <LinkButton location="products" width="10" />
+              {/* <Link
                 to="/products"
-                className="bg-greeen px-10 py-1 text-gray-100 "
+                className="bg-greeen px-10 py-1 text-gray-100 hover:bg-darkgreen hover:duration-500 duration-500 hover:shadow-lg"
               >
                 Shop Now{" "}
-              </Link>
+              </Link> */}
             </div>
           </div>
           {/* <div className="grid grid-cols-3 gap-x-5 justify-between items-center mt-20">

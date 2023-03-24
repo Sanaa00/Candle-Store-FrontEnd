@@ -4,12 +4,11 @@ import Container from "../Component/Container";
 import ProductsPagination from "../Component/ProductsPagination";
 import CandleCard from "../Component/CandleCard";
 function Favourite() {
-  const fav = useSelector((state) => state.candle.candle);
+  const fav = useSelector((state) => state.candle.fav);
+  console.log(fav);
   return (
     <Container>
-      {" "}
       <p className="text-2xl font-semibold text-greeen my-5">Favourite</p>
-      {/* <ProductsPagination /> */}
       <div className="grid grid-cols-5 justify-between items-center">
         {fav.map((candle) => {
           return <CandleCard candle={candle} key={candle.id} />;
