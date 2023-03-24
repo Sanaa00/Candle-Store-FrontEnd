@@ -5,7 +5,7 @@ function AboutSection() {
   return (
     <div className="bg-greeen bg-opacity-10">
       <Container>
-        <div className="grid grid-cols-2 justify-between items-center h-screen ">
+        <div className="pt-5 md:pt-0 grid grid-cols-1 md:grid-cols-2 justify-between items-center min-h-screen ">
           <div className="grid grid-rows-2 gap-y-5 justify-center items-center">
             <img
               className=" w-96 h-80 object-cover"
@@ -19,10 +19,10 @@ function AboutSection() {
             />
           </div>
           <div className="p-5 flex flex-col items-center">
-            <p className="text-3xl font-semibold text-greeen">
+            <p className="text-lg md:text-3xl font-semibold text-greeen">
               About Our Store
             </p>
-            <p className="text-xl text-justify flex leading-8 mt-5 px-10 text-gray-800">
+            <p className="md:text-xl text-justify flex leading-8 mt-5 sm:px-10 text-gray-800">
               Welcome to our candle store, where creativity meets candles. We
               offer a wide variety of candles in different shapes, sizes, and
               scents that are carefully crafted and prepared to light up your

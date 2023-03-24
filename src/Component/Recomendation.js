@@ -10,6 +10,17 @@ function Recomendation() {
   // const data = useSelector((state) => state.candle.candle);
   const sliderRef = useRef(null);
   console.log(sliderRef.current);
+  // const itemPerPageWindowSize = () => {
+  //   if (window.innerWidth < 640) {
+  //     return 2;
+  //   } else if (window.innerWidth < 768) {
+  //     return 4;
+  //   } else if (window.innerWidth < 1024) {
+  //     return 6;
+  //   } else {
+  //     return 10;
+  //   }
+  // };
   return (
     <div className="flex flex-col">
       <div className="flex justify-between items-center">
@@ -29,9 +40,9 @@ function Recomendation() {
       <Slide
         ref={sliderRef}
         autoplay={false}
-        slidesToScroll={2}
+        slidesToScroll={1}
         canSwipe={true}
-        slidesToShow={5}
+        slidesToShow={4}
         arrows={false}
         cssClass=""
       >

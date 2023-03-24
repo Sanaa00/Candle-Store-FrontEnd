@@ -3,9 +3,9 @@ import CounterButton from "./CounterButton";
 import { useDispatch, useSelector } from "react-redux";
 import { decrementQuantity, incrementQuantity } from "../features/candleSlice";
 // import { useSelector } from "react-redux";
-function Counter() {
+function Counter({ data }) {
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.candle.candle);
+  // const data = useSelector((state) => state.candle);
   // console.log(data.quantity);
   return (
     <div className="flex">

@@ -13,7 +13,7 @@ function ShopBag() {
         {bag.length === 0 ? (
           <p className=" text-gray-800 font-semibold mt-5">Your Bag is Empty</p>
         ) : (
-          <div className="grid grid-cols-2 pag-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 pag-5">
             <ShoppingBagCard />
             <TotalPrice />
           </div>

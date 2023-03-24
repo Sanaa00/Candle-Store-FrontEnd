@@ -22,7 +22,7 @@ function ContactForm() {
   });
   return (
     <Formik>
-      <div>
+      <div className="flex justify-center">
         <Form className="grid grid-cols-1" onSubmit={formik.handleSubmit}>
           <InputField
             placeholder="Name"
@@ -49,7 +49,7 @@ function ContactForm() {
               name="message"
               value={formik.values.message}
               onChange={formik.handleChange}
-              className="w-96 border-2 border-greeen focus:outline-none px-1 py-1"
+              className="w-full sm:w-96 border-2 border-greeen focus:outline-none px-1 py-1"
             />{" "}
             <span className="text-red-400 text-sm">
               {formik.errors.message}

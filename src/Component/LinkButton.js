@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-function LinkButton({ location, width }) {
+function LinkButton({ location, width, text }) {
   return (
     <Link
       to={`/${location}`}
-      className={`bg-greeen px-${width} py-1 text-gray-100 hover:bg-darkgreen hover:duration-500 duration-500 hover:shadow-lg `}
+      className={`bg-greeen w-${width} px-10 py-1 text-gray-100 text-center hover:bg-darkgreen hover:duration-500 duration-500 hover:shadow-lg `}
     >
-      Shop Now{" "}
+      {text}
     </Link>
   );
 }

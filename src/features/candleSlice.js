@@ -20,7 +20,11 @@ const candleSlice = createSlice({
     addToFav: (state, action) => {
       const itemInFav = state.fav.find((item) => item.id === action.payload.id);
       if (itemInFav) {
-        itemInFav.fav = !itemInFav.fav;
+        // itemInFav.quantity++;
+        //  const removeItemFav = state.fav.filter(
+        //    (item) => item.id !== action.payload
+        //  );
+        //  state.fav = removeItemFav;
       } else {
         state.fav.push({ ...action.payload, fav: true });
       }

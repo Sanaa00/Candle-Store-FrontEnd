@@ -28,7 +28,7 @@ function ProductsNavbar() {
     },
   ];
   return (
-    <div className="my-5 flex gap-5">
+    <div className="my-5 flex flex-wrap gap-5">
       {category.map((navbar) => {
         return (
           <NavLink

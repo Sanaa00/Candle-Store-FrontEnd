@@ -8,6 +8,7 @@ import Counter from "./Counter";
 // import data from "../Data";
 function ShoppingBagCard() {
   const data = useSelector((state) => state.candle.candle);
+  const fav = useSelector((state) => state.candle.fav);
   const dispatch = useDispatch();
   console.log(data);
   return (
@@ -29,7 +30,7 @@ function ShoppingBagCard() {
                     <div className="flex justify-between items-center w-full">
                       <p className="font-semibold text-greeen ">{bag.name}</p>
                       <div className="flex ">
-                        <div onClick={() => dispatch(addToFav(bag.id))}>
+                        <div onClick={() => dispatch(addToFav(bag))}>
                           {" "}
                           <AiOutlineHeart className="w-6 h-6 mr-5" />
                         </div>
@@ -41,8 +42,8 @@ function ShoppingBagCard() {
                       </div>
                     </div>
                     <div className="flex justify-between items-center w-full">
-                      <Counter />
-                      <p>{bag.price}$</p>
+                      <Counter data={bag} />
+                      <p>{bag.price * bag.quantity}$ </p>
                     </div>
                   </div>
                 </div>

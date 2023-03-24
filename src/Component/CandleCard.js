@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import StarRatings from "react-star-ratings";
 import { addToCart, addToFav } from "../features/candleSlice";
 import Button from "./Button";
 function CandleCard({ candle }) {
   const dispatch = useDispatch();
+  const fav = useSelector((state) => state.candle.fav);
+  const [clickedFav, setClickedFav] = useState(false);
   return (
     <div
       key={candle.id}
@@ -34,15 +36,27 @@ function CandleCard({ candle }) {
         <p className=" text-greeen mt-1">{candle.price}$</p>
         <div className="flex justify-between items-center mt-2">
           <Button text="Buy" onClick={() => dispatch(addToCart(candle))} />
-          {candle.favourite === false ? (
+          {clickedFav === true ? (
             <div
               onClick={() => {
                 dispatch(addToFav(candle));
+                setClickedFav(!clickedFav);
+              }}
+            >
+              <AiFillHeart className="w-6 h-6 text-greeen" />
+            </div>
+          ) : (
+            <div
+              onClick={() => {
+                dispatch(addToFav(candle));
+                setClickedFav(!clickedFav);
               }}
             >
               <AiOutlineHeart className="w-6 h-6" />
             </div>
-          ) : (
+          )}
+
+          {/* (
             <div
               onClick={() => {
                 dispatch(addToFav(candle));
@@ -50,7 +64,7 @@ function CandleCard({ candle }) {
             >
               <AiFillHeart className="w-6 h-6 text-greeen" />
             </div>
-          )}
+          ) */}
         </div>
       </div>
     </div>

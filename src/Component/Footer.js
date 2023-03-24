@@ -8,7 +8,7 @@ function Footer() {
     <Container>
       <div className="border-t-2 border-greeen py-10 flex flex-col items-center justify-center px-5">
         <p>LOGO</p>
-        <div className="flex justify-between w-full mt-5">
+        <div className="grid grid-cols-2 gap-5 md:grid-cols-4 justify-between w-full mt-5">
           <div className="flex flex-col">
             <p className="font-semibold text-greeen">Category</p>
             <p>category 1</p>
@@ -30,7 +30,7 @@ function Footer() {
             <p>Shipping</p>
             <p>credits</p>
           </div>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col md:items-center ">
             <p className="font-semibold text-greeen">Contact As</p>
             <AiFillInstagram className="w-6 h-6 mt-2 text-gray-800" />
             <FaFacebookF className="w-6 h-6 mt-1 text-gray-800" />

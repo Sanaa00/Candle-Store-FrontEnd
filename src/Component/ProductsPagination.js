@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
-
+import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
 import CandleCard from "./CandleCard";
 import data from "../Data";
 
 function ProductsPagination() {
   const itemPerPageWindowSize = () => {
     if (window.innerWidth < 640) {
-      return 2;
-    } else if (window.innerWidth < 768) {
       return 4;
+    } else if (window.innerWidth < 768) {
+      return 6;
     } else if (window.innerWidth < 1024) {
       return 6;
     } else {
@@ -37,8 +37,8 @@ function ProductsPagination() {
   };
 
   return (
-    <div>
-      <div className="grid grid-cols-5 justify-between items-center">
+    <div className="min-h-screen">
+      <div className="grid grid-cols-2 sm:grid-cols-3  md:grid-cols-5 justify-between items-center ">
         {currentItems.map((candle) => {
           return <CandleCard candle={candle} key={candle.id} />;
         })}
@@ -47,12 +47,12 @@ function ProductsPagination() {
         <ReactPaginate
           breakLabel="..."
           onPageChange={handlePageClick}
-          pageRangeDisplayed={3}
+          pageRangeDisplayed={1}
           pageCount={pageCount}
-          className="flex gap-5"
-          previousLabel="< "
-          nextLabel=" >"
-          pageClassName="text-gray-800 mx-2 "
+          className="flex gap-5 items-center"
+          previousLabel={<BiLeftArrow />}
+          nextLabel={<BiRightArrow />}
+          pageClassName="text-gray-800 mx-2"
           activeClassName="text-gray-800 border-b-2 border-gray-800 "
           renderOnZeroPageCount={null}
         />
