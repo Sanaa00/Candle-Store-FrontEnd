@@ -18,13 +18,11 @@ const candleSlice = createSlice({
       }
     },
     addToFav: (state, action) => {
-      const itemInCart = state.fav.find(
-        (item) => item.id === action.payload.id
-      );
-      if (itemInCart) {
-        itemInCart.quantity++;
+      const itemInFav = state.fav.find((item) => item.id === action.payload.id);
+      if (itemInFav) {
+        itemInFav.fav = !itemInFav.fav;
       } else {
-        state.fav.push({ ...action.payload, quantity: 1 });
+        state.fav.push({ ...action.payload, fav: true });
       }
     },
     incrementQuantity: (state, action) => {
