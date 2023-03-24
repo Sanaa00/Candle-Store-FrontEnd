@@ -8,7 +8,7 @@ function ShopBag() {
   const bag = useSelector((state) => state.candle.candle);
   return (
     <Container>
-      <div className="h-screen">
+      <div className="min-h-screen">
         <p className="text-2xl font-semibold text-greeen my-5">Candles</p>
         {bag.length === 0 ? (
           <p className=" text-gray-800 font-semibold mt-5">Your Bag is Empty</p>

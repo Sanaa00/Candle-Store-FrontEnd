@@ -8,11 +8,17 @@ function Favourite() {
   console.log(fav);
   return (
     <Container>
-      <p className="text-2xl font-semibold text-greeen my-5">Favourite</p>
-      <div className="grid grid-cols-5 justify-between items-center">
-        {fav.map((candle) => {
-          return <CandleCard candle={candle} key={candle.id} />;
-        })}
+      <div className="min-h-screen">
+        <p className="text-2xl font-semibold text-greeen my-5">Favourite</p>
+        <div className="grid grid-cols-5 justify-between items-center">
+          {fav.length === 0 ? (
+            <p className="text-gray-800 font-semibold">No favourite item yet</p>
+          ) : (
+            fav.map((candle) => {
+              return <CandleCard candle={candle} key={candle.id} />;
+            })
+          )}
+        </div>
       </div>
       {/* <div className="container mx-auto flex justify-center my-10"> */}
       {/* <ReactPaginate
