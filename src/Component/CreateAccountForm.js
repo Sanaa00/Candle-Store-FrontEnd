@@ -5,6 +5,17 @@ import { Link } from "react-router-dom";
 import { Formik, Form, useFormik } from "formik";
 import * as Yup from "yup";
 function CreateAccountForm() {
+  const widthOfButton = () => {
+    if (window.innerWidth < 640) {
+      return "full";
+    } else if (window.innerWidth < 768) {
+      return "full";
+    } else if (window.innerWidth < 1024) {
+      return 4;
+    } else {
+      return 96;
+    }
+  };
   const formik = useFormik({
     initialValues: {
       firstname: "",
@@ -31,8 +42,11 @@ function CreateAccountForm() {
   });
   return (
     <Formik>
-      <div>
-        <Form onSubmit={formik.handleSubmit} className="grid grid-cols-1 mb-10">
+      <div className="w-full md:w-fit">
+        <Form
+          onSubmit={formik.handleSubmit}
+          className="grid grid-cols-1 mb-10 w-full md:w-fit"
+        >
           <InputField
             placeholder="First Name"
             name="firstname"
@@ -48,7 +62,7 @@ function CreateAccountForm() {
             name="lastname"
             id="lastname"
             onChange={formik.handleChange}
-            value={formik.values.lastName}
+            value={formik.values.lastname}
           />
           <span className="text-red-400 text-sm">{formik.errors.lastname}</span>
           <InputField
@@ -72,13 +86,13 @@ function CreateAccountForm() {
             name="confirmpasssword"
             id="confirmpassword"
             onChange={formik.handleChange}
-            value={formik.values.confirmpassword}
+            value={formik.values.confirmpasssword}
           />
           <span className="text-red-400 text-sm">
             {formik.errors.confirmpasssword}
           </span>
           <div className="mt-10 flex flex-col justify-center items-center">
-            <Button text="Create" width="96" type="submit" />
+            <Button text="Create" width={widthOfButton()} type="submit" />
             <Link
               to="/login"
               className="mt-2 text-blue-700 underline hover:text-blue-500 duration-400 hover:duration-500"

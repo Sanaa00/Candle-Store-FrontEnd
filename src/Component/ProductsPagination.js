@@ -11,7 +11,7 @@ function ProductsPagination() {
     } else if (window.innerWidth < 768) {
       return 6;
     } else if (window.innerWidth < 1024) {
-      return 6;
+      return 8;
     } else {
       return 10;
     }

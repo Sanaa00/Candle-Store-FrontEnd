@@ -32,7 +32,7 @@ function ShoppingBagCard() {
                       <div className="flex ">
                         <div onClick={() => dispatch(addToFav(bag))}>
                           {" "}
-                          <AiOutlineHeart className="w-6 h-6 mr-5" />
+                          <AiOutlineHeart className="w-6 h-6 mr-1 sm:mr-5" />
                         </div>
 
                         <div onClick={() => dispatch(removeItem(bag.id))}>

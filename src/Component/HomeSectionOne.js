@@ -15,7 +15,7 @@ function HomeSectionOne() {
               Our candles are more than just a scent, theyre a personalized
               experience.
             </p>
-            <p className="md:text-xl text-gray-800 mt-10 z-50">
+            <p className="md:text-xl text-gray-800 mt-10 ">
               We offer unique candles in various scents, sizes, and shapes. Our
               store provides customized gift sets, and we also create bespoke
               candles to perfectly suit your preferences. Our candles are
@@ -26,7 +26,7 @@ function HomeSectionOne() {
           Handcrafted with natural ingredients to transform any space into a
           haven of relaxation." */}
             </p>
-            <div className="mt-10 z-50">
+            <div className="mt-10">
               {" "}
               <LinkButton location="products" text="Shop Now" />
               {/* <Link

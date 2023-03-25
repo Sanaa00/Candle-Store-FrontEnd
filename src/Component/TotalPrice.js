@@ -9,10 +9,21 @@ function TotalPrice() {
     totalQuantity += item.quantity;
     totalPrice += item.price * item.quantity;
   });
+  const widthofbutton = () => {
+    if (window.innerWidth < 640) {
+      return "full";
+    } else if (window.innerWidth < 768) {
+      return "full";
+    } else if (window.innerWidth < 1024) {
+      return 4;
+    } else {
+      return 96;
+    }
+  };
   return (
-    <div className="flex justify-center ">
-      <div className="bg-greeen bg-opacity-10 p-5  h-fit flex flex-col items-center ">
-        <div className="grid grid-cols-1 w-96 border-b-2 border-greeen">
+    <div className="flex w-full sm:justify-center">
+      <div className="bg-greeen bg-opacity-10 p-5 w-full md:w-fit h-fit flex flex-col items-center my-5 md:my-0">
+        <div className="grid grid-cols-1 w-full md:w-96 border-b-2 border-greeen">
           {data.map((bag) => {
             return (
               <div
@@ -35,7 +46,11 @@ function TotalPrice() {
           <p className="">Total</p>
           <p>{totalPrice}</p>
         </div>
-        <LinkButton location="products" width="96" text="Checkout" />
+        <LinkButton
+          location="products"
+          width={widthofbutton()}
+          text="Checkout"
+        />
       </div>
     </div>
   );

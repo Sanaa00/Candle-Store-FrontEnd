@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import "react-slideshow-image/dist/styles.css";
 import { Slide } from "react-slideshow-image";
 import { useSelector } from "react-redux";
@@ -10,17 +10,21 @@ function Recomendation() {
   // const data = useSelector((state) => state.candle.candle);
   const sliderRef = useRef(null);
   console.log(sliderRef.current);
-  // const itemPerPageWindowSize = () => {
-  //   if (window.innerWidth < 640) {
-  //     return 2;
-  //   } else if (window.innerWidth < 768) {
-  //     return 4;
-  //   } else if (window.innerWidth < 1024) {
-  //     return 6;
-  //   } else {
-  //     return 10;
-  //   }
-  // };
+  const itemPerPage = () => {
+    if (window.innerWidth < 640) {
+      return 2;
+    } else if (window.innerWidth < 768) {
+      return 3;
+    } else if (window.innerWidth < 1024) {
+      return 4;
+    } else {
+      return 5;
+    }
+  };
+  // useEffect(() => {
+  //   // itemPerPage();
+  // }, [itemPerPage()]);
+
   return (
     <div className="flex flex-col">
       <div className="flex justify-between items-center">
@@ -42,7 +46,7 @@ function Recomendation() {
         autoplay={false}
         slidesToScroll={1}
         canSwipe={true}
-        slidesToShow={4}
+        slidesToShow={itemPerPage()}
         arrows={false}
         cssClass=""
       >

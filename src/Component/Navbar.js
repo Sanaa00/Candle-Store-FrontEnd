@@ -1,18 +1,84 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink, Link } from "react-router-dom";
 import { HiOutlineUserCircle, HiUserCircle } from "react-icons/hi";
 import { HiOutlineShoppingBag, HiShoppingBag } from "react-icons/hi";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import Container from "./Container";
-
+import { IoMenu } from "react-icons/io5";
+import { IoClose } from "react-icons/io5";
 function Navbar() {
   const bag = useSelector((state) => state.candle.candle);
+  const [open, setOpen] = useState(false);
   return (
     <Container>
-      <div className="flex justify-between items-center border-b-2 border-greeen h-16 text-lg text-gray-800 font-semibold">
+      <div className="w-full flex justify-between items-center border-b-2 border-greeen h-16 text-lg text-gray-800 font-semibold">
         <NavLink to="/">LOGO</NavLink>
-        <p className="md:hidden">menu</p>
+        <div className={`flex md:hidden   h-full text-lg font-bold`}>
+          <button onClick={() => setOpen(!open)} className="md:hidden ">
+            <IoMenu fill="#f55951" className="w-8 h-8" />
+          </button>
+          <div
+            className={`bg-white rounded-sm md:hidden flex flex-col fixed w-3/5 top-0 z-40 right-0 shadow-lg transform duration-500 ease-in-out ${
+              open ? "translate-x-full" : "translate-x-0"
+            }`}
+          >
+            <div className="right-0 flex  h-16">
+              <button
+                onClick={() => setOpen(!open)}
+                className="text-black w-full px-6 flex flex-col pt-4 items-end"
+              >
+                <IoClose className="text-orange w-8 h-8" />
+              </button>
+            </div>
+
+            <div className=" h-screen flex flex-col">
+              <Link
+                to="/"
+                onClick={() => setOpen(!open)}
+                className="text-orange text-center py-3"
+              >
+                Home
+              </Link>
+              <Link
+                to="/products"
+                onClick={() => setOpen(!open)}
+                className="text-orange text-center py-3"
+              >
+                Products
+              </Link>
+              <Link
+                to="/contact"
+                onClick={() => setOpen(!open)}
+                className="text-orange text-center py-3"
+              >
+                Contact
+              </Link>{" "}
+              <Link
+                to="/shopBag"
+                onClick={() => setOpen(!open)}
+                className="text-orange text-center py-3"
+              >
+                Bag
+              </Link>{" "}
+              <Link
+                to="/favourite"
+                onClick={() => setOpen(!open)}
+                className="text-orange text-center py-3"
+              >
+                Favourite
+              </Link>{" "}
+              <Link
+                to="/createAcount"
+                onClick={() => setOpen(!open)}
+                className="text-orange text-center py-3"
+              >
+                createAcount
+              </Link>{" "}
+            </div>
+          </div>
+        </div>
+        {/* <p className="md:hidden">menu</p> */}
         <ul className="hidden md:flex justify-between items-center w-1/5">
           <NavLink
             to="/"
