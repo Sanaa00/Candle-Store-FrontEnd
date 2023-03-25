@@ -1,20 +1,41 @@
-import React, { useState } from "react";
-import { NavLink, Link } from "react-router-dom";
+import React from "react";
+import { NavLink } from "react-router-dom";
 import { HiOutlineUserCircle, HiUserCircle } from "react-icons/hi";
 import { HiOutlineShoppingBag, HiShoppingBag } from "react-icons/hi";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import Container from "./Container";
-import { IoMenu } from "react-icons/io5";
-import { IoClose } from "react-icons/io5";
+import MobileMenu from "./MobileMenu";
+
 function Navbar() {
   const bag = useSelector((state) => state.candle.candle);
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
   return (
     <Container>
       <div className="w-full flex justify-between items-center border-b-2 border-greeen h-16 text-lg text-gray-800 font-semibold">
         <NavLink to="/">LOGO</NavLink>
-        <div className={`flex md:hidden   h-full text-lg font-bold`}>
+        <MobileMenu />
+        {/* <div
+          className={`flex md:hidden  justify-center items-center  h-full text-lg font-bold`}
+        >
+          {" "}
+          <NavLink to="/shopBag">
+            {({ isActive }) =>
+              isActive ? (
+                <HiShoppingBag className="w-6 h-6 hover:text-greeen mr-2" />
+              ) : (
+                <span>
+                  {" "}
+                  {bag.length !== 0 && (
+                    <span className="absolute h-5 w-5 flex items-center justify-center text-center translate-x-1/2 -translate-y-1/2 bg-red-500  rounded-full text-xs text-white shadow-sm">
+                      {bag.length}
+                    </span>
+                  )}
+                  <HiOutlineShoppingBag className="w-6 h-6 hover:text-greeen mr-2" />
+                </span>
+              )
+            }
+          </NavLink>
           <button onClick={() => setOpen(!open)} className="md:hidden ">
             <IoMenu fill="#f55951" className="w-8 h-8" />
           </button>
@@ -55,13 +76,6 @@ function Navbar() {
                 Contact
               </Link>{" "}
               <Link
-                to="/shopBag"
-                onClick={() => setOpen(!open)}
-                className="text-orange text-center py-3"
-              >
-                Bag
-              </Link>{" "}
-              <Link
                 to="/favourite"
                 onClick={() => setOpen(!open)}
                 className="text-orange text-center py-3"
@@ -73,13 +87,13 @@ function Navbar() {
                 onClick={() => setOpen(!open)}
                 className="text-orange text-center py-3"
               >
-                createAcount
+                Account
               </Link>{" "}
             </div>
           </div>
-        </div>
+        </div> */}
         {/* <p className="md:hidden">menu</p> */}
-        <ul className="hidden md:flex justify-between items-center w-1/5">
+        <ul className="hidden lg:flex justify-between items-center lg:w-2/5 w-1/5">
           <NavLink
             to="/"
             className={({ isActive }) =>
@@ -108,7 +122,7 @@ function Navbar() {
             Contact
           </NavLink>
         </ul>
-        <ul className="hidden md:flex items-center justify-between w-32">
+        <ul className="hidden lg:flex items-center justify-between w-32">
           <NavLink to="/shopBag">
             {({ isActive }) =>
               isActive ? (

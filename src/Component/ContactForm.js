@@ -11,7 +11,9 @@ function ContactForm() {
     } else if (window.innerWidth < 768) {
       return "full";
     } else if (window.innerWidth < 1024) {
-      return 4;
+      return "full";
+    } else if (window.innerWidth < 1280) {
+      return 80;
     } else {
       return 96;
     }
@@ -33,9 +35,9 @@ function ContactForm() {
   });
   return (
     <Formik>
-      <div className="flex justify-center w-full md:w-fit">
+      <div className="flex justify-center w-full lg:w-fit">
         <Form
-          className="grid grid-cols-1 w-full md:w-fit"
+          className="grid grid-cols-1 w-full lg:w-fit"
           onSubmit={formik.handleSubmit}
         >
           <InputField
@@ -63,7 +65,7 @@ function ContactForm() {
               name="message"
               value={formik.values.message}
               onChange={formik.handleChange}
-              className="w-full md:w-96 border-2 border-greeen focus:outline-none px-1 py-1"
+              className="w-full lg:w-80 xl:w-96 border-2 border-greeen focus:outline-none px-1 py-1"
             />{" "}
             <span className="text-red-400 text-sm">
               {formik.errors.message}

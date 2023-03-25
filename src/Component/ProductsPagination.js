@@ -10,7 +10,7 @@ function ProductsPagination() {
       return 4;
     } else if (window.innerWidth < 768) {
       return 6;
-    } else if (window.innerWidth < 1024) {
+    } else if (window.innerWidth < 1280) {
       return 8;
     } else {
       return 10;
@@ -38,7 +38,7 @@ function ProductsPagination() {
 
   return (
     <div className="min-h-screen">
-      <div className="grid grid-cols-2 sm:grid-cols-3  md:grid-cols-5 justify-between items-center ">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 justify-between items-center ">
         {currentItems.map((candle) => {
           return <CandleCard candle={candle} key={candle.id} />;
         })}

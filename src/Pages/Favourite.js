@@ -10,7 +10,7 @@ function Favourite() {
     <Container>
       <div className="min-h-screen">
         <p className="text-2xl font-semibold text-greeen my-5">Favourite</p>
-        <div className="grid grid-cols-2 md:grid-cols-5 justify-between items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 justify-between items-center">
           {fav.length === 0 ? (
             <p className="text-gray-800 font-semibold">No favourite item yet</p>
           ) : (

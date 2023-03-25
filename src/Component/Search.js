@@ -8,7 +8,7 @@ function Search() {
   };
 
   return (
-    <div className="my-5 md:mt-0 border-b-2 border-greeen flex justify-between w-60 sm:w-80">
+    <div className="my-5 xl:mt-0 border-b-2 border-greeen flex justify-between w-60 sm:w-80">
       <input
         placeholder="Search"
         className="w-full focus:outline-none px-2"

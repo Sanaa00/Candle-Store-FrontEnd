@@ -10,8 +10,8 @@ function CreateAccountForm() {
       return "full";
     } else if (window.innerWidth < 768) {
       return "full";
-    } else if (window.innerWidth < 1024) {
-      return 4;
+    } else if (window.innerWidth < 1280) {
+      return "full";
     } else {
       return 96;
     }
@@ -42,10 +42,10 @@ function CreateAccountForm() {
   });
   return (
     <Formik>
-      <div className="w-full md:w-fit">
+      <div className="w-full lg:w-fit">
         <Form
           onSubmit={formik.handleSubmit}
-          className="grid grid-cols-1 mb-10 w-full md:w-fit"
+          className="grid grid-cols-1 mb-10 w-full lg:w-fit"
         >
           <InputField
             placeholder="First Name"

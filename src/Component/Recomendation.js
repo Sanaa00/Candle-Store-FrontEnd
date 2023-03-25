@@ -15,7 +15,7 @@ function Recomendation() {
       return 2;
     } else if (window.innerWidth < 768) {
       return 3;
-    } else if (window.innerWidth < 1024) {
+    } else if (window.innerWidth < 1280) {
       return 4;
     } else {
       return 5;

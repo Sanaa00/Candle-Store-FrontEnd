@@ -15,15 +15,17 @@ function TotalPrice() {
     } else if (window.innerWidth < 768) {
       return "full";
     } else if (window.innerWidth < 1024) {
-      return 4;
+      return "full";
+    } else if (window.innerWidth) {
+      return "full";
     } else {
       return 96;
     }
   };
   return (
     <div className="flex w-full sm:justify-center">
-      <div className="bg-greeen bg-opacity-10 p-5 w-full md:w-fit h-fit flex flex-col items-center my-5 md:my-0">
-        <div className="grid grid-cols-1 w-full md:w-96 border-b-2 border-greeen">
+      <div className="bg-greeen bg-opacity-10 p-5 w-full lg:w-fit h-fit flex flex-col items-center my-5 lg:my-0">
+        <div className="grid grid-cols-1 w-full lg:w-80 xl:w-96 border-b-2 border-greeen">
           {data.map((bag) => {
             return (
               <div
