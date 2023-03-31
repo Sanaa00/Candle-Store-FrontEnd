@@ -2,22 +2,28 @@ import React, { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
 import CandleCard from "./CandleCard";
-import data from "../Data";
+// import data from "../Data";
+// import { useGetProductsMutation } from "../features/api/api";
+import { useGetProductsQuery } from "../features/api/cart";
+import products from "../Data";
 
 function ProductsPagination() {
+  // const { data: products } = useGetProductsQuery();
   const itemPerPageWindowSize = () => {
     if (window.innerWidth < 640) {
-      return 4;
-    } else if (window.innerWidth < 768) {
       return 6;
+    } else if (window.innerWidth < 768) {
+      return 9;
     } else if (window.innerWidth < 1280) {
-      return 8;
+      return 12;
     } else {
-      return 10;
+      return 15;
     }
   };
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
   const [currentItems, setCurrentItems] = useState([]);
+
+  // const {data} = useGetProductsQuery({offset: pageCount, limit: 15})
 
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
@@ -26,13 +32,13 @@ function ProductsPagination() {
   const endOffset = itemOffset + itemsPerPage;
 
   useEffect(() => {
-    setCurrentItems(data.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(data.length / itemsPerPage));
-    setIsLoading(false);
-  }, [endOffset, itemOffset, itemsPerPage, data]);
+    setCurrentItems(products.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(products.length / itemsPerPage));
+    // setIsLoading(false);
+  }, [endOffset, itemOffset, itemsPerPage, products]);
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % data.length;
+    const newOffset = (event.selected * itemsPerPage) % products.length;
     setItemOffset(newOffset);
   };
 

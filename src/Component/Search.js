@@ -11,8 +11,9 @@ function Search() {
   return (
     <div className="relative flex justify-end focus:text-greeen">
       <input
+        onChange={searchHandler}
         type="search"
-        class="duration-500 focus:duration-500 cursor-pointer relative z-10 h-8 w-8  focus:border-b-2 bg-transparent pl-4 outline-none focus:w-60 focus:cursor-text focus:border-greeen focus:pr-4 foucs:text-greeen"
+        className="duration-500 focus:duration-500 cursor-pointer relative z-10 h-8 w-8  focus:border-b-2 bg-transparent pl-4 outline-none focus:w-60 focus:cursor-text focus:border-greeen focus:pr-4 foucs:text-greeen"
       />
       <FiSearch className="absolute inset-y-0 my-auto h-8 px-1 w-8 border-r border-transparent focus:text-greeen " />
       {/* <svg

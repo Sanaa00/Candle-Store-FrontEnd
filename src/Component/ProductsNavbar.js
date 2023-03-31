@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import Button from "./Button";
 function ProductsNavbar() {
   const category = [
     {
@@ -22,24 +23,28 @@ function ProductsNavbar() {
       id: 4,
       category: "Category 4",
     },
-    {
-      id: 5,
-      category: "Category 5",
-    },
   ];
+  const handleFilter = (category) => {
+    console.log(category);
+  };
   return (
-    <div className="my-5 flex flex-wrap gap-5">
+    <div className="my-10 flex flex-wrap gap-5 ">
       {category.map((navbar) => {
         return (
-          <NavLink
+          <button
+            className="bg-gray-100 py-1 px-5 focus:bg-greeen text-greeen focus:text-gray-50 border hover:shadow-lg duration-500 hover:duration-500 text-sm flex font-medium"
             key={navbar.id}
-            className={({ isActive }) =>
-              (isActive ? "border-b-2 border-greeen " : "") +
-              "hover:text-greeen font-semibold text-gray-800"
-            }
+            // className={({ isActive }) =>
+            //   (isActive ? "border-b-2 border-greeen " : "") +
+            //   "hover:text-greeen font-semibold text-gray-800"
+            // }
+            // text={navbar.category}
+            onClick={() => handleFilter(navbar.category)}
+            // width="36"
+            // px="5"
           >
             {navbar.category}
-          </NavLink>
+          </button>
         );
       })}
     </div>

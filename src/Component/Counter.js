@@ -15,7 +15,7 @@ function Counter({ data }) {
           dispatch(decrementQuantity(data.id));
         }}
       />
-      <div>{data.quantity}</div>
+      <div> {data.quantity || 0}</div>
       <CounterButton
         text="+"
         onClick={() => dispatch(incrementQuantity(data.id))}

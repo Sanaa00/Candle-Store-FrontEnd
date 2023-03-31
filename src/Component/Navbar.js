@@ -6,6 +6,7 @@ import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import Container from "./Container";
 import MobileMenu from "./MobileMenu";
+import Search from "./Search";
 
 function Navbar() {
   const bag = useSelector((state) => state.candle.candle);
@@ -93,7 +94,7 @@ function Navbar() {
           </div>
         </div> */}
         {/* <p className="md:hidden">menu</p> */}
-        <ul className="hidden lg:flex justify-between items-center lg:w-2/5 w-1/5">
+        <ul className="hidden lg:flex justify-between items-center lg:w-2/5 xl:w-2/5 w-1/5">
           <NavLink
             to="/"
             className={({ isActive }) =>
@@ -122,11 +123,15 @@ function Navbar() {
             Contact
           </NavLink>
         </ul>
-        <ul className="hidden lg:flex items-center justify-between w-32">
+        <ul className="hidden lg:flex items-center justify-end w-60">
+          <div className="">
+            <Search />
+          </div>
+
           <NavLink to="/shopBag">
             {({ isActive }) =>
               isActive ? (
-                <HiShoppingBag className="w-6 h-6 hover:text-greeen " />
+                <HiShoppingBag className="w-6 h-6 hover:text-greeen mx-2" />
               ) : (
                 <span>
                   {" "}
@@ -135,7 +140,7 @@ function Navbar() {
                       {bag.length}
                     </span>
                   )}
-                  <HiOutlineShoppingBag className="w-6 h-6 hover:text-greeen" />
+                  <HiOutlineShoppingBag className="w-6 h-6 hover:text-greeen mx-2" />
                 </span>
               )
             }
@@ -143,21 +148,22 @@ function Navbar() {
           <NavLink to="/favourite">
             {({ isActive }) =>
               isActive ? (
-                <AiFillHeart className="w-6 h-6 hover:text-greeen" />
+                <AiFillHeart className="w-6 h-6 hover:text-greeen mx-2" />
               ) : (
-                <AiOutlineHeart className="w-6 h-6 hover:text-greeen" />
+                <AiOutlineHeart className="w-6 h-6 hover:text-greeen mx-2" />
               )
             }
           </NavLink>
           <NavLink to="/createAcount">
             {({ isActive }) =>
               isActive ? (
-                <HiUserCircle className="w-6 h-6 hover:text-greeen" />
+                <HiUserCircle className="w-6 h-6 hover:text-greeen mx-2" />
               ) : (
-                <HiOutlineUserCircle className="w-6 h-6 hover:text-greeen" />
+                <HiOutlineUserCircle className="w-6 h-6 hover:text-greeen mx-2" />
               )
             }
           </NavLink>
+          {/* <Search /> */}
         </ul>
       </div>
     </Container>

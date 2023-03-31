@@ -2,19 +2,27 @@ import React from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { TiDeleteOutline } from "react-icons/ti";
 import { useSelector, useDispatch } from "react-redux";
-import { removeItem, addToFav } from "../features/candleSlice";
-import Button from "./Button";
+import { removeItem } from "../features/candleSlice";
+import { addtoFav } from "../features/favouriteSlice";
+import { useDeletFromCartMutation } from "../features/api/cart";
+import EmptyBag from "../images/EmptyBag.png";
 import Counter from "./Counter";
 // import data from "../Data";
 function ShoppingBagCard() {
   const data = useSelector((state) => state.candle.candle);
-  const fav = useSelector((state) => state.candle.fav);
-  const dispatch = useDispatch();
-  console.log(data);
+  const [deleteCart] = useDeletFromCartMutation();
+  // const fav = useSelector((state) => state.fa.fav);
+  // const dispatch = useDispatch();
+  // console.log(data);
+  const deletHandler = (id) => {
+    deleteCart(id);
+  };
   return (
     <div>
       {data === [] ? (
-        <p>your bag is empty</p>
+        <div className="flex">
+          <img src={EmptyBag} alt="" className="w-full h-96" />
+        </div>
       ) : (
         <div>
           {data.map((bag) => {
@@ -30,14 +38,16 @@ function ShoppingBagCard() {
                     <div className="flex justify-between items-center w-full">
                       <p className="font-semibold text-greeen ">{bag.name}</p>
                       <div className="flex ">
-                        <div onClick={() => dispatch(addToFav(bag))}>
+                        <div
+                        // onClick={() => dispatch(addtoFav(bag))}
+                        >
                           {" "}
-                          <AiOutlineHeart className="w-6 h-6 mr-1 sm:mr-5" />
+                          <AiOutlineHeart className="w-6 h-6 mr-1 sm:mr-5 text-gray-700" />
                         </div>
 
-                        <div onClick={() => dispatch(removeItem(bag.id))}>
+                        <div onClick={() => deletHandler(bag.id)}>
                           {" "}
-                          <TiDeleteOutline className="w-6 h-6" />
+                          <TiDeleteOutline className="w-6 h-6 text-gray-700" />
                         </div>
                       </div>
                     </div>

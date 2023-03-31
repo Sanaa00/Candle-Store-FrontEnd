@@ -49,7 +49,7 @@ function TotalPrice() {
           <p>{totalPrice}</p>
         </div>
         <LinkButton
-          location="products"
+          location="ShippingAndPayment"
           width={widthofbutton()}
           text="Checkout"
         />

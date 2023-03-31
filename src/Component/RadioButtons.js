@@ -15,7 +15,7 @@ function RadioButtons() {
   };
   const color = ["75 ml", "120 ml", "190 ml"];
   return (
-    <div className="border-greeen border-y xl:w-96 ">
+    <div className="border-greeen border-y lg:w-96 ">
       <FormControl>
         {/* <FormLabel id="color">Colors</FormLabel> */}
         <RadioGroup
