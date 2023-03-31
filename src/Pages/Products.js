@@ -7,13 +7,13 @@ import Search from "../Component/Search";
 function Products() {
   return (
     <Container>
-      <div className="flex flex-col-reverse xl:flex-row justify-between items-center">
-        <ProductsNavbar />
-        <Search />
-      </div>
+      {/* <div className=" mt-5 flex flex-col-reverse xl:flex-row justify-between items-center"> */}
+      <ProductsNavbar />
+      {/* <Search /> */}
+      {/* </div> */}
       <p className="text-2xl font-semibold text-greeen my-5">Candles</p>
       <ProductsPagination />
-      <Recomendation />
+      {/* <Recomendation /> */}
     </Container>
   );
 }
