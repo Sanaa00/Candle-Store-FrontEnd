@@ -2,13 +2,16 @@ import React, { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
 import CandleCard from "./CandleCard";
+import { BarLoader } from "react-spinners";
 // import data from "../Data";
 // import { useGetProductsMutation } from "../features/api/api";
 import { useGetProductsQuery } from "../features/api/cart";
 import products from "../Data";
 
 function ProductsPagination() {
-  // const { data: products } = useGetProductsQuery();
+  // const { products, isLoading, isFetching } = useGetProductsQuery();
+  // const { data: isLoading } = useGetProductsQuery();
+
   const itemPerPageWindowSize = () => {
     if (window.innerWidth < 640) {
       return 6;
@@ -41,7 +44,8 @@ function ProductsPagination() {
     const newOffset = (event.selected * itemsPerPage) % products.length;
     setItemOffset(newOffset);
   };
-
+  // if (isLoading || isFetching)
+  //   return <BarLoader color="#316C57" height={5} width={200} />;
   return (
     <div className="min-h-screen">
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 justify-between items-center ">

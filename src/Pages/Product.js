@@ -5,10 +5,7 @@ import Container from "../Component/Container";
 import Counter from "../Component/Counter";
 // import { useDispatch, useSelector } from "react-redux";
 // import { addToCart } from "../features/candleSlice";
-import {
-  useAddToCartMutation,
-  useGetProductsQuery,
-} from "../features/api/cart";
+import { useAddToCartMutation, useProductsQuery } from "../features/api/cart";
 // import { RadioGroup, RadioButton } from "react-radio-buttons";
 import products from "../Data";
 import Recomendation from "../Component/Recomendation";
@@ -21,9 +18,9 @@ function Product() {
   // const [review, setReview] = useState("");
   const [candles, setCandles] = useState({});
   // const quantity = useSelector((state) => state.candle.candle);
-  const [addToCart] = useAddToCartMutation();
+  // const [addToCart] = useAddToCartMutation();
   const addToCartHandle = () => {
-    addToCart({});
+    // addToCart({});
     //  itemInCart = state.candle.find(
     //   (item) => item.id === action.payload.id
     // )
@@ -94,7 +91,7 @@ function Product() {
             <Button
               text="Buy"
               width={widthOfButton()}
-              onClick={() => addToCartHandle(candles)}
+              // onClick={() => addToCartHandle(candles)}
             />
             {/* <Counter data={quantity} /> */}
           </div>

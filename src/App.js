@@ -10,6 +10,10 @@ import ShopBag from "./Pages/ShopBag";
 import CreateAcount from "./Pages/CreateAcount";
 import Footer from "./Component/Footer";
 import Login from "./Pages/Login";
+import ShippingAndPayment from "./Component/ShippingAndPayment";
+import Product from "./Pages/Product";
+import Payment from "./Component/Payment";
+// import Shipping from "./Component/Shipping";
 
 function App() {
   return (
@@ -19,11 +23,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="products" element={<Products />} />
+        <Route path="product/:id" element={<Product />} />
         <Route path="contact" element={<Contact />} />
         <Route path="favourite" element={<Favourite />} />
         <Route path="createAcount" element={<CreateAcount />} />
         <Route path="shopBag" element={<ShopBag />} />
         <Route path="login" element={<Login />} />
+        <Route path="shippingAndPayment" element={<ShippingAndPayment />} />
+        <Route path="payment" element={<Payment />} />
       </Routes>{" "}
       <Footer />
       {/* </Container> */}
@@ -32,3 +39,5 @@ function App() {
 }
 
 export default App;
+// to={`/hotel/${hotel.id}`}
+// const { id } = useParams();

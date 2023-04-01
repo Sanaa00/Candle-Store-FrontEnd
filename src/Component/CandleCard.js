@@ -1,15 +1,15 @@
 import React from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import StarRatings from "react-star-ratings";
-import { addToCart } from "../features/candleSlice";
-import LinkButton from "./LinkButton";
+// import { addToCart } from "../features/candleSlice";
+// import LinkButton from "./LinkButton";
 import { addtoFav, removeItemFav } from "../features/favouriteSlice";
-import Button from "./Button";
+// import Button from "./Button";
 function CandleCard({ candle }) {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const fav = useSelector((state) => state.favourite.fav);
   console.log("fav data", fav);
   // const fav = useSelector((state) => state.candle.fav);
@@ -19,7 +19,7 @@ function CandleCard({ candle }) {
     <div
       // to={`/product/${candle.id}`}
       key={candle.id}
-      className="hover:shadow-lg hover:duration-500 duration-500 m-2 border"
+      className="hover:shadow-lg hover:duration-500 duration-500 rounded-sm m-2 border"
     >
       {/* <Link to={`/product/${candle.id}`}> */}
       <div className="relative">

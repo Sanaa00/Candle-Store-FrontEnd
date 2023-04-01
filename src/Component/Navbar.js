@@ -12,11 +12,14 @@ function Navbar() {
   const bag = useSelector((state) => state.candle.candle);
   // const [open, setOpen] = useState(false);
   return (
-    <Container>
-      <div className="w-full flex justify-between items-center border-b-2 border-greeen h-16 text-lg text-gray-800 font-semibold">
-        <NavLink to="/">LOGO</NavLink>
-        <MobileMenu />
-        {/* <div
+    <div className="bg-gray-50">
+      <Container>
+        <div className="flex justify-between items-center border-b-2 border-greeen h-16 text-lg text-gray-800 font-semibold">
+          <NavLink to="/" className="w-1/3">
+            LOGO
+          </NavLink>
+          <MobileMenu />
+          {/* <div
           className={`flex md:hidden  justify-center items-center  h-full text-lg font-bold`}
         >
           {" "}
@@ -93,80 +96,81 @@ function Navbar() {
             </div>
           </div>
         </div> */}
-        {/* <p className="md:hidden">menu</p> */}
-        <ul className="hidden lg:flex justify-between items-center lg:w-2/5 xl:w-2/5 w-1/5">
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              (isActive ? "border-b-2 border-greeen " : "") +
-              "hover:text-greeen"
-            }
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="products"
-            className={({ isActive }) =>
-              (isActive ? "border-b-2 border-greeen " : "") +
-              "hover:text-greeen"
-            }
-          >
-            Products
-          </NavLink>
-          <NavLink
-            to="contact"
-            className={({ isActive }) =>
-              (isActive ? "border-b-2 border-greeen " : "") +
-              "hover:text-greeen"
-            }
-          >
-            Contact
-          </NavLink>
-        </ul>
-        <ul className="hidden lg:flex items-center justify-end w-60">
-          <div className="">
-            <Search />
-          </div>
+          {/* <p className="md:hidden">menu</p> */}
+          <ul className="hidden lg:flex w-1/3 justify-center">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                (isActive ? "border-b-2 border-greeen " : "") +
+                "hover:text-greeen mx-4"
+              }
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="products"
+              className={({ isActive }) =>
+                (isActive ? "border-b-2 border-greeen " : "") +
+                "hover:text-greeen mx-4"
+              }
+            >
+              Products
+            </NavLink>
+            <NavLink
+              to="contact"
+              className={({ isActive }) =>
+                (isActive ? "border-b-2 border-greeen " : "") +
+                "hover:text-greeen mx-4"
+              }
+            >
+              Contact
+            </NavLink>
+          </ul>
+          <ul className="hidden lg:flex w-1/3 justify-end items-center">
+            <div className="">
+              <Search />
+            </div>
 
-          <NavLink to="/shopBag">
-            {({ isActive }) =>
-              isActive ? (
-                <HiShoppingBag className="w-6 h-6 hover:text-greeen mx-2" />
-              ) : (
-                <span>
-                  {" "}
-                  {bag.length !== 0 && (
-                    <span className="absolute h-5 w-5 flex items-center justify-center text-center translate-x-1/2 -translate-y-1/2 bg-red-500  rounded-full text-xs text-white shadow-sm">
-                      {bag.length}
-                    </span>
-                  )}
-                  <HiOutlineShoppingBag className="w-6 h-6 hover:text-greeen mx-2" />
-                </span>
-              )
-            }
-          </NavLink>
-          <NavLink to="/favourite">
-            {({ isActive }) =>
-              isActive ? (
-                <AiFillHeart className="w-6 h-6 hover:text-greeen mx-2" />
-              ) : (
-                <AiOutlineHeart className="w-6 h-6 hover:text-greeen mx-2" />
-              )
-            }
-          </NavLink>
-          <NavLink to="/createAcount">
-            {({ isActive }) =>
-              isActive ? (
-                <HiUserCircle className="w-6 h-6 hover:text-greeen mx-2" />
-              ) : (
-                <HiOutlineUserCircle className="w-6 h-6 hover:text-greeen mx-2" />
-              )
-            }
-          </NavLink>
-          {/* <Search /> */}
-        </ul>
-      </div>
-    </Container>
+            <NavLink to="/shopBag">
+              {({ isActive }) =>
+                isActive ? (
+                  <HiShoppingBag className="w-6 h-6 hover:text-greeen mx-2" />
+                ) : (
+                  <span>
+                    {" "}
+                    {bag.length !== 0 && (
+                      <span className="absolute h-5 w-5 flex items-center justify-center text-center translate-x-1/2 -translate-y-1/2 bg-red-500  rounded-full text-xs text-white shadow-sm">
+                        {bag.length}
+                      </span>
+                    )}
+                    <HiOutlineShoppingBag className="w-6 h-6 hover:text-greeen mx-2" />
+                  </span>
+                )
+              }
+            </NavLink>
+            <NavLink to="/favourite">
+              {({ isActive }) =>
+                isActive ? (
+                  <AiFillHeart className="w-6 h-6 hover:text-greeen mx-2" />
+                ) : (
+                  <AiOutlineHeart className="w-6 h-6 hover:text-greeen mx-2" />
+                )
+              }
+            </NavLink>
+            <NavLink to="/createAcount">
+              {({ isActive }) =>
+                isActive ? (
+                  <HiUserCircle className="w-6 h-6 hover:text-greeen mx-2" />
+                ) : (
+                  <HiOutlineUserCircle className="w-6 h-6 hover:text-greeen mx-2" />
+                )
+              }
+            </NavLink>
+            {/* <Search /> */}
+          </ul>
+        </div>
+      </Container>
+    </div>
   );
 }
 

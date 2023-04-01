@@ -28,11 +28,11 @@ function ProductsNavbar() {
     console.log(category);
   };
   return (
-    <div className="my-10 flex flex-wrap gap-5 ">
+    <div className="pt-10 flex flex-wrap gap-5 bg-gray-50">
       {category.map((navbar) => {
         return (
           <button
-            className="bg-gray-100 py-1 px-5 focus:bg-greeen text-greeen focus:text-gray-50 border hover:shadow-lg duration-500 hover:duration-500 text-sm flex font-medium"
+            className="bg-gray-100 py-1 px-5 focus:bg-greeen border-greeen rounded-sm hover:bg-greeen hover:text-gray-50 text-greeen focus:text-gray-50 border hover:shadow-lg duration-500 hover:duration-500 text-sm flex font-medium"
             key={navbar.id}
             // className={({ isActive }) =>
             //   (isActive ? "border-b-2 border-greeen " : "") +

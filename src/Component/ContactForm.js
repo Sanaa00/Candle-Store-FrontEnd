@@ -56,7 +56,7 @@ function ContactForm() {
             onChange={formik.handleChange}
           />{" "}
           <span className="text-red-400 text-sm">{formik.errors.email}</span>
-          <div className="flex flex-col my-10">
+          <div className="flex flex-col my-10 ">
             <textarea
               cols={20}
               rows={5}
@@ -65,9 +65,9 @@ function ContactForm() {
               name="message"
               value={formik.values.message}
               onChange={formik.handleChange}
-              className="w-full lg:w-80 xl:w-96 border-2 border-greeen focus:outline-none px-1 py-1"
+              className="w-full lg:w-80 xl:w-96 border-2 rounded-sm resize-none border-greeen focus:outline-none px-1 py-1"
             />{" "}
-            <span className="text-red-400 text-sm">
+            <span className="text-red-400 text-sm bottom-full">
               {formik.errors.message}
             </span>
           </div>

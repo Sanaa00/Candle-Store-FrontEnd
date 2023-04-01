@@ -8,7 +8,7 @@ function InputField({ name, placeholder, value, onChange, id }) {
       value={value}
       onChange={onChange}
       id={id}
-      className="w-full lg:w-80 xl:w-96 border-b-2 border-greeen focus:outline-none mt-10 px-1 py-1"
+      className="w-full lg:w-80 xl:w-96 border-2 rounded-sm border-greeen focus:outline-none mt-10 px-1 py-1"
     />
   );
 }
