@@ -10,14 +10,15 @@ import { addtoFav, removeItemFav } from "../features/favouriteSlice";
 // import Button from "./Button";
 function CandleCard({ candle }) {
   // const dispatch = useDispatch();
-  const fav = useSelector((state) => state.favourite.fav);
-  console.log("fav data", fav);
+  // const fav = useSelector((state) => state.favourite.fav);
+  // console.log("fav data", fav);
   // const fav = useSelector((state) => state.candle.fav);
+  console.log("candle id", candle.id);
   // console.log(fav);
   // const [clickedFav, setClickedFav] = useState(false);
   return (
     <div
-      // to={`/product/${candle.id}`}
+      // to={`/products/${candle.id}`}
       key={candle.id}
       className="hover:shadow-lg hover:duration-500 duration-500 rounded-sm m-2 border"
     >
@@ -29,17 +30,18 @@ function CandleCard({ candle }) {
           className="w-full h-52 object-cover relative"
         />
         <div className="absolute top-2 right-2">
-          {fav === false ? (
+          {
             <button onClick={() => addtoFav(candle)}>
               {" "}
               <AiOutlineHeart className="w-6 h-6 text-red-500" />
             </button>
-          ) : (
-            <button onClick={() => removeItemFav(candle)}>
-              {" "}
-              <AiFillHeart className="w-6 h-6 text-red-500" />
-            </button>
-          )}
+            //  (
+            //   <button onClick={() => removeItemFav(candle)}>
+            //     {" "}
+            //     <AiFillHeart className="w-6 h-6 text-red-500" />
+            //   </button>
+            // )
+          }
         </div>{" "}
       </div>
       {/*        
@@ -69,8 +71,8 @@ function CandleCard({ candle }) {
         </Link>
       </div> */}
       {/* </Link> */}
-      <Link to={`/product/${candle.id}`}>
-        <div className="w-full h-full p-2">
+      <div className="p-2 ">
+        <Link to={`/products/${candle.id}`} className="w-fit h-fit">
           <p className="font-semibold text-gray-800">{candle.name}</p>
           {/* <p className="font-semibold text-gray-800">{candle.name}</p> */}
           <StarRatings
@@ -131,8 +133,8 @@ function CandleCard({ candle }) {
               <AiFillHeart className="w-6 h-6 text-greeen" />
             </div>
           ) */}
-        </div>
-      </Link>
+        </Link>
+      </div>
     </div>
   );
 }

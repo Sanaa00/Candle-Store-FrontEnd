@@ -5,13 +5,14 @@ import CandleCard from "./CandleCard";
 import { BarLoader } from "react-spinners";
 // import data from "../Data";
 // import { useGetProductsMutation } from "../features/api/api";
-import { useGetProductsQuery } from "../features/api/cart";
-import products from "../Data";
+import { useGetProductsQuery } from "../features/api/api";
+// import products from "../Data";
 
 function ProductsPagination() {
   // const { products, isLoading, isFetching } = useGetProductsQuery();
   // const { data: isLoading } = useGetProductsQuery();
-
+  const { data, isLoading, error, isError } = useGetProductsQuery();
+  // console.log(data);
   const itemPerPageWindowSize = () => {
     if (window.innerWidth < 640) {
       return 6;
@@ -35,25 +36,30 @@ function ProductsPagination() {
   const endOffset = itemOffset + itemsPerPage;
 
   useEffect(() => {
-    setCurrentItems(products.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(products.length / itemsPerPage));
+    setCurrentItems(data?.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(data?.length / itemsPerPage));
     // setIsLoading(false);
-  }, [endOffset, itemOffset, itemsPerPage, products]);
+  }, [endOffset, itemOffset, itemsPerPage, data]);
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % products.length;
+    const newOffset = (event.selected * itemsPerPage) % data?.length;
     setItemOffset(newOffset);
   };
-  // if (isLoading || isFetching)
-  //   return <BarLoader color="#316C57" height={5} width={200} />;
+  if (isLoading)
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <BarLoader color="#316C57" height={5} width={200} />
+      </div>
+    );
+  if (isError) return <p>{error}</p>;
   return (
     <div className="min-h-screen">
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 justify-between items-center ">
-        {currentItems.map((candle) => {
+        {currentItems?.map((candle) => {
           return <CandleCard candle={candle} key={candle.id} />;
         })}
       </div>
-      <div className="container mx-auto flex justify-center my-10">
+      <div className="container mx-auto flex justify-center py-10">
         <ReactPaginate
           breakLabel="..."
           onPageChange={handlePageClick}
