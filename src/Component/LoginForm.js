@@ -1,6 +1,8 @@
 import React from "react";
+
 import { Formik, Form, useFormik } from "formik";
 import * as Yup from "yup";
+
 import InputField from "./InputField";
 import Button from "./Button";
 function LoginForm() {
@@ -51,7 +53,7 @@ function LoginForm() {
             onChange={formik.handleChange}
           />
           <span className="text-red-400 text-sm">{formik.errors.password}</span>
-          <div className="mt-10">
+          <div className="mt-5">
             {" "}
             <Button text="Login" width={widthOfButton()} type="submit" />
           </div>

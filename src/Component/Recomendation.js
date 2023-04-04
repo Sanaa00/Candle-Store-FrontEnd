@@ -1,13 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import "react-slideshow-image/dist/styles.css";
 import { Slide } from "react-slideshow-image";
-import { useSelector } from "react-redux";
-import { HiArrowNarrowLeft } from "react-icons/hi";
-import { HiArrowNarrowRight } from "react-icons/hi";
+import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
 import data from "../Data";
 import CandleCard from "./CandleCard";
 function Recomendation() {
-  // const data = useSelector((state) => state.candle.candle);
   const sliderRef = useRef(null);
   console.log(sliderRef.current);
   const itemPerPage = () => {
@@ -21,9 +18,6 @@ function Recomendation() {
       return 5;
     }
   };
-  // useEffect(() => {
-  //   // itemPerPage();
-  // }, [itemPerPage()]);
 
   return (
     <div className="flex flex-col my-10">
@@ -33,10 +27,10 @@ function Recomendation() {
         </p>
         <div className="flex">
           <div className="mr-5" onClick={() => sliderRef.current.goBack()}>
-            <HiArrowNarrowLeft className="w-6 h-6 hover:text-greeen" />
+            <BsArrowLeftCircle className="w-6 h-6 text-gray-800" />
           </div>
           <div className="" onClick={() => sliderRef.current.goNext()}>
-            <HiArrowNarrowRight className="w-6 h-6 hover:text-greeen" />
+            <BsArrowRightCircle className="w-6 h-6 text-gray-800" />
           </div>
         </div>
       </div>

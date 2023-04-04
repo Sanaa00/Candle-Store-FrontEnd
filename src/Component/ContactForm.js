@@ -4,6 +4,7 @@ import * as Yup from "yup";
 
 import InputField from "./InputField";
 import Button from "./Button";
+
 function ContactForm() {
   const widthOfButton = () => {
     if (window.innerWidth < 640) {
@@ -18,6 +19,7 @@ function ContactForm() {
       return 96;
     }
   };
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -33,6 +35,7 @@ function ContactForm() {
       message: Yup.string().min(50, "must add 50 characture").required(),
     }),
   });
+
   return (
     <Formik>
       <div className="flex justify-center w-full lg:w-fit">
@@ -56,7 +59,7 @@ function ContactForm() {
             onChange={formik.handleChange}
           />{" "}
           <span className="text-red-400 text-sm">{formik.errors.email}</span>
-          <div className="flex flex-col my-10 ">
+          <div className="flex flex-col my-5 ">
             <textarea
               cols={20}
               rows={5}
@@ -65,7 +68,7 @@ function ContactForm() {
               name="message"
               value={formik.values.message}
               onChange={formik.handleChange}
-              className="w-full lg:w-80 xl:w-96 border-2 rounded-sm resize-none border-greeen focus:outline-none px-1 py-1"
+              className="w-full lg:w-80 xl:w-96 border-2 rounded-sm resize-none border-gray-200 bg-gray-50 focus:border-greeen focus:outline-none px-1 py-1"
             />{" "}
             <span className="text-red-400 text-sm bottom-full">
               {formik.errors.message}

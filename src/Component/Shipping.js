@@ -1,15 +1,13 @@
 import { Formik, useFormik, Form } from "formik";
 import React from "react";
-// import Container from "./Container";
-// import ShippingDetail from "./ShippingDetail";
+
 import * as Yup from "yup";
 import InputField from "./InputField";
 import Button from "./Button";
 import { NavLink } from "react-router-dom";
+
 import Payment from "./Payment";
-// import { Link } from "react-router-dom";
-// import SeconderButton from "./SeconderButton";
-// import { Form } from "antd";
+
 function Shipping() {
   const widthOfButton = () => {
     if (window.innerWidth < 640) {

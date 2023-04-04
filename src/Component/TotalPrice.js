@@ -1,6 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
+
 import LinkButton from "./LinkButton";
+
 function TotalPrice() {
   const data = useSelector((state) => state.candle.candle);
   let totalQuantity = 0;
@@ -40,10 +42,7 @@ function TotalPrice() {
             );
           })}
         </div>
-        {/* <div className="w-full flex justify-between items-centr border-b-2 border-greeen pb-5">
-          <p>{data.name}</p>
-          <p>{data.price}</p>
-        </div> */}
+
         <div className="w-full flex justify-between items-center py-5">
           <p className="">Total</p>
           <p>{totalPrice}</p>

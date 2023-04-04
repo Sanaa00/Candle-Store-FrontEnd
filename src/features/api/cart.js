@@ -1,28 +1,19 @@
 import { apiSlice } from "./api";
 const cart = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    getProducts: builder.query({
-      query: () => "/products/",
-      providesTags: ["cart"],
-      merge: "GET",
-    }),
-    addTodo: builder.mutation({
-      query: (cart) => ({
-        url: "/cart/",
-        method: "GET",
-        body: cart,
-      }),
-      invalidatesTags: ["cart"],
+    getCart: builder.query({
+      query: () => "/cart/",
+      providesTags: ["Todo"],
     }),
     addToCart: builder.mutation({
-      query: (todo) => ({
-        url: `/cart/${todo.id}`,
-        method: "PATCH",
-        body: todo,
+      query: (item) => ({
+        url: "/cart/",
+        method: "POST",
+        body: item,
       }),
       invalidatesTags: ["cart"],
     }),
-    deletFromCart: builder.mutation({
+    deleteFromCart: builder.mutation({
       query: ({ id }) => ({
         url: `/cart/${id}`,
         method: "DELETE",
@@ -30,10 +21,19 @@ const cart = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["cart"],
     }),
+    quantityChange: builder.mutation({
+      query: (item) => ({
+        url: `/cart/${item.id}`,
+        method: "PATCH",
+        body: item,
+      }),
+      invalidatesTags: ["cart"],
+    }),
   }),
 });
 export const {
-  useGetProductsQuery,
+  useGetCartQuery,
   useAddToCartMutation,
-  useDeletFromCartMutation,
+  useDeleteFromCartMutation,
+  useQuantityChangeMutation,
 } = cart;

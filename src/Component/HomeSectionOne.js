@@ -1,19 +1,21 @@
 import React from "react";
+
 import Container from "./Container";
 import LinkButton from "./LinkButton";
+
 function HomeSectionOne() {
   return (
     <div className="bg-gray-50">
       <Container>
         <div
-          className={`grid grid-cols-1 lg:grid-cols-2 justify-between items-center `}
+          className={`grid grid-cols-1 lg:grid-cols-2 justify-between items-center bg-gray-50 pt-20`}
         >
           <div className="p-5 grid items-center">
-            <p className="text-greeen font-semibold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-5xl z-0">
+            <p className="text-greeen font-semibold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-5xl">
               Our candles are more than just a scent, theyre a personalized
               experience.
             </p>
-            <p className="md:text-lg  xl::text-xl text-gray-800 mt-10 ">
+            <p className="md:text-lg  xl:text-xl text-gray-800 mt-10 ">
               We offer unique candles in various scents, sizes, and shapes. Our
               store provides customized gift sets, and we also create bespoke
               candles to perfectly suit your preferences. Our candles are

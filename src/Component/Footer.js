@@ -1,14 +1,16 @@
 import React from "react";
-import Container from "./Container";
+
 import { AiFillInstagram } from "react-icons/ai";
 import { AiOutlineTwitter } from "react-icons/ai";
 import { FaFacebookF } from "react-icons/fa";
+
+import Container from "./Container";
 function Footer() {
   return (
     <div className="bg-greeen bg-opacity-10">
       {" "}
       <Container>
-        <div className="border-t-2 border-greeen py-10 flex flex-col items-center justify-center px-5">
+        <div className=" py-10 flex flex-col items-center justify-center px-5">
           <p>LOGO</p>
           <div className="grid grid-cols-2 gap-5 md:grid-cols-4 justify-between w-full mt-5">
             <div className="flex flex-col">

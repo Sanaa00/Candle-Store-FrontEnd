@@ -1,11 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
+
 import Container from "../Component/Container";
 import CandleCard from "../Component/CandleCard";
 import emptyBag from "../images/EmptyBag.png";
+
 function Favourite() {
   const fav = useSelector((state) => state.favourite.fav);
-  console.log(fav, "favourite page");
+  // console.log(fav, "favourite page");
   return (
     <div className="bg-gray-50">
       <Container>
@@ -17,7 +19,7 @@ function Favourite() {
               <img
                 alt="empty bag"
                 src={emptyBag}
-                className="w-2/4 h-fit object-cover"
+                className="lg:w-2/4 lg:h-fit object-cover"
               />
             </div>
           ) : (

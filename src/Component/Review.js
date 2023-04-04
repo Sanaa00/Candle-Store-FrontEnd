@@ -8,28 +8,25 @@ function Review() {
     console.log(review);
   };
   const widthOfButton = () => {
-    if (window.innerWidth < 640) {
-      return "full";
-    } else if (window.innerWidth < 768) {
-      return "full";
-    } else if (window.innerWidth < 1280) {
-      return "full";
-    } else {
-      return 96;
-    }
+    return 40;
   };
   return (
-    <div className="border-greeen border  w-96">
-      <span className="pt-4 px-4 w-full text-gray-800">Your Feedback</span>
-      <textarea
-        cols={20}
-        rows={3}
-        id="message"
-        name="message"
-        onChange={reviewHandler}
-        className="w-full lg:w-full xl:w-full border-none focus:outline-none px-4 py-1 resize-none"
-      />
-      <Button type="submit" text="Send" width={widthOfButton()} />
+    <div className="flex flex-col w-full h-fit rounded-sm py-5">
+      <p className="text-lg font-semibold text-gray-800 my-2">
+        Give us your feedback
+      </p>
+      <div className="flex flex-col justify-end items-end">
+        <textarea
+          cols={20}
+          rows={3}
+          id="message"
+          name="message"
+          onChange={reviewHandler}
+          className="w-full focus:outline-none focus:border-greeen rounded-sm px-4 py-1 resize-none mb-2 bg-gray-50 border-2 border-gray-200"
+        />
+
+        <Button type="submit" text="Send" width={widthOfButton()} />
+      </div>
     </div>
   );
 }

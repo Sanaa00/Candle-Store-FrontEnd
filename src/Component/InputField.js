@@ -1,5 +1,6 @@
 import React from "react";
 import { Field } from "formik";
+
 function InputField({ name, placeholder, value, onChange, id }) {
   return (
     <Field
@@ -8,7 +9,7 @@ function InputField({ name, placeholder, value, onChange, id }) {
       value={value}
       onChange={onChange}
       id={id}
-      className="w-full lg:w-80 xl:w-96 border-2 rounded-sm border-greeen focus:outline-none mt-10 px-1 py-1"
+      className="w-full lg:w-80 xl:w-96 border-2 rounded-sm border-gray-200 focus:outline-none focus:border-greeen bg-gray-50 mt-5 px-1 py-1"
     />
   );
 }

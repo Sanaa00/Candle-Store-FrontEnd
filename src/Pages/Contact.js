@@ -7,7 +7,7 @@ function Contact() {
   return (
     <div className="bg-gray-50">
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 justify-between items-center py-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 justify-between items-center pt-16 pb-10">
           <img
             className="w-full h-[600px] object-cover"
             alt="candle"

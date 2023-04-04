@@ -1,25 +1,29 @@
 import React from "react";
+
+import { useQuantityChangeMutation } from "../features/api/cart";
+
 import CounterButton from "./CounterButton";
-import { useDispatch, useSelector } from "react-redux";
-import { decrementQuantity, incrementQuantity } from "../features/candleSlice";
-// import { useSelector } from "react-redux";
 function Counter({ data }) {
-  const dispatch = useDispatch();
-  // const data = useSelector((state) => state.candle);
-  // console.log(data.quantity);
+  const [quantityChange] = useQuantityChangeMutation();
+
+  const incrementQuantityHandler = (item) => {
+    let newQuantity = item.quantity + 1;
+    quantityChange({ ...item, quantity: newQuantity });
+  };
+
+  const decrementQuantityHandler = (item) => {
+    let newQuantity = item.quantity - 1;
+    if (newQuantity <= 1) {
+      newQuantity = 1;
+    }
+    quantityChange({ ...item, quantity: newQuantity });
+  };
+
   return (
     <div className="flex">
-      <CounterButton
-        text="-"
-        onClick={() => {
-          dispatch(decrementQuantity(data.id));
-        }}
-      />
+      <CounterButton text="-" onClick={() => decrementQuantityHandler(data)} />
       <div> {data.quantity || 0}</div>
-      <CounterButton
-        text="+"
-        onClick={() => dispatch(incrementQuantity(data.id))}
-      />
+      <CounterButton text="+" onClick={() => incrementQuantityHandler(data)} />
     </div>
   );
 }

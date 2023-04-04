@@ -1,9 +1,12 @@
 import React from "react";
-import InputField from "./InputField";
-import Button from "./Button";
+
 import { Link } from "react-router-dom";
 import { Formik, Form, useFormik } from "formik";
 import * as Yup from "yup";
+
+import InputField from "./InputField";
+import Button from "./Button";
+
 function CreateAccountForm() {
   const widthOfButton = () => {
     if (window.innerWidth < 640) {
@@ -16,6 +19,7 @@ function CreateAccountForm() {
       return 96;
     }
   };
+
   const formik = useFormik({
     initialValues: {
       firstname: "",
@@ -40,6 +44,7 @@ function CreateAccountForm() {
       ),
     }),
   });
+
   return (
     <Formik>
       <div className="w-full lg:w-fit">
@@ -91,7 +96,7 @@ function CreateAccountForm() {
           <span className="text-red-400 text-sm">
             {formik.errors.confirmpasssword}
           </span>
-          <div className="mt-10 flex flex-col justify-center items-center">
+          <div className="mt-5 flex flex-col justify-center items-center">
             <Button text="Create" width={widthOfButton()} type="submit" />
             <Link
               to="/login"

@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from "react";
+
 import ReactPaginate from "react-paginate";
-import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
+import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
 import CandleCard from "./CandleCard";
 import { BarLoader } from "react-spinners";
-// import data from "../Data";
-// import { useGetProductsMutation } from "../features/api/api";
-import { useGetProductsQuery } from "../features/api/api";
-// import products from "../Data";
+
+import { useGetProductsQuery } from "../features/api/productApi";
 
 function ProductsPagination() {
-  // const { products, isLoading, isFetching } = useGetProductsQuery();
-  // const { data: isLoading } = useGetProductsQuery();
   const { data, isLoading, error, isError } = useGetProductsQuery();
-  // console.log(data);
+
   const itemPerPageWindowSize = () => {
     if (window.innerWidth < 640) {
       return 6;
@@ -24,11 +21,8 @@ function ProductsPagination() {
       return 15;
     }
   };
-  // const [isLoading, setIsLoading] = useState(true);
+
   const [currentItems, setCurrentItems] = useState([]);
-
-  // const {data} = useGetProductsQuery({offset: pageCount, limit: 15})
-
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
   const itemsPerPage = itemPerPageWindowSize();
@@ -38,7 +32,6 @@ function ProductsPagination() {
   useEffect(() => {
     setCurrentItems(data?.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(data?.length / itemsPerPage));
-    // setIsLoading(false);
   }, [endOffset, itemOffset, itemsPerPage, data]);
 
   const handlePageClick = (event) => {
@@ -53,7 +46,7 @@ function ProductsPagination() {
     );
   if (isError) return <p>{error}</p>;
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-5">
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 justify-between items-center ">
         {currentItems?.map((candle) => {
           return <CandleCard candle={candle} key={candle.id} />;
@@ -66,8 +59,10 @@ function ProductsPagination() {
           pageRangeDisplayed={1}
           pageCount={pageCount}
           className="flex gap-5 items-center"
-          previousLabel={<BiLeftArrow />}
-          nextLabel={<BiRightArrow />}
+          previousLabel={
+            <BsArrowLeftCircle className="w-6 h-6 text-gray-800" />
+          }
+          nextLabel={<BsArrowRightCircle className="w-6 h-6 text-gray-800" />}
           pageClassName="text-gray-800 mx-2"
           activeClassName="text-gray-800 border-b-2 border-gray-800 "
           renderOnZeroPageCount={null}

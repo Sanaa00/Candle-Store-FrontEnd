@@ -1,85 +1,216 @@
-{ "cart":[],
-    "products":[
-  {
-    "d": 1,
-   "price": 100,
-    "rating": 3.5,
-    "name": "Product Name",
-    "url": "https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
-    "discount": 15,
-    "favourite": false,
-    "category": "red"
-  },
-  {
-    "d": 2,
-   "price": 100,
-    "rating": 3.5,
-    "name": "Product Name",
-    "url": "https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
-    "discount": 15,
-    "favourite": false,
-    "category": "red"
-  },
-  {
-    "d": 3,
-   "price": 100,
-    "rating": 3.5,
-    "name": "Product Name",
-    "url": "https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
-    "discount": 15,
-    "favourite": false,
-    "category": "red"
-  },
-  {
-    "d": 4,
-   "price": 100,
-    "rating": 3.5,
-    "name": "Product Name",
-    "url": "https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
-    "discount": 15,
-    "favourite": false,
-    "category": "red"
-  },
-  {
-    "d": 5,
-   "price": 100,
-    "rating": 3.5,
-    "name": "Product Name",
-    "url": "https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
-    "discount": 15,
-    "favourite": false,
-    "category": "red"
-  },
-  {
-    "d": 6,
-   "price": 100,
-    "rating": 3.5,
-    "name": "Product Name",
-    "url": "https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
-    "discount": 15,
-    "favourite": false,
-    "category": "red"
-  },
-  {
-    "d": 7,
-   "price": 100,
-    "rating": 3.5,
-    "name": "Product Name",
-    "url": "https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
-    "discount": 15,
-    "favourite": false,
-    "category": "red"
-  },
-  {
-    "d": 8,
-   "price": 100,
-    "rating": 3.5,
-    "name": "Product Name",
-    "url": "https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
-    "discount": 15,
-    "favourite": false,
-    "category": "red"
-  }
- 
-]
+{
+  "favourite": [],
+  "cart": [
+    {
+      "id": 2,
+      "price": 100,
+      "rating": 3.5,
+      "name": "Product Name",
+      "url": "https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
+      "discount": 15,
+      "favourite": false,
+      "category": "red",
+      "quantity": 1
+    },
+    {
+      "id": 5,
+      "price": 100,
+      "rating": 3.5,
+      "name": "Product Name",
+      "url": "https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
+      "discount": 15,
+      "favourite": true,
+      "category": "red",
+      "quantity": 1
+    },
+    {
+      "id": 1,
+      "price": 100,
+      "rating": 3.5,
+      "name": "Product Name",
+      "url": "https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
+      "discount": 15,
+      "favourite": false,
+      "category": "red",
+      "quantity": 1
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "price": 100,
+      "rating": 3.5,
+      "name": "Product Name",
+      "url": "https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
+      "discount": 15,
+      "favourite": false,
+      "category": "red",
+      "quantity": 1
+    },
+    {
+      "id": 2,
+      "price": 100,
+      "rating": 3.5,
+      "name": "Product Name",
+      "url": "https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
+      "discount": 15,
+      "favourite": false,
+      "category": "red",
+      "quantity": 1
+    },
+    {
+      "id": 3,
+      "price": 100,
+      "rating": 3.5,
+      "name": "Product Name",
+      "url": "https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
+      "discount": 15,
+      "favourite": false,
+      "category": "red",
+      "quantity": 1
+    },
+    {
+      "id": 4,
+      "price": 100,
+      "rating": 3.5,
+      "name": "Product Name",
+      "url": "https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
+      "discount": 15,
+      "favourite": false,
+      "category": "red",
+      "quantity": 1
+    },
+    {
+      "id": 5,
+      "price": 100,
+      "rating": 3.5,
+      "name": "Product Name",
+      "url": "https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
+      "discount": 15,
+      "favourite": false,
+      "category": "red",
+      "quantity": 1
+    },
+    {
+      "id": 6,
+      "price": 100,
+      "rating": 3.5,
+      "name": "Product Name",
+      "url": "https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
+      "discount": 15,
+      "favourite": false,
+      "category": "red",
+      "quantity": 1
+    },
+    {
+      "id": 7,
+      "price": 100,
+      "rating": 3.5,
+      "name": "Product Name",
+      "url": "https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
+      "discount": 15,
+      "favourite": false,
+      "category": "red",
+      "quantity": 1
+    },
+    {
+      "id": 8,
+      "price": 100,
+      "rating": 3.5,
+      "name": "Product Name",
+      "url": "https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
+      "discount": 15,
+      "favourite": false,
+      "category": "red",
+      "quantity": 1
+    },
+    {
+      "id": 9,
+      "price": 100,
+      "rating": 3.5,
+      "name": "Product Name",
+      "url": "https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
+      "discount": 15,
+      "favourite": false,
+      "category": "red",
+      "quantity": 1
+    },
+    {
+      "id": 10,
+      "price": 100,
+      "rating": 3.5,
+      "name": "Product Name",
+      "url": "https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
+      "discount": 15,
+      "favourite": false,
+      "category": "red",
+      "quantity": 1
+    },
+    {
+      "id": 11,
+      "price": 100,
+      "rating": 3.5,
+      "name": "Product Name",
+      "url": "https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
+      "discount": 15,
+      "favourite": false,
+      "category": "red",
+      "quantity": 1
+    },
+    {
+      "id": 12,
+      "price": 100,
+      "rating": 3.5,
+      "name": "Product Name",
+      "url": "https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
+      "discount": 15,
+      "favourite": false,
+      "category": "red",
+      "quantity": 1
+    },
+    {
+      "id": 13,
+      "price": 100,
+      "rating": 3.5,
+      "name": "Product Name",
+      "url": "https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
+      "discount": 15,
+      "favourite": false,
+      "category": "red",
+      "quantity": 1
+    },
+    {
+      "id": 14,
+      "price": 100,
+      "rating": 3.5,
+      "name": "Product Name",
+      "url": "https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
+      "discount": 15,
+      "favourite": false,
+      "category": "red",
+      "quantity": 1
+    },
+    {
+      "id": 15,
+      "price": 100,
+      "rating": 3.5,
+      "name": "Product Name",
+      "url": "https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
+      "discount": 15,
+      "favourite": false,
+      "category": "red",
+      "quantity": 1
+    },
+    {
+      "id": 16,
+      "price": 100,
+      "rating": 3.5,
+      "name": "Product Name",
+      "url": "https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
+      "discount": 15,
+      "favourite": false,
+      "category": "red",
+      "quantity": 1
+    }
+  ]
 }
