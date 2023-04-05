@@ -19,6 +19,7 @@
     "react-awesome-stars-rating": "^0.13.6",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
+    "react-loader-spinner": "^5.3.4",
     "react-paginate": "^8.1.4",
     "react-radio-buttons": "^1.2.2",
     "react-redux": "^8.0.5",

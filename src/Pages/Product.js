@@ -2,8 +2,12 @@ import React from "react";
 
 import { useParams } from "react-router-dom";
 import { BarLoader } from "react-spinners";
+import { ClipLoader } from "react-spinners";
 
-import { useGetProductByIdQuery } from "../features/api/productApi";
+import {
+  useGetProductByIdQuery,
+  useProductQuantityChangeMutation,
+} from "../features/api/productApi";
 import { useAddToCartMutation, useGetCartQuery } from "../features/api/cart";
 
 import Recomendation from "../Component/Recomendation";
@@ -18,6 +22,7 @@ function Product() {
   const { id } = useParams();
   console.log(id);
   const [addToCart, { isLoadingg }] = useAddToCartMutation();
+  const [productQuantityChange] = useProductQuantityChangeMutation();
   const { data: cart } = useGetCartQuery();
   console.log("item inside cart", cart);
   const {
@@ -94,7 +99,19 @@ function Product() {
                 {" "}
                 <Button
                   onClick={() => addToCartHandle(singleProduct)}
-                  text={!isLoadingg ? "Add to cart" : "Loading..."}
+                  text={
+                    !isLoadingg ? (
+                      "Add to cart"
+                    ) : (
+                      <div className="flex justify-center items-center">
+                        <ClipLoader
+                          color="#F8FAFC"
+                          size={20}
+                          speedMultiplier={0.5}
+                        />
+                      </div>
+                    )
+                  }
                   width={widthOfButton()}
                 />
               </div>

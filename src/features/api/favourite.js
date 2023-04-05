@@ -7,7 +7,7 @@ const favourite = apiSlice.injectEndpoints({
     }),
     addToFav: builder.mutation({
       query: (item) => ({
-        url: "/cart/",
+        url: "/favourite/",
         method: "POST",
         body: item,
       }),
@@ -15,7 +15,7 @@ const favourite = apiSlice.injectEndpoints({
     }),
     deleteFromFav: builder.mutation({
       query: ({ id }) => ({
-        url: `/cart/${id}`,
+        url: `/favourite/${id}`,
         method: "DELETE",
         body: id,
       }),
@@ -23,7 +23,7 @@ const favourite = apiSlice.injectEndpoints({
     }),
     toggleFav: builder.mutation({
       query: (item) => ({
-        url: `/cart/${item.id}`,
+        url: `/favourite/${item.id}`,
         method: "PATCH",
         body: item,
       }),

@@ -22,7 +22,7 @@ function ShopBag() {
   return (
     <div className="bg-gray-50">
       <Container>
-        <div className="min-h-screen py-24">
+        <div className="min-h-screen py-28">
           {bag?.length === 0 ? (
             <div className="flex justify-center items-center">
               {" "}

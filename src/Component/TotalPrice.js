@@ -1,14 +1,17 @@
 import React from "react";
-import { useSelector } from "react-redux";
+
+import { useGetCartQuery } from "../features/api/cart";
+import { BarLoader } from "react-spinners";
 
 import LinkButton from "./LinkButton";
 
 function TotalPrice() {
-  const data = useSelector((state) => state.candle.candle);
+  const { data, isLoading } = useGetCartQuery();
+
   let totalQuantity = 0;
   let totalPrice = 0;
-  data.forEach((item) => {
-    totalQuantity += item.quantity;
+  data?.forEach((item) => {
+    totalQuantity = totalQuantity + item.quantity;
     totalPrice += item.price * item.quantity;
   });
   const widthofbutton = () => {
@@ -24,6 +27,13 @@ function TotalPrice() {
       return 96;
     }
   };
+
+  if (isLoading)
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <BarLoader color="#316C57" height={5} width={200} />
+      </div>
+    );
   return (
     <div className="flex w-full sm:justify-center">
       <div className="bg-greeen bg-opacity-10 p-5 w-full lg:w-fit h-fit flex flex-col items-center my-5 lg:my-0">

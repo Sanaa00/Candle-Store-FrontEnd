@@ -1,14 +1,21 @@
 import React from "react";
 
 import { useQuantityChangeMutation } from "../features/api/cart";
+import { useProductQuantityChangeMutation } from "../features/api/productApi";
 
 import CounterButton from "./CounterButton";
+// import { useProductQuantityChangeMutation } from "../features/api/productApi";
 function Counter({ data }) {
   const [quantityChange] = useQuantityChangeMutation();
+  // const [productQuantityChange] = useProductQuantityChangeMutation();
 
   const incrementQuantityHandler = (item) => {
     let newQuantity = item.quantity + 1;
+
     quantityChange({ ...item, quantity: newQuantity });
+
+    return newQuantity;
+    // productQuantityChange({ ...item, quantity: newQuantity });
   };
 
   const decrementQuantityHandler = (item) => {
@@ -17,6 +24,8 @@ function Counter({ data }) {
       newQuantity = 1;
     }
     quantityChange({ ...item, quantity: newQuantity });
+    return newQuantity;
+    // productQuantityChange({ ...item, quantity: newQuantity });
   };
 
   return (

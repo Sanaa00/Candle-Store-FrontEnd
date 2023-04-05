@@ -8,13 +8,14 @@ import {
   useDeleteFromFavMutation,
   useAddToFavMutation,
   useToggleFavMutation,
+  useGetFavouriteQuery,
 } from "../features/api/favourite";
 
 function CandleCard({ candle }) {
   const [addToFav] = useAddToFavMutation();
   const [deleteFromFav] = useDeleteFromFavMutation();
   const [toggleFav] = useToggleFavMutation();
-
+  const { fav } = useGetFavouriteQuery();
   const addToFavHandler = (item) => {
     toggleFav({ ...item, favourite: !item.favourite });
     addToFav(item);
@@ -38,12 +39,12 @@ function CandleCard({ candle }) {
         />
         <div className="absolute top-2 right-2 bg-gray-50 w-7 h-7 rounded-full flex justify-center items-center">
           {candle.favourite === false ? (
-            <button onClick={() => addToFavHandler(candle)}>
+            <button onClick={() => addToFavHandler(fav)}>
               {" "}
               <AiOutlineHeart className="w-6 h-6 text-red-500" />
             </button>
           ) : (
-            <button onClick={() => deleteFromFavHandler(candle)}>
+            <button onClick={() => deleteFromFavHandler(fav)}>
               {" "}
               <AiFillHeart className="w-6 h-6 text-red-500" />
             </button>
