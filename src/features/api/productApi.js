@@ -11,7 +11,7 @@ const productApi = apiSlice.injectEndpoints({
     }),
     productQuantityChange: builder.mutation({
       query: (item) => ({
-        url: `/cart/${item.id}`,
+        url: `/products/${item.id}`,
         method: "PATCH",
         body: item,
       }),

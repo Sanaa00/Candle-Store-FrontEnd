@@ -5,6 +5,7 @@ import { BarLoader } from "react-spinners";
 import {
   useGetCartQuery,
   useDeleteFromCartMutation,
+  useQuantityChangeMutation,
 } from "../features/api/cart";
 
 import EmptyBag from "../images/EmptyBag.png";
@@ -12,11 +13,29 @@ import Counter from "./Counter";
 
 function ShoppingBagCard() {
   const { data: cart, isLoading, error, isError } = useGetCartQuery();
+  const [quantityChange] = useQuantityChangeMutation();
+
   const [deleteFromCart] = useDeleteFromCartMutation();
   console.log(cart);
 
   const deleteFromCartHandle = (id) => {
     deleteFromCart(id);
+  };
+  const incrementQuantityHandler = (item) => {
+    let newQuantity = item.quantity + 1;
+
+    quantityChange({ ...item, quantity: newQuantity });
+
+    return newQuantity;
+  };
+
+  const decrementQuantityHandler = (item) => {
+    let newQuantity = item.quantity - 1;
+    if (newQuantity <= 1) {
+      newQuantity = 1;
+    }
+    quantityChange({ ...item, quantity: newQuantity });
+    return newQuantity;
   };
 
   if (isLoading)
@@ -58,7 +77,11 @@ function ShoppingBagCard() {
                       </div>
                     </div>
                     <div className="flex justify-between items-center w-full">
-                      <Counter data={bag} />
+                      <Counter
+                        data={bag}
+                        increment={() => incrementQuantityHandler(bag)}
+                        decrement={() => decrementQuantityHandler(bag)}
+                      />
                       <p>{bag.price * bag.quantity}$ </p>
                     </div>
                   </div>

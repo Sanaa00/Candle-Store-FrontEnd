@@ -38,7 +38,22 @@ function Product() {
   const addToCartHandle = (singleProduct) => {
     addToCart(singleProduct);
   };
+  const incrementQuantityHandler = (item) => {
+    let newQuantity = item.quantity + 1;
 
+    productQuantityChange({ ...item, quantity: newQuantity });
+
+    return newQuantity;
+  };
+
+  const decrementQuantityHandler = (item) => {
+    let newQuantity = item.quantity - 1;
+    if (newQuantity <= 1) {
+      newQuantity = 1;
+    }
+    productQuantityChange({ ...item, quantity: newQuantity });
+    return newQuantity;
+  };
   const widthOfButton = () => {
     if (window.innerWidth < 640) {
       return "full";
@@ -92,7 +107,11 @@ function Product() {
                 <p className=" font-semibold text-greeen text-lg">
                   {singleProduct.price}.00 $
                 </p>
-                <Counter data={singleProduct} />
+                <Counter
+                  data={singleProduct}
+                  increment={() => incrementQuantityHandler(singleProduct)}
+                  decrement={() => decrementQuantityHandler(singleProduct)}
+                />
               </div>
 
               <div className="flex justify-between items-center">
