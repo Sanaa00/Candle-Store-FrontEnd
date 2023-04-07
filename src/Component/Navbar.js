@@ -6,15 +6,13 @@ import { HiOutlineShoppingBag, HiShoppingBag } from "react-icons/hi";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useGetCartQuery } from "../features/api/cart";
 import { BarLoader } from "react-spinners";
-import { useSelector } from "react-redux";
 
 import Container from "./Container";
 import MobileMenu from "./MobileMenu";
 import Search from "./Search";
 
 function Navbar() {
-  // const bag = useSelector((state) => state.candle.candle);
-  const { data: bag, isLoading, error, isError } = useGetCartQuery();
+  const { data: bag, isLoading } = useGetCartQuery();
 
   console.log(bag?.length);
 
@@ -24,7 +22,7 @@ function Navbar() {
     </div>
   );
   return (
-    <div className="bg-gray-50 w-full fixed z-50">
+    <div className="bg-gray-50 bg-opacity-70  w-full fixed z-50">
       <Container>
         <div className="flex justify-between items-center h-16 text-lg lg:text-base xl:text-lg text-gray-800 font-semibold">
           <NavLink to="/" className="w-1/3">
@@ -35,8 +33,8 @@ function Navbar() {
             <NavLink
               to="/"
               className={({ isActive }) =>
-                (isActive ? "border-b-2 border-greeen " : "") +
-                "hover:text-greeen mx-4"
+                (isActive ? "border-b-2 border-greeen text-greeen " : "") +
+                "hover:text-greeen mx-4 text-gray-800"
               }
             >
               Home
@@ -44,8 +42,8 @@ function Navbar() {
             <NavLink
               to="products"
               className={({ isActive }) =>
-                (isActive ? "border-b-2 border-greeen " : "") +
-                "hover:text-greeen mx-4"
+                (isActive ? "border-b-2 border-greeen text-greeen " : "") +
+                "hover:text-greeen mx-4 text-gray-800"
               }
             >
               Products
@@ -53,8 +51,8 @@ function Navbar() {
             <NavLink
               to="contact"
               className={({ isActive }) =>
-                (isActive ? "border-b-2 border-greeen " : "") +
-                "hover:text-greeen mx-4"
+                (isActive ? "border-b-2 border-greeen text-greeen " : "") +
+                "hover:text-greeen mx-4 text-gray-800"
               }
             >
               Contact

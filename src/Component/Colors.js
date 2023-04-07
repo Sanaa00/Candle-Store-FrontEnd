@@ -1,6 +1,4 @@
-import { Button } from "antd";
 import React, { useState } from "react";
-import Select from "react-dropdown-select";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
 function Colors({ colors }) {
@@ -14,21 +12,10 @@ function Colors({ colors }) {
             <button
               onClick={handleDropdownClick}
               type="button"
-              className="inline-flex justify-center w-full rounded-md border border-gray-200 px-4 py-2 bg-gray-50 text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-greeen focus:shadow-greeen active:bg-greeen active:text-gray-200 transition ease-in-out duration-150"
+              className="inline-flex justify-center w-full rounded-sm border-2 border-gray-200 px-4 py-2 bg-gray-50 text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-greeen focus:shadow-greeen active:bg-greeen active:text-gray-200 transition ease-in-out duration-150"
             >
               Colors
               <MdKeyboardArrowDown className="-mr-1 ml-2 h-5 w-5" />
-              {/* <svg
-                
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                />
-              </svg> */}
             </button>
           </span>
         </div>

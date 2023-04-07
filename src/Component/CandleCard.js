@@ -51,10 +51,9 @@ function CandleCard({ candle }) {
           )}
         </div>{" "}
       </div>
-      <div className="p-2 text-gray-800">
-        <Link to={`/products/${candle.id}`} className="w-full h-fit">
+      <div className="p-2 text-gray-800 w-full hover:bg-white duration-500 hover:duration-500 ">
+        <Link to={`/products/${candle.id}`} className="w-full h-full">
           <p className="font-semibold text-gray-800 text-lg">{candle.name}</p>
-          {/* <p className="font-semibold text-gray-800">{candle.name}</p> */}
           <StarRatings
             rating={candle.rating}
             changeRating={null}

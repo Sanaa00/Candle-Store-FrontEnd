@@ -5,10 +5,10 @@ import LinkButton from "./LinkButton";
 
 function HomeSectionOne() {
   return (
-    <div className="bg-gray-50">
+    <div className="bg-greeen bg-opacity-10">
       <Container>
         <div
-          className={`grid grid-cols-1 lg:grid-cols-2 justify-between items-center bg-gray-50 pt-20`}
+          className={`grid grid-cols-1 lg:grid-cols-2 justify-between items-center pt-10`}
         >
           <div className="p-5 grid items-center">
             <p className="text-greeen font-semibold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-5xl">

@@ -1,0 +1,14 @@
+.custom-indicator {
+    bottom: -110px;
+}
+.custom-indicator ul{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+.custom-indicator li {
+    width: 99px;
+    height:99px;
+}

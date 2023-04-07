@@ -8,23 +8,21 @@ import {
   useGetProductByIdQuery,
   useProductQuantityChangeMutation,
 } from "../features/api/productApi";
-import { useAddToCartMutation, useGetCartQuery } from "../features/api/cart";
+import { useAddToCartMutation } from "../features/api/cart";
 
 import Recomendation from "../Component/Recomendation";
-import RadioButtons from "../Component/RadioButtons";
 import Review from "../Component/Review";
-import ItemsColor from "../Component/ItemsColor";
 import Button from "../Component/Button";
 import Container from "../Component/Container";
 import Counter from "../Component/Counter";
+import Colors from "../Component/Colors";
+import ProductImageSlider from "../Component/productSlider/ProductImageSlider";
 
 function Product() {
   const { id } = useParams();
   console.log(id);
   const [addToCart, { isLoadingg }] = useAddToCartMutation();
   const [productQuantityChange] = useProductQuantityChangeMutation();
-  const { data: cart } = useGetCartQuery();
-  console.log("item inside cart", cart);
   const {
     data: singleProduct,
     isLoading,
@@ -81,12 +79,7 @@ function Product() {
             key={singleProduct.id}
             className="grid lg:grid-cols-2 lg:gap-10 justify-center  lg:justify-between pt-5 mt-10"
           >
-            {" "}
-            <img
-              className="w-fit h-fit md:w-[700px]  md:h-[600px] lg:w-[500px] lg:h-[400px] 2xl:w-full 2xl:h-[450px] xl:gap-10 object-cover"
-              alt="product"
-              src={singleProduct.url}
-            />
+            <ProductImageSlider images={singleProduct.images} />
             <div className="text-gray-800 flex flex-col justify-between p-2 lg:p-0  mt-5 lg:mt-0 2xl:pl-2">
               <div className=" ">
                 <p className="font-semibold text-2xl">
@@ -99,10 +92,8 @@ function Product() {
               </div>
               <p className="">candle description here</p>
               <div className="">
-                <ItemsColor />
+                <Colors colors={singleProduct.colors} />
               </div>
-              <RadioButtons props={singleProduct} />
-
               <div className="flex justify-between items-center sm:w-96">
                 <p className=" font-semibold text-greeen text-lg">
                   {singleProduct.price}.00 $
