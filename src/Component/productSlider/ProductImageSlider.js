@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "./style.css";
 function ProductImageSlider({ images }) {
   const settings = {
-    customPaging: function (i, index) {
+    customPaging: function (i) {
       console.log(images);
       return (
         <img alt="" src={images[i]} className="w-full h-full object-cover" />

@@ -4,7 +4,7 @@
 .custom-indicator ul{
     width: 100%;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     justify-content: center;
     flex-wrap: nowrap;
 }

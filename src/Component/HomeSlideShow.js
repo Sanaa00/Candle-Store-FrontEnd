@@ -7,7 +7,6 @@ import Slider from "react-slick";
 import React from "react";
 import Container from "./Container";
 import LinkButton from "./LinkButton";
-import Home from "../images/homeShow.jpeg";
 import { Link } from "react-router-dom";
 
 function HomeSlideShow() {
@@ -23,40 +22,27 @@ function HomeSlideShow() {
     // autoplaySpeed: 5000,
     arrows: false,
   };
-  const images = [
-    {
-      url: "https://images.unsplash.com/photo-1643122966676-29e8597257f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      text: "Illuminate Your Space with Our High-Quality Candles",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1602607203559-d38903b80507?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80",
-      text: "Find Your Perfect Scent: Explore Our Wide Range of Candle Fragrances",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1601479604588-68d9e6d386b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2013&q=80",
-      text: "Transform Your Home into a Cozy Haven with Our Beautiful Candles",
-    },
-  ];
+
   return (
     <div className=" pb-8">
       <Slider
         {...settings}
-        className="w-full h-screen bg-gray-50 grid grid-cols-1"
+        className="w-full h-screen bg-gray-50 grid grid-cols-1 "
       >
         <div className="w-full h-screen flex justify-center items-center">
           <div className="justify-center items-center relative w-full">
             <img
               alt="candles"
-              src={Home}
-              className="w-full object-cover object-center"
+              src="https://cdn.shopify.com/s/files/1/0315/2749/files/ALLISON_KUNATH_PR-22_1800x.jpg?v=1679503315"
+              className="w-full object-cover object-center opacity-70"
             />
             <Container>
-              <p className="absolute top-36 left-0 text-gray-800  py-32">
+              <div className="absolute top-36 left-0 text-gray-800  py-32">
                 <div className="flex flex-col justify-center items-center px-80 ">
                   <p className="text-greeen font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">
                     Illuminate Your Space with Our Candles
                   </p>
-                  <p className=" text-gray-800 mt-10  text-center">
+                  <p className=" text-gray-800 mt-10 font-bold  text-center">
                     We offer unique candles in various scents, sizes, and
                     shapes. Our store provides customized gift sets, and we also
                     create bespoke candles to perfectly suit your preferences.
@@ -76,7 +62,7 @@ function HomeSlideShow() {
                     </Link>
                   </div>
                 </div>
-              </p>
+              </div>
             </Container>
           </div>
         </div>{" "}
@@ -84,8 +70,8 @@ function HomeSlideShow() {
           <div className="justify-center items-center relative w-full">
             <img
               alt="candles"
-              src={Home}
-              className="w-full object-cover object-center"
+              src="https://cdn.shopify.com/s/files/1/0236/6289/files/Hero_Lilac_AzulBrush_With_Bar_110421_2000x.jpg?v=1680192188"
+              className="w-full h-screen opacity-70 object-cover object-center"
             />
             <Container>
               <p className="absolute top-36 left-0 text-center  py-32 text-greeen font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl px-80">
@@ -112,12 +98,13 @@ function HomeSlideShow() {
           <div className="justify-center items-center relative w-full">
             <img
               alt="candles"
-              src="https://images.unsplash.com/photo-1602607203559-d38903b80507?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80"
-              className="w-full object-cover object-center"
+              src="https://cdn.shopify.com/s/files/1/0910/3062/files/Mar23-PastFavs-Banner_Desktop_1800x.jpg?v=1677557010"
+              className="w-full object-cover opacity-70 object-center"
             />
             <Container>
-              <p className="absolute top-36 left-0 text-center  py-32 text-greeen font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl px-80">
-                Light Up Your Life
+              <p className="absolute top-36 left-0 flex justify-center items-center text-center py-32 text-greeen font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl px-80">
+                Illuminate your space and senses with the warm glow and soothing
+                fragrances of candles.
               </p>
             </Container>
           </div>

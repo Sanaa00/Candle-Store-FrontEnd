@@ -31,11 +31,11 @@ function CandleCard({ candle }) {
       key={candle.id}
       className="hover:shadow-lg hover:duration-500 duration-500 rounded m-2 border"
     >
-      <div className="relative">
+      <div className="relative overflow-hidden">
         <img
           alt="candles"
           src={candle.url}
-          className="w-full h-52 object-cover relative  rounded-t"
+          className="w-full h-52 object-cover relative overflow-hidden rounded-t hover:scale-110 hover:duration-500 duration-500 hover:ease-in-out"
         />
         <div className="absolute top-2 right-2 bg-gray-50 w-7 h-7 rounded-full flex justify-center items-center">
           {candle.favourite === false ? (

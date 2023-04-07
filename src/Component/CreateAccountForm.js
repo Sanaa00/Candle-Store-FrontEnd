@@ -13,8 +13,10 @@ function CreateAccountForm() {
       return "full";
     } else if (window.innerWidth < 768) {
       return "full";
-    } else if (window.innerWidth < 1280) {
+    } else if (window.innerWidth < 1024) {
       return "full";
+    } else if (window.innerWidth < 1280) {
+      return 80;
     } else {
       return 96;
     }
