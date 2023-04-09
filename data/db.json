@@ -33,7 +33,7 @@
       "discount": 15,
       "favourite": false,
       "category": "red",
-      "quantity": 1
+      "quantity": 6
     },
     {
       "id": 4,
@@ -44,7 +44,31 @@
       "discount": 15,
       "favourite": false,
       "category": "red",
-      "quantity": 3
+      "quantity": 6
+    },
+    {
+      "id": 1,
+      "price": 100,
+      "rating": 3.5,
+      "name": "Product Name",
+      "url": "https://candlewicktrimmer.com/wp-content/uploads/2023/02/cyracl1.jpg",
+      "discount": 15,
+      "favourite": false,
+      "category": "red",
+      "quantity": 1,
+      "colors": [
+        "#CE5959",
+        "#B8621B",
+        "#FEFF86",
+        "#408E91",
+        "#F7C8E0"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1545659446-f03b9dc0827a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
+        "https://images.unsplash.com/photo-1557308917-ef00c7059bfd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+        "https://images.unsplash.com/photo-1588372405219-e40d64efafcb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80",
+        "https://images.unsplash.com/photo-1603006905003-be475563bc59?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+      ]
     }
   ],
   "products": [
@@ -65,7 +89,7 @@
         "#408E91",
         "#F7C8E0"
       ],
-    "images": [
+      "images": [
         "https://images.unsplash.com/photo-1545659446-f03b9dc0827a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
         "https://images.unsplash.com/photo-1557308917-ef00c7059bfd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
         "https://images.unsplash.com/photo-1588372405219-e40d64efafcb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80",
@@ -113,7 +137,7 @@
         "#408E91",
         "#F7C8E0"
       ],
-     "images": [
+      "images": [
         "https://images.unsplash.com/photo-1545659446-f03b9dc0827a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
         "https://images.unsplash.com/photo-1557308917-ef00c7059bfd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
         "https://images.unsplash.com/photo-1588372405219-e40d64efafcb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80",
@@ -161,13 +185,12 @@
         "#408E91",
         "#F7C8E0"
       ],
-    "images": [
+      "images": [
         "https://images.unsplash.com/photo-1545659446-f03b9dc0827a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
         "https://images.unsplash.com/photo-1557308917-ef00c7059bfd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
         "https://images.unsplash.com/photo-1588372405219-e40d64efafcb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80",
         "https://images.unsplash.com/photo-1603006905003-be475563bc59?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
       ]
-      
     },
     {
       "id": 6,
@@ -234,7 +257,7 @@
         "#408E91",
         "#F7C8E0"
       ],
-     "images": [
+      "images": [
         "https://images.unsplash.com/photo-1545659446-f03b9dc0827a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
         "https://images.unsplash.com/photo-1557308917-ef00c7059bfd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
         "https://images.unsplash.com/photo-1588372405219-e40d64efafcb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80",
@@ -258,7 +281,7 @@
         "#408E91",
         "#F7C8E0"
       ],
-       "images": [
+      "images": [
         "https://images.unsplash.com/photo-1545659446-f03b9dc0827a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
         "https://images.unsplash.com/photo-1557308917-ef00c7059bfd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
         "https://images.unsplash.com/photo-1588372405219-e40d64efafcb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80",
@@ -306,7 +329,7 @@
         "#408E91",
         "#F7C8E0"
       ],
-    "images": [
+      "images": [
         "https://images.unsplash.com/photo-1545659446-f03b9dc0827a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
         "https://images.unsplash.com/photo-1557308917-ef00c7059bfd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
         "https://images.unsplash.com/photo-1588372405219-e40d64efafcb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80",

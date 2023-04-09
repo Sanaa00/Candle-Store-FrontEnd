@@ -16,8 +16,6 @@ function CreateAccountForm() {
     } else if (window.innerWidth < 1024) {
       return "full";
     } else if (window.innerWidth < 1280) {
-      return 80;
-    } else {
       return 96;
     }
   };
@@ -99,7 +97,7 @@ function CreateAccountForm() {
             {formik.errors.confirmpasssword}
           </span>
           <div className="mt-5 flex flex-col justify-center items-center">
-            <Button text="Create" width={widthOfButton()} type="submit" />
+            <Button text="Create" width={widthOfButton()} type="submit" />{" "}
             <Link
               to="/login"
               className="mt-2 text-blue-700 underline hover:text-blue-500 duration-400 hover:duration-500"

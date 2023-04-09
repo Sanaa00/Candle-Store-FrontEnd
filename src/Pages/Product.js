@@ -77,10 +77,10 @@ function Product() {
         {singleProduct ? (
           <div
             key={singleProduct.id}
-            className="grid lg:grid-cols-2 lg:gap-10 justify-center  lg:justify-between pt-5 mt-10"
+            className="grid grid-cols-1 lg:grid-cols-2 lg:gap-10 justify-center  lg:justify-between pt-5 mt-10"
           >
             <ProductImageSlider images={singleProduct.images} />
-            <div className="text-gray-800 flex flex-col justify-between p-2 lg:p-0  mt-5 lg:mt-0 2xl:pl-2">
+            <div className="text-gray-800 flex flex-col justify-between p-2 lg:p-0  mt-20 sm:mt-28 md:mt-52 lg:mt-0 2xl:pl-2">
               <div className=" ">
                 <p className="font-semibold text-2xl">
                   {singleProduct.name}
@@ -90,11 +90,11 @@ function Product() {
                   {singleProduct.category}
                 </p>
               </div>
-              <p className="">candle description here</p>
-              <div className="">
+              <p className="mt-2 lg:mt-0">candle description here</p>
+              <div className="mt-2 lg:mt-0">
                 <Colors colors={singleProduct.colors} />
               </div>
-              <div className="flex justify-between items-center sm:w-96">
+              <div className="mt-2 lg:mt-0 flex justify-between items-center sm:w-96">
                 <p className=" font-semibold text-greeen text-lg">
                   {singleProduct.price}.00 $
                 </p>
@@ -105,7 +105,7 @@ function Product() {
                 />
               </div>
 
-              <div className="flex justify-between items-center">
+              <div className="mt-2 lg:mt-0 flex justify-between items-center">
                 {" "}
                 <Button
                   onClick={() => addToCartHandle(singleProduct)}

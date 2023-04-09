@@ -5,7 +5,10 @@ import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
 import CandleCard from "./CandleCard";
 import { BarLoader } from "react-spinners";
 
-import { useGetProductsQuery } from "../features/api/productApi";
+import {
+  useGetProductsQuery,
+  useGetProductsBySearchQuery,
+} from "../features/api/productApi";
 
 function ProductsPagination() {
   const { data, isLoading, error, isError } = useGetProductsQuery();

@@ -24,25 +24,25 @@ function HomeSlideShow() {
   };
 
   return (
-    <div className=" pb-8">
+    <div className=" lg:pb-8">
       <Slider
         {...settings}
-        className="w-full h-screen bg-gray-50 grid grid-cols-1 "
+        className="w-full lg:h-screen bg-gray-50 grid grid-cols-1 "
       >
-        <div className="w-full h-screen flex justify-center items-center">
+        <div className="w-full h-[500px] lg:h-screen flex justify-center items-center">
           <div className="justify-center items-center relative w-full">
             <img
               alt="candles"
               src="https://cdn.shopify.com/s/files/1/0315/2749/files/ALLISON_KUNATH_PR-22_1800x.jpg?v=1679503315"
-              className="w-full object-cover object-center opacity-70"
+              className="w-full h-[500px] lg:h-screen object-cover object-center opacity-70"
             />
             <Container>
-              <div className="absolute top-36 left-0 text-gray-800  py-32">
-                <div className="flex flex-col justify-center items-center px-80 ">
+              <div className="absolute top-24 md:top-36 lg:top-10 xl:top-44 2xl:top-1/3 left-0 text-gray-800  lg:py-32">
+                <div className="flex flex-col justify-center items-center px-6 lg:px-80 ">
                   <p className="text-greeen font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">
                     Illuminate Your Space with Our Candles
                   </p>
-                  <p className=" text-gray-800 mt-10 font-bold  text-center">
+                  <p className=" text-gray-800 mt-5 lg:mt-10 font-bold  text-center">
                     We offer unique candles in various scents, sizes, and
                     shapes. Our store provides customized gift sets, and we also
                     create bespoke candles to perfectly suit your preferences.
@@ -66,15 +66,15 @@ function HomeSlideShow() {
             </Container>
           </div>
         </div>{" "}
-        <div className="w-full h-screen flex justify-center items-center">
+        <div className="w-full h-[500px] lg:h-screen flex justify-center items-center">
           <div className="justify-center items-center relative w-full">
             <img
               alt="candles"
               src="https://cdn.shopify.com/s/files/1/0236/6289/files/Hero_Lilac_AzulBrush_With_Bar_110421_2000x.jpg?v=1680192188"
-              className="w-full h-screen opacity-70 object-cover object-center"
+              className="w-full h-[505px] lg:h-screen opacity-70 object-cover object-center"
             />
             <Container>
-              <p className="absolute top-36 left-0 text-center  py-32 text-greeen font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl px-80">
+              <p className="absolute top-1/2  left-0 text-center   text-greeen font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl px-6 lg:px-40 xl:px-80">
                 {/* <p className="text-greeen font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl px-80"> */}
                 Transform Your Home into a Cozy Haven with Our Beautiful Candles
                 {/* </p> */}
@@ -94,15 +94,15 @@ function HomeSlideShow() {
             </Container>
           </div> */}
         </div>
-        <div className="w-full h-screen flex justify-center items-center">
+        <div className="w-full h-[500px] lg:h-screen flex justify-center items-center">
           <div className="justify-center items-center relative w-full">
             <img
               alt="candles"
               src="https://cdn.shopify.com/s/files/1/0910/3062/files/Mar23-PastFavs-Banner_Desktop_1800x.jpg?v=1677557010"
-              className="w-full object-cover opacity-70 object-center"
+              className="w-full h-[500px] lg:h-screen object-cover opacity-70 object-center"
             />
             <Container>
-              <p className="absolute top-36 left-0 flex justify-center items-center text-center py-32 text-greeen font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl px-80">
+              <p className="absolute top-1/2 lg:top-1/2 left-0 flex justify-center items-center text-center text-greeen font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl px-6 lg:px-40 xl:px-80">
                 Illuminate your space and senses with the warm glow and soothing
                 fragrances of candles.
               </p>

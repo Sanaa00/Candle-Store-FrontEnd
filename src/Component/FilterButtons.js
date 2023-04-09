@@ -2,9 +2,9 @@ import React from "react";
 import { useGetProductByCategoryQuery } from "../features/api/productApi";
 
 function ProductsNavbar() {
-  const { getProductByCategory } = useGetProductByCategoryQuery("red");
+  // const { getProductByCategory } = useGetProductByCategoryQuery("red");
 
-  console.log(getProductByCategory);
+  // console.log(getProductByCategory);
 
   const category = [
     {

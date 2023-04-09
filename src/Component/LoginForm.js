@@ -55,7 +55,12 @@ function LoginForm() {
           <span className="text-red-400 text-sm">{formik.errors.password}</span>
           <div className="mt-5">
             {" "}
-            <Button text="Login" width={widthOfButton()} type="submit" />
+            <Button
+              text="Login"
+              // width={widthOfButton()}
+              type="submit"
+              px={widthOfButton()}
+            />
           </div>
         </Form>
       </div>
