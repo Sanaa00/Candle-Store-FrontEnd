@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import "./style.css";
+
 function ProductImageSlider({ images }) {
   const [wordData, setWordData] = useState(images[0]);
   const handleClick = (index) => {
@@ -38,7 +35,7 @@ function ProductImageSlider({ images }) {
               alt=""
               className={
                 (wordData.id === i ? " " : "") +
-                "w-[110px] h-[90px] object-cover hover:scale-110 duration-500 hover:duration-500"
+                "w-[110px] h-[90px] object-cover hover:scale-110 duration-500 hover:duration-500 "
               }
               src={data.url}
               onClick={() => handleClick(i)}

@@ -7,6 +7,7 @@ import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useGetCartQuery } from "../features/api/cart";
 import { BarLoader } from "react-spinners";
 
+import logo from "../images/logo.png";
 import Container from "./Container";
 import MobileMenu from "./MobileMenu";
 import Search from "./Search";
@@ -26,7 +27,7 @@ function Navbar() {
       <Container>
         <div className="flex justify-between items-center h-16 text-lg lg:text-base xl:text-lg text-gray-800 font-semibold">
           <NavLink to="/" className="w-1/3">
-            LOGO
+            <img alt="logo" src={logo} className="w-10 h-10 lg:w-12 lg:h-12" />
           </NavLink>
           <MobileMenu />
           <ul className="hidden lg:flex w-1/3 justify-center">
