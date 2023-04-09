@@ -1,26 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./style.css";
 function ProductImageSlider({ images }) {
-  const settings = {
-    customPaging: function (i) {
-      return (
-        <img alt="" src={images[i]} className="w-full h-full object-cover" />
-      );
-    },
-    dots: true,
-    dotsClass: "slick-dots custom-indicator",
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
+  const [wordData, setWordData] = useState(images[0]);
+  const handleClick = (index) => {
+    console.log(index);
+    const wordSlider = images[index];
+    setWordData(wordSlider);
   };
+  // const settings = {
+  //   customPaging: function (i) {
+  //     return (
+  //       <img alt="" src={images[i]} className="w-full h-full object-cover" />
+  //     );
+  //   },
+  //   dots: true,
+  //   dotsClass: "slick-dots custom-indicator",
+  //   infinite: true,
+  //   speed: 500,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  //   arrows: false,
+  // };
   return (
-    <div className="h-[500px] lg:h-[400px">
-      <Slider {...settings}>
+    <div className="h-[500px] ">
+      <img
+        src={wordData.url}
+        alt=""
+        className="w-full h-[400px] object-cover"
+      />
+      <div className="flex w-full justify-between">
+        {images.map((data, i) => (
+          <div className="mt-5 relative overflow-hidden" key={i}>
+            <img
+              alt=""
+              className={
+                (wordData.id === i ? " " : "") +
+                "w-[110px] h-[90px] object-cover hover:scale-110 duration-500 hover:duration-500"
+              }
+              src={data.url}
+              onClick={() => handleClick(i)}
+            />
+          </div>
+        ))}
+      </div>
+      {/* <Slider {...settings}>
         {images.map((img) => {
           return (
             <div key={img}>
@@ -33,7 +59,7 @@ function ProductImageSlider({ images }) {
           );
         })}
         <div></div>
-      </Slider>
+      </Slider> */}
     </div>
   );
 }

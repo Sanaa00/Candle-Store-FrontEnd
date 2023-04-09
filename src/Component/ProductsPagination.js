@@ -11,7 +11,8 @@ import {
 } from "../features/api/productApi";
 
 function ProductsPagination() {
-  const { data, isLoading, error, isError } = useGetProductsQuery();
+  // const { data, isLoading, error, isError } = useGetProductsQuery();
+  const { data, isLoading, isError, error } = useGetProductsBySearchQuery("");
 
   const itemPerPageWindowSize = () => {
     if (window.innerWidth < 640) {
