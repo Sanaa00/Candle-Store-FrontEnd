@@ -1,5 +1,5 @@
 import React from "react";
-import { useGetProductByCategoryQuery } from "../features/api/productApi";
+// import { useGetProductByCategoryQuery } from "../features/api/productApi";
 
 function ProductsNavbar() {
   // const { getProductByCategory } = useGetProductByCategoryQuery("red");
@@ -13,15 +13,19 @@ function ProductsNavbar() {
     },
     {
       id: 1,
-      category: "red",
+      category: "Simple",
     },
     {
       id: 2,
-      category: "green",
+      category: "Flowers",
     },
     {
       id: 3,
-      category: "yellow",
+      category: "Luxury",
+    },
+    {
+      id: 4,
+      category: "Scently",
     },
   ];
 

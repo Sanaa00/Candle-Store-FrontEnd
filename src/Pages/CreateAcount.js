@@ -1,6 +1,4 @@
 import React from "react";
-
-import Container from "../Component/Container";
 import CreateAccountForm from "../Component/CreateAccountForm";
 
 function CreateAcount() {

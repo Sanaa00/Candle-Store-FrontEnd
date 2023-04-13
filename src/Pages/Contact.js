@@ -1,7 +1,6 @@
 import React from "react";
 
 import ContactForm from "../Component/ContactForm";
-import Container from "../Component/Container";
 
 function Contact() {
   return (

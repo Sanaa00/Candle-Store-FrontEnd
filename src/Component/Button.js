@@ -13,14 +13,14 @@ function Button({ text, type, onClick }) {
 }
 
 export default Button;
-const widthOfButton = () => {
-  if (window.innerWidth < 640) {
-    return "full";
-  } else if (window.innerWidth < 768) {
-    return "full";
-  } else if (window.innerWidth < 1024) {
-    return "full";
-  } else {
-    return "96";
-  }
-};
+// const widthOfButton = () => {
+//   if (window.innerWidth < 640) {
+//     return "full";
+//   } else if (window.innerWidth < 768) {
+//     return "full";
+//   } else if (window.innerWidth < 1024) {
+//     return "full";
+//   } else {
+//     return "96";
+//   }
+// };

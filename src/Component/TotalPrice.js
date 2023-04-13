@@ -52,16 +52,17 @@ function TotalPrice() {
             );
           })}
         </div>
-
         <div className="w-full flex justify-between items-center py-5">
           <p className="">Total</p>
           <p>{totalPrice}</p>
         </div>
         <LinkButton
+          // onClick={openModal}
           location="ShippingAndPayment"
           width={widthofbutton()}
           text="Checkout"
-        />
+        />{" "}
+        {/* <AdressPaymentModal modalIsOpen={modalIsOpen} closeModal={closeModal} /> */}
       </div>
     </div>
   );

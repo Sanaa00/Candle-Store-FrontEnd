@@ -56,11 +56,11 @@ function ShoppingBagCard() {
           {cart.map((bag) => {
             return (
               <div key={bag.id}>
-                <div key={bag.id} className="p-5 flex border-b-2 ">
+                <div key={bag.id} className="p-2 lg:p-5 flex border-b-2 ">
                   <img
                     src={bag.url}
                     alt="shopping card"
-                    className="w-40 h-32 object-cover mr-5"
+                    className="w-28 h-28 lg:w-40 lg:h-40 object-cover mr-1 lg:mr-5"
                   />
                   <div className="flex flex-col justify-between items-center w-full p-1">
                     <div className="flex justify-between items-center w-full">

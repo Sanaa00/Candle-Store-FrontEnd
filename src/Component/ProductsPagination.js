@@ -5,10 +5,7 @@ import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
 import CandleCard from "./CandleCard";
 import { BarLoader } from "react-spinners";
 
-import {
-  useGetProductsQuery,
-  useGetProductsBySearchQuery,
-} from "../features/api/productApi";
+import { useGetProductsBySearchQuery } from "../features/api/productApi";
 
 function ProductsPagination() {
   // const { data, isLoading, error, isError } = useGetProductsQuery();
@@ -19,7 +16,7 @@ function ProductsPagination() {
       return 6;
     } else if (window.innerWidth < 768) {
       return 9;
-    } else if (window.innerWidth < 1280) {
+    } else if (window.innerWidth < 1024) {
       return 12;
     } else {
       return 15;

@@ -1,6 +1,4 @@
 import React from "react";
-
-import Container from "../Component/Container";
 import LoginForm from "../Component/LoginForm";
 
 function Login() {
