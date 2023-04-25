@@ -1,11 +1,16 @@
-import React from "react";
-// import { useGetProductByCategoryQuery } from "../features/api/productApi";
+import React, { useState } from "react";
+import { useGetProductsByCategoryQuery } from "../features/api/productApi";
 
 function ProductsNavbar() {
   // const { getProductByCategory } = useGetProductByCategoryQuery("red");
-
   // console.log(getProductByCategory);
 
+  const [categoryy, setCategoryy] = useState("");
+  const { data: categoryyy } = useGetProductsByCategoryQuery(categoryy);
+  console.log("category", categoryyy);
+  const handleFilter = (category) => {
+    setCategoryy(category);
+  };
   const category = [
     {
       id: 0,
@@ -17,21 +22,17 @@ function ProductsNavbar() {
     },
     {
       id: 2,
-      category: "Flowers",
+      category: "Collection",
     },
     {
       id: 3,
-      category: "Luxury",
+      category: "Flowers",
     },
     {
       id: 4,
-      category: "Scently",
+      category: "Luxury",
     },
   ];
-
-  const handleFilter = (category) => {
-    console.log(category);
-  };
 
   return (
     <div className="pt-10 flex flex-wrap gap-5 bg-gray-50">

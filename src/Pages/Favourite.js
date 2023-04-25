@@ -11,7 +11,7 @@ function Favourite() {
   return (
     <div className="bg-gray-50">
       <Container>
-        <div className="min-h-screen">
+        <div className="min-h-screen pt-20">
           <p className="text-2xl font-semibold text-greeen py-5">Favourite</p>
           {/* <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 justify-between items-center"> */}
           {fav.length === 0 ? (
@@ -23,7 +23,7 @@ function Favourite() {
               />
             </div>
           ) : (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 justify-between items-center ">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4  justify-between items-center ">
               {fav.map((candle) => {
                 return <CandleCard candle={candle} key={candle.id} />;
               })}

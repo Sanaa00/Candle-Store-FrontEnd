@@ -1,25 +1,28 @@
 import React, { useState, useEffect } from "react";
-
 import ReactPaginate from "react-paginate";
 import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
 import CandleCard from "./CandleCard";
 import { BarLoader } from "react-spinners";
-
-import { useGetProductsBySearchQuery } from "../features/api/productApi";
+import {
+  // useGetProductsQuery,
+  useGetProductsByCategoryQuery,
+  // useGetProductsBySearchQuery,
+  useGetProductsQuery,
+} from "../features/api/productApi";
 
 function ProductsPagination() {
   // const { data, isLoading, error, isError } = useGetProductsQuery();
-  const { data, isLoading, isError, error } = useGetProductsBySearchQuery("");
-
+  const { data: products, isLoading, isError, error } = useGetProductsQuery();
+  console.log("products", products, isLoading, isError, error);
+  const { data: category } = useGetProductsByCategoryQuery();
+  console.log("category", category);
   const itemPerPageWindowSize = () => {
     if (window.innerWidth < 640) {
       return 6;
     } else if (window.innerWidth < 768) {
       return 9;
-    } else if (window.innerWidth < 1024) {
-      return 12;
     } else {
-      return 15;
+      return 12;
     }
   };
 
@@ -27,16 +30,15 @@ function ProductsPagination() {
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
   const itemsPerPage = itemPerPageWindowSize();
-
   const endOffset = itemOffset + itemsPerPage;
 
   useEffect(() => {
-    setCurrentItems(data?.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(data?.length / itemsPerPage));
-  }, [endOffset, itemOffset, itemsPerPage, data]);
+    setCurrentItems(products?.data?.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(products?.data?.length / itemsPerPage));
+  }, [endOffset, itemOffset, itemsPerPage, products]);
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % data?.length;
+    const newOffset = (event.selected * itemsPerPage) % products?.data?.length;
     setItemOffset(newOffset);
   };
   if (isLoading)
@@ -48,9 +50,9 @@ function ProductsPagination() {
   if (isError) return <p>{error}</p>;
   return (
     <div className="min-h-screen pt-5">
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 justify-between items-center ">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 justify-between items-center ">
         {currentItems?.map((candle) => {
-          return <CandleCard candle={candle} key={candle.id} />;
+          return <CandleCard candle={candle} key={candle._id} />;
         })}
       </div>
       <div className="container mx-auto flex justify-center py-10">

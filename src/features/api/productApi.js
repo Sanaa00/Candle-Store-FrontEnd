@@ -6,7 +6,11 @@ const productApi = apiSlice.injectEndpoints({
       providesTags: ["product"],
     }),
     getProductsBySearch: builder.query({
-      query: (product) => `/products/${product}`,
+      query: (search) => `products?search=${search}`,
+      providesTags: ["product"],
+    }),
+    getProductsByCategory: builder.query({
+      query: (category) => `/products?price=${category}`,
       providesTags: ["product"],
     }),
     getProductById: builder.query({
@@ -15,7 +19,7 @@ const productApi = apiSlice.injectEndpoints({
     }),
     productQuantityChange: builder.mutation({
       query: (item) => ({
-        url: `/products/${item.id}`,
+        url: `/products/${item._id}`,
         method: "PATCH",
         body: item,
       }),
@@ -26,6 +30,7 @@ const productApi = apiSlice.injectEndpoints({
 export const {
   useGetProductsQuery,
   useGetProductByIdQuery,
-  useGetProductsBySearchQuery,
   useProductQuantityChangeMutation,
+  useGetProductsByCategoryQuery,
+  useGetProductsBySearchQuery,
 } = productApi;

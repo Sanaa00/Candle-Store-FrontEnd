@@ -13,6 +13,10 @@ import Login from "./Pages/Login";
 import ShippingAndPayment from "./Component/ShippingAndPayment";
 import Product from "./Pages/Product";
 import Payment from "./Component/Payment";
+import AdminPanel from "./Pages/AdminPanel";
+import AddProductsForm from "./Component/AddProductsForm";
+import Table from "./Component/Table";
+import Dashboard from "./Component/Dashboard";
 // import Shipping from "./Component/Shipping";
 
 function App() {
@@ -23,7 +27,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="products" element={<Products />} />
-        <Route path="products/:id" element={<Product />} />
+        <Route path="products/:_id" element={<Product />} />
         <Route path="contact" element={<Contact />} />
         <Route path="favourite" element={<Favourite />} />
         <Route path="createAcount" element={<CreateAcount />} />
@@ -31,6 +35,11 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="shippingAndPayment" element={<ShippingAndPayment />} />
         <Route path="payment" element={<Payment />} />
+        <Route path="adminPanel" element={<AdminPanel />}>
+          <Route path="form" element={<AddProductsForm />} />
+          <Route path="table" element={<Table />} />
+          <Route path="dashboard" element={<Dashboard />} />
+        </Route>
       </Routes>{" "}
       <Footer />
       {/* </Container> */}

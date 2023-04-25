@@ -3,8 +3,10 @@ import { FiSearch } from "react-icons/fi";
 import { useGetProductsBySearchQuery } from "../features/api/productApi";
 function Search() {
   const [search, setSearch] = useState("");
-  const { searchdata } = useGetProductsBySearchQuery(search);
+  const { data: searchdata } = useGetProductsBySearchQuery(search);
   console.log(searchdata);
+  // const { searchdata } = useGetProductsBySearchQuery(search);
+  // console.log(searchdata);
   const searchHandler = (e) => {
     setSearch(e.target.value);
     // console.log(search);

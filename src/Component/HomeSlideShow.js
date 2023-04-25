@@ -34,12 +34,12 @@ function HomeSlideShow() {
             <img
               alt="candles"
               src="https://cdn.shopify.com/s/files/1/0315/2749/files/ALLISON_KUNATH_PR-22_1800x.jpg?v=1679503315"
-              className="w-full h-[500px] lg:h-screen object-cover object-center opacity-70"
+              className="w-full h-[500px] lg:h-screen object-cover object-center opacity-50"
             />
             <Container>
-              <div className="absolute top-24 md:top-36 lg:top-10 xl:top-44 2xl:top-1/3 left-0 text-gray-800  lg:py-32">
+              <div className="absolute top-24 md:top-36 lg:top-10 xl:top-44 2xl:top-1/3 left-0 text-gray-800  lg:py-32 2xl:py-10">
                 <div className="flex flex-col justify-center items-center px-6 lg:px-80 ">
-                  <p className="text-greeen font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">
+                  <p className="text-greeen text-center font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-3xl 2xl:text-4xl">
                     Illuminate Your Space with Our Candles
                   </p>
                   <p className=" text-gray-800 mt-5 lg:mt-10 font-bold  text-center">

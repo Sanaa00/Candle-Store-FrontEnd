@@ -10,7 +10,7 @@ function TotalPrice() {
 
   let totalQuantity = 0;
   let totalPrice = 0;
-  data?.forEach((item) => {
+  data?.data?.forEach((item) => {
     totalQuantity = totalQuantity + item.quantity;
     totalPrice += item.price * item.quantity;
   });
@@ -38,13 +38,13 @@ function TotalPrice() {
     <div className="flex w-full sm:justify-center">
       <div className="bg-greeen bg-opacity-10 p-5 w-full lg:w-fit h-fit flex flex-col items-center my-5 lg:my-0">
         <div className="grid grid-cols-1 w-full lg:w-80 xl:w-96 border-b-2 border-greeen">
-          {data.map((bag) => {
+          {data?.data?.map((bag) => {
             return (
               <div
-                key={bag.id}
+                key={bag._id}
                 className="w-full flex justify-between items-centr pb-5"
               >
-                <p>{bag.name}</p>
+                <p>{bag.productName}</p>
                 <p>
                   {bag.price}*{bag.quantity}={bag.price * bag.quantity}
                 </p>

@@ -2,8 +2,16 @@ import React, { useState } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
 function Colors({ colors }) {
+  console.log("colors", colors);
+
   const [isActive, setActive] = useState(false);
+  const [color, setColor] = useState("");
   const handleDropdownClick = () => setActive(!isActive);
+  const handleColor = (coloritem) => {
+    console.log("colors", color);
+    setColor(coloritem);
+    setActive(!isActive);
+  };
   return (
     <div>
       <div className="relative inline-block text-left">
@@ -30,7 +38,7 @@ function Colors({ colors }) {
                 return (
                   <button
                     key={color}
-                    onClick={handleDropdownClick}
+                    onClick={() => handleColor(color)}
                     style={{ backgroundColor: color }}
                     className={`block m-1 h-8 w-28 rounded-sm text-sm  text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900`}
                   ></button>

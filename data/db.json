@@ -2,42 +2,6 @@
   "favourite": [],
   "cart": [
     {
-      "id": 2,
-      "price": 25,
-      "rating": 4,
-      "name": "Happy Candle Collective",
-      "url": "https://cdn.shopify.com/s/files/1/0580/9117/6122/products/IMG_3473.jpg?v=1680795126&width=1100",
-      "discount": 0,
-      "favourite": false,
-      "category": "Collection",
-      "quantity": 1,
-      "colors": [
-        "#CE5959",
-        "#B8621B",
-        "#FEFF86",
-        "#408E91",
-        "#F7C8E0"
-      ],
-      "images": [
-        {
-          "id": 1,
-          "url": "https://cdn.shopify.com/s/files/1/0580/9117/6122/products/IMG_3473.jpg?v=1680795126&width=1100"
-        },
-        {
-          "id": 2,
-          "url": "https://images.unsplash.com/photo-1557308917-ef00c7059bfd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-        },
-        {
-          "id": 3,
-          "url": "https://images.unsplash.com/photo-1588372405219-e40d64efafcb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80"
-        },
-        {
-          "id": 4,
-          "url": "https://images.unsplash.com/photo-1603006905003-be475563bc59?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-        }
-      ]
-    },
-    {
       "id": 8,
       "price": 16,
       "rating": 1,
@@ -144,6 +108,78 @@
           "url": "https://images.unsplash.com/photo-1603006905003-be475563bc59?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
         }
       ]
+    },
+    {
+      "id": 3,
+      "price": 12,
+      "rating": 2.5,
+      "name": "Fragrant candles",
+      "url": "https://images.unsplash.com/photo-1636714560735-9f84a7c06d16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
+      "discount": 0,
+      "favourite": false,
+      "category": "Collection",
+      "quantity": 8,
+      "colors": [
+        "#CE5959",
+        "#B8621B",
+        "#FEFF86",
+        "#408E91",
+        "#F7C8E0"
+      ],
+      "images": [
+        {
+          "id": 1,
+          "url": "https://images.unsplash.com/photo-1636714560735-9f84a7c06d16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+        },
+        {
+          "id": 2,
+          "url": "https://images.unsplash.com/photo-1557308917-ef00c7059bfd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+        },
+        {
+          "id": 3,
+          "url": "https://images.unsplash.com/photo-1588372405219-e40d64efafcb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80"
+        },
+        {
+          "id": 4,
+          "url": "https://images.unsplash.com/photo-1603006905003-be475563bc59?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "price": 25,
+      "rating": 4,
+      "name": "Happy Candle Collective",
+      "url": "https://www.marthastewart.com/thmb/8ZuQYT1458pH7bwrQeq8xS5rO-g=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/candles-086-mwd110955_vert-2000-75d08ee13d40491b8d5a1f426c4f8b7f.jpg",
+      "discount": 0,
+      "favourite": false,
+      "category": "Collection",
+      "quantity": 1,
+      "colors": [
+        "#CE5959",
+        "#B8621B",
+        "#FEFF86",
+        "#408E91",
+        "#F7C8E0"
+      ],
+      "images": [
+        {
+          "id": 1,
+          "url": "https://www.marthastewart.com/thmb/8ZuQYT1458pH7bwrQeq8xS5rO-g=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/candles-086-mwd110955_vert-2000-75d08ee13d40491b8d5a1f426c4f8b7f.jpg"
+        },
+        {
+          "id": 2,
+          "url": "https://images.unsplash.com/photo-1557308917-ef00c7059bfd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+        },
+        {
+          "id": 3,
+          "url": "https://images.unsplash.com/photo-1588372405219-e40d64efafcb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80"
+        },
+        {
+          "id": 4,
+          "url": "https://images.unsplash.com/photo-1603006905003-be475563bc59?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+        }
+      ]
     }
   ],
   "products": [
@@ -188,7 +224,7 @@
       "price": 25,
       "rating": 4,
       "name": "Happy Candle Collective",
-      "url": "https://cdn.shopify.com/s/files/1/0580/9117/6122/products/IMG_3473.jpg?v=1680795126&width=1100",
+      "url": "https://www.marthastewart.com/thmb/8ZuQYT1458pH7bwrQeq8xS5rO-g=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/candles-086-mwd110955_vert-2000-75d08ee13d40491b8d5a1f426c4f8b7f.jpg",
       "discount": 0,
       "favourite": false,
       "category": "Collection",
@@ -203,7 +239,7 @@
       "images": [
         {
           "id": 1,
-          "url": "https://cdn.shopify.com/s/files/1/0580/9117/6122/products/IMG_3473.jpg?v=1680795126&width=1100"
+          "url": "https://www.marthastewart.com/thmb/8ZuQYT1458pH7bwrQeq8xS5rO-g=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/candles-086-mwd110955_vert-2000-75d08ee13d40491b8d5a1f426c4f8b7f.jpg"
         },
         {
           "id": 2,
@@ -228,7 +264,7 @@
       "discount": 0,
       "favourite": false,
       "category": "Collection",
-      "quantity": 1,
+      "quantity": 5,
       "colors": [
         "#CE5959",
         "#B8621B",

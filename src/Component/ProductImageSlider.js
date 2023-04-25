@@ -2,9 +2,10 @@ import React, { useState } from "react";
 
 function ProductImageSlider({ images }) {
   const [wordData, setWordData] = useState(images[0]);
-  const handleClick = (index) => {
-    console.log(index);
-    const wordSlider = images[index];
+  console.log("images", images[0]);
+  const handleClick = (i) => {
+    console.log(i);
+    const wordSlider = images[i];
     setWordData(wordSlider);
   };
   // const settings = {
@@ -23,21 +24,17 @@ function ProductImageSlider({ images }) {
   // };
   return (
     <div className="h-[500px] ">
-      <img
-        src={wordData.url}
-        alt=""
-        className="w-full h-[400px] object-cover"
-      />
+      <img src={wordData} alt="" className="w-full h-[400px] object-cover" />
       <div className="flex w-full justify-between">
         {images.map((data, i) => (
           <div className="mt-5 relative overflow-hidden" key={i}>
             <img
               alt=""
               className={
-                (wordData.id === i ? " " : "") +
+                (wordData[i] === i ? " " : "") +
                 "w-[110px] h-[90px] object-cover hover:scale-110 duration-500 hover:duration-500 "
               }
-              src={data.url}
+              src={data}
               onClick={() => handleClick(i)}
             />
           </div>
