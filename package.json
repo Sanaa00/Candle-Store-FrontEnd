@@ -19,6 +19,7 @@
     "react": "^18.2.0",
     "react-awesome-stars-rating": "^0.13.6",
     "react-bootstrap": "^2.7.3",
+    "react-data-table-component": "^7.5.3",
     "react-dom": "^18.2.0",
     "react-dropdown-select": "^4.9.3",
     "react-icons": "^4.8.0",

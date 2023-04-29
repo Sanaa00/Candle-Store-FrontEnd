@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import { useGetProductsByCategoryQuery } from "../features/api/productApi";
+import { useGetCategoryQuery } from "../features/api/category";
 
 function ProductsNavbar() {
-  // const { getProductByCategory } = useGetProductByCategoryQuery("red");
   // console.log(getProductByCategory);
 
   const [categoryy, setCategoryy] = useState("");
-  const { data: categoryyy } = useGetProductsByCategoryQuery(categoryy);
+  const { data: getProductByCategory } =
+    useGetProductsByCategoryQuery(categoryy);
+  console.log("filter by category", getProductByCategory);
+  const { data: categoryyy } = useGetCategoryQuery();
   console.log("category", categoryyy);
   const handleFilter = (category) => {
-    setCategoryy(category);
+    setCategoryy(categoryy);
   };
   const category = [
     {
@@ -36,11 +39,12 @@ function ProductsNavbar() {
 
   return (
     <div className="pt-10 flex flex-wrap gap-5 bg-gray-50">
-      {category.map((product) => {
+      {categoryyy?.data?.map((product) => {
         return (
+          // <div>{product.category}</div>
           <button
             className="bg-gray-100 py-1 px-5 focus:bg-greeen rounded-sm hover:bg-greeen hover:text-gray-50 text-greeen focus:text-gray-50  hover:shadow-lg duration-500 hover:duration-500 text-sm flex font-semibold"
-            key={product.id}
+            key={product._id}
             onClick={() => handleFilter(product.category)}
           >
             {product.category}

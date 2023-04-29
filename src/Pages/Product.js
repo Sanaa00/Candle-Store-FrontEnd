@@ -8,6 +8,7 @@ import {
   useGetProductByIdQuery,
   useProductQuantityChangeMutation,
   useGetProductsByCategoryQuery,
+  useAddProductMutation,
 } from "../features/api/productApi";
 import { useAddToCartMutation, useGetCartQuery } from "../features/api/cart";
 
@@ -22,7 +23,7 @@ import ProductImageSlider from "../Component/ProductImageSlider";
 function Product() {
   const { _id } = useParams();
   console.log("product id", _id);
-  const [addToCart, { isLoadingg }] = useAddToCartMutation();
+  const [addToCart, { isLoadingg }] = useAddProductMutation();
   const [productQuantityChange] = useProductQuantityChangeMutation();
   const { data: cart } = useGetCartQuery();
   console.log("cart in product page", cart);
@@ -32,8 +33,8 @@ function Product() {
     error,
     isError,
   } = useGetProductByIdQuery(_id);
-  const { data: category } = useGetProductsByCategoryQuery(10);
-  console.log("category", category);
+  // const { data: category } = useGetProductsByCategoryQuery(10);
+  console.log("single product", singleProduct);
   // const { data } = console.log("singleproduct", singleProduct);
   // console.log("function", addToCart);
 
@@ -90,7 +91,7 @@ function Product() {
                   {singleProduct.data.productName}
                 </p>
                 <p className="bg-gray-100 py-1 px-5 text-greeen rounded-sm w-fit mt-5 font-semibold">
-                  {singleProduct?.data.category}
+                  {singleProduct?.data.categoryId.category}
                   {console.log("category", singleProduct.data.category)}
                 </p>
               </div>

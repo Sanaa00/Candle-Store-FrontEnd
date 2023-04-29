@@ -13,7 +13,9 @@ import Counter from "./Counter";
 
 function ShoppingBagCard() {
   const { data: cart, isLoading, error, isError } = useGetCartQuery();
-  console.log("before delete", cart);
+  console.log("item in shop bag", cart);
+  // let Cart = cart.data[0].products[0];
+  // console.log("before delete", Cart);
   const [quantityChange] = useQuantityChangeMutation();
 
   const [deleteFromCart] = useDeleteFromCartMutation();
@@ -54,23 +56,23 @@ function ShoppingBagCard() {
         </div>
       ) : (
         <div>
-          {cart?.data?.map((bag) => {
+          {cart.data.map((bag) => {
             return (
-              <div key={bag._id}>
+              <div key={bag.products._id}>
                 <div className="p-2 lg:p-5 flex border-b-2 ">
                   <div className="w-52 h-40">
                     {" "}
-                    <img
+                    {/* <img
                       src={bag.images[0]}
                       alt="shopping card"
                       className="w-40 h-40 object-cover rounded-sm object-center mr-1 lg:mr-5"
-                    />
+                    /> */}
                   </div>
 
                   <div className="flex flex-col justify-between items-center w-full p-1 ml-5">
                     <div className="flex justify-between items-center w-full">
                       <p className="font-semibold text-greeen ">
-                        {bag.productName}
+                        {bag.products.productName}
                       </p>
                       <div className="flex ">
                         <div>
@@ -89,7 +91,7 @@ function ShoppingBagCard() {
                         increment={() => incrementQuantityHandler(bag)}
                         decrement={() => decrementQuantityHandler(bag)}
                       />
-                      <p>{bag?.price}$ </p>
+                      <p>{bag.products.price}$ </p>
                     </div>
                   </div>
                 </div>

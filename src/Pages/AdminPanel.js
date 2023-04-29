@@ -47,7 +47,7 @@ function AdminPanel() {
           {/* </div> */}
         </div>
       </div>
-      <div className="ml-10 mt-8">
+      <div className="ml-10 mt-8 w-4/6">
         <Outlet />
       </div>
     </div>

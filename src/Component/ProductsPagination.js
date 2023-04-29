@@ -12,10 +12,15 @@ import {
 
 function ProductsPagination() {
   // const { data, isLoading, error, isError } = useGetProductsQuery();
-  const { data: products, isLoading, isError, error } = useGetProductsQuery();
+  const {
+    data: products,
+    isLoading,
+    isError,
+    error,
+  } = useGetProductsQuery("simple");
   console.log("products", products, isLoading, isError, error);
-  const { data: category } = useGetProductsByCategoryQuery();
-  console.log("category", category);
+  // const { data: category } = useGetProductsByCategoryQuery();
+  // console.log("category", category);
   const itemPerPageWindowSize = () => {
     if (window.innerWidth < 640) {
       return 6;
@@ -50,7 +55,7 @@ function ProductsPagination() {
   if (isError) return <p>{error}</p>;
   return (
     <div className="min-h-screen pt-5">
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 justify-between items-center ">
+      <div className="grid gap-5 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 justify-between items-center ">
         {currentItems?.map((candle) => {
           return <CandleCard candle={candle} key={candle._id} />;
         })}

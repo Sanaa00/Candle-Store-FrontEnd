@@ -30,7 +30,7 @@ function CandleCard({ candle }) {
   return (
     <div
       key={candle._id}
-      className="hover:shadow-lg hover:duration-500 duration-500 rounded hover:rounded m-2 "
+      className="hover:duration-500 duration-500 rounded hover:rounded m-2 "
     >
       {" "}
       <Link to={`/products/${candle._id}`} className="w-full h-full">
@@ -38,7 +38,7 @@ function CandleCard({ candle }) {
           <img
             alt="candles"
             src={candle.images}
-            className="w-full h-52 object-cover relative overflow-hidden rounded-t hover:scale-110 hover:duration-500 duration-500 hover:ease-in-out z-10"
+            className="w-full h-72 object-cover relative overflow-hidden rounded-sm hover:scale-110 hover:duration-500 duration-500 hover:ease-in-out z-10"
           />
           <div className="absolute top-2 right-2 bg-gray-50 w-7 h-7 rounded-full flex justify-center items-center z-40">
             {candle.favourite === false ? (
@@ -54,7 +54,7 @@ function CandleCard({ candle }) {
             )}
           </div>{" "}
         </div>
-        <div className="p-2 text-gray-800 w-full hover:bg-white duration-500 hover:duration-500 ">
+        <div className="pt-1 text-gray-800 w-full  duration-500 hover:duration-500 ">
           <div className="flex justify-between">
             <p className="font-semibold text-gray-800 text-lg">
               {candle?.productName?.length > 15
