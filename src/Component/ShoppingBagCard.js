@@ -56,23 +56,23 @@ function ShoppingBagCard() {
         </div>
       ) : (
         <div>
-          {cart.data.map((bag) => {
+          {cart?.data?.products?.map((bag) => {
             return (
-              <div key={bag.products._id}>
+              <div key={bag._id}>
                 <div className="p-2 lg:p-5 flex border-b-2 ">
                   <div className="w-52 h-40">
                     {" "}
-                    {/* <img
+                    <img
                       src={bag.images[0]}
                       alt="shopping card"
                       className="w-40 h-40 object-cover rounded-sm object-center mr-1 lg:mr-5"
-                    /> */}
+                    />
                   </div>
 
                   <div className="flex flex-col justify-between items-center w-full p-1 ml-5">
                     <div className="flex justify-between items-center w-full">
                       <p className="font-semibold text-greeen ">
-                        {bag.products.productName}
+                        {bag.productName}
                       </p>
                       <div className="flex ">
                         <div>
@@ -91,7 +91,7 @@ function ShoppingBagCard() {
                         increment={() => incrementQuantityHandler(bag)}
                         decrement={() => decrementQuantityHandler(bag)}
                       />
-                      <p>{bag.products.price}$ </p>
+                      <p>{bag.price}$ </p>
                     </div>
                   </div>
                 </div>

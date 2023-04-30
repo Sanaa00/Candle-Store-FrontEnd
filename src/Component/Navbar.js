@@ -10,7 +10,7 @@ import { BarLoader } from "react-spinners";
 import logo from "../images/logo.png";
 import Container from "./Container";
 import MobileMenu from "./MobileMenu";
-import Search from "./Search";
+// import Search from "./Search";
 
 function Navbar() {
   const { data: bag, isLoading } = useGetCartQuery();
@@ -60,9 +60,9 @@ function Navbar() {
             </NavLink>
           </ul>
           <ul className="hidden lg:flex w-1/3 justify-end items-center">
-            <div className="">
+            {/* <div className="">
               <Search />
-            </div>
+            </div> */}
 
             <NavLink to="/shopBag">
               {({ isActive }) =>
