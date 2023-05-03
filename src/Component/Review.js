@@ -5,11 +5,11 @@ function Review() {
   const [review, setReview] = useState("");
   const { data: reviews } = useGetReviewQuery();
   const [addReview] = useReviewMutation();
-  console.log("reviews", reviews);
+  // console.log("reviews", reviews);
   const reviewHandler = (e) => {
     setReview(e.target.value);
     // addReview(review);
-    console.log("added review", review);
+    // console.log("added review", review);
   };
   const addreviewHandler = () => {
     addReview(review);

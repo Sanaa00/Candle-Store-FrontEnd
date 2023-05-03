@@ -12,10 +12,10 @@ import Button from "./Button";
 
 function CreateAccountForm() {
   const [formData, setFormData] = useState();
-  console.log("form data", formData);
-  const { data: user } = useGetUserQuery();
+  // console.log("form data", formData);
+  // const { data: user } = useGetUserQuery();
   const [addUser] = useAddUserMutation();
-  console.log("after add", user);
+  // console.log("after add", user);
   const widthOfButton = () => {
     if (window.innerWidth < 640) {
       return "full";
@@ -32,21 +32,21 @@ function CreateAccountForm() {
   };
   const formik = useFormik({
     initialValues: {
-      firstname: "",
-      lastname: "",
+      firstName: "",
+      lastName: "",
       email: "",
       password: "",
       confirmpasssword: "",
     },
     onSubmit: (values) => {
-      setFormData(values);
-      // addUser(values);
-      // console.log("form values", values);
+      // setFormData(values);
+      addUser(values);
+      console.log("form values", values);
     },
 
     validationSchema: Yup.object({
-      firstname: Yup.string().label("First Name").required(),
-      lastname: Yup.string().label("Last Name").required(),
+      firstName: Yup.string().label("First Name").required(),
+      lastName: Yup.string().label("Last Name").required(),
       email: Yup.string().email().required(),
       password: Yup.string()
         .required("No password provided.")
@@ -67,22 +67,22 @@ function CreateAccountForm() {
         >
           <InputField
             placeholder="First Name"
-            name="firstname"
-            id="firstname"
+            name="firstName"
+            id="firstName"
             onChange={formik.handleChange}
-            value={formik.values.firstname}
+            value={formik.values.firstName}
           />
           <span className="text-red-400 text-sm">
-            {formik.errors.firstname}
+            {formik.errors.firstName}
           </span>
           <InputField
             placeholder="Last Name"
-            name="lastname"
-            id="lastname"
+            name="lastName"
+            id="lastName"
             onChange={formik.handleChange}
-            value={formik.values.lastname}
+            value={formik.values.lastName}
           />
-          <span className="text-red-400 text-sm">{formik.errors.lastname}</span>
+          <span className="text-red-400 text-sm">{formik.errors.lastName}</span>
           <InputField
             placeholder="Email"
             name="email"
@@ -114,8 +114,8 @@ function CreateAccountForm() {
               text="Create"
               width={widthOfButton()}
               type="submit"
-              onClick={() => addUserHandler()}
-            />{" "}
+              // onClick={() => addUserHandler()}
+            />
             <Link
               to="/login"
               className="mt-2 text-blue-700 underline hover:text-blue-500 duration-400 hover:duration-500"

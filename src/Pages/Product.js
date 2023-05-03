@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { useParams } from "react-router-dom";
 import { BarLoader } from "react-spinners";
@@ -7,10 +7,8 @@ import { ClipLoader } from "react-spinners";
 import {
   useGetProductByIdQuery,
   useProductQuantityChangeMutation,
-  useGetProductsByCategoryQuery,
-  useAddProductMutation,
 } from "../features/api/productApi";
-import { useAddToCartMutation, useGetCartQuery } from "../features/api/cart";
+import { useGetCartQuery, useAddToCartMutation } from "../features/api/cart";
 
 import Recomendation from "../Component/Recomendation";
 import Review from "../Component/Review";
@@ -22,11 +20,14 @@ import ProductImageSlider from "../Component/ProductImageSlider";
 
 function Product() {
   const { _id } = useParams();
-  console.log("product id", _id);
-  const [addToCart, { isLoadingg }] = useAddProductMutation();
+  // console.log("product id", _id);
+  // const [addToCart, { isLoadingg }] = useAddToCartMutation();
   const [productQuantityChange] = useProductQuantityChangeMutation();
   const { data: cart } = useGetCartQuery();
-  console.log("cart in product page", cart);
+  // const [addToCart, setAddToCart] = useState([]);
+  const [addToCart] = useAddToCartMutation();
+  console.log("cart items", cart);
+  // console.log("cart in product page", cart);
   const {
     data: singleProduct,
     isLoading,
@@ -39,13 +40,13 @@ function Product() {
   // console.log("function", addToCart);
 
   const addToCartHandle = (singleProduct) => {
-    addToCart(singleProduct);
+    addToCart({ productId: singleProduct.data._id });
+    console.log(singleProduct);
   };
+
   const incrementQuantityHandler = (item) => {
     let newQuantity = item.quantity + 1;
-
     productQuantityChange({ ...item, quantity: newQuantity });
-
     return newQuantity;
   };
 
@@ -57,6 +58,7 @@ function Product() {
     productQuantityChange({ ...item, quantity: newQuantity });
     return newQuantity;
   };
+
   const widthOfButton = () => {
     if (window.innerWidth < 640) {
       return "full";
@@ -92,7 +94,7 @@ function Product() {
                 </p>
                 <p className="bg-gray-100 py-1 px-5 text-greeen rounded-sm w-fit mt-5 font-semibold">
                   {singleProduct?.data.categoryId.category}
-                  {console.log("category", singleProduct.data.category)}
+                  {/* {console.log("category", singleProduct.data.category)} */}
                 </p>
               </div>
               <p className="mt-2 lg:mt-0">{singleProduct.data.description}</p>
@@ -109,24 +111,25 @@ function Product() {
                   decrement={() => decrementQuantityHandler(singleProduct.data)}
                 />
               </div>
-
+              {console.log(singleProduct.data._id)}
               <div className="mt-2 lg:mt-0 flex justify-between items-center">
                 {" "}
                 <Button
-                  onClick={() => addToCartHandle(singleProduct.data)}
-                  text={
-                    !isLoadingg ? (
-                      "Add to cart"
-                    ) : (
-                      <div className="flex justify-center items-center">
-                        <ClipLoader
-                          color="#F8FAFC"
-                          size={20}
-                          speedMultiplier={0.5}
-                        />
-                      </div>
-                    )
-                  }
+                  onClick={() => addToCartHandle(singleProduct)}
+                  text="add to cart"
+                  // text={
+                  //   !isLoadingg ? (
+                  //     "Add to cart"
+                  //   ) : (
+                  //     <div className="flex justify-center items-center">
+                  //       <ClipLoader
+                  //         color="#F8FAFC"
+                  //         size={20}
+                  //         speedMultiplier={0.5}
+                  //       />
+                  //     </div>
+                  //   )
+                  // }
                   width={widthOfButton()}
                 />
               </div>

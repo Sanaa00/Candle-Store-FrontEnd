@@ -2,9 +2,9 @@ import React, { useState } from "react";
 
 function ProductImageSlider({ images }) {
   const [wordData, setWordData] = useState(images[0]);
-  console.log("images", images[0]);
+  // console.log("images", images[0]);
   const handleClick = (i) => {
-    console.log(i);
+    // console.log(i);
     const wordSlider = images[i];
     setWordData(wordSlider);
   };

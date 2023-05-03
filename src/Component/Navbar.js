@@ -15,7 +15,7 @@ import MobileMenu from "./MobileMenu";
 function Navbar() {
   const { data: bag, isLoading } = useGetCartQuery();
   // console.log(bag);
-  console.log(bag?.data?.length);
+  // console.log(bag?.data?.length);
 
   isLoading && (
     <div className="flex justify-center items-center h-screen">

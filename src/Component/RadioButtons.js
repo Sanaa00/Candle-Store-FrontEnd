@@ -9,9 +9,10 @@ import {
 
 function RadioButtons() {
   const [selectedValue, setSelectedValue] = useState("");
-  console.log(selectedValue);
+
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
+    console.log(selectedValue);
   };
   const color = ["75 ml", "120 ml", "190 ml"];
   return (

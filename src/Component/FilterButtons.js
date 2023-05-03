@@ -8,9 +8,9 @@ function ProductsNavbar() {
   const [categoryy, setCategoryy] = useState("");
   const { data: getProductByCategory } =
     useGetProductsByCategoryQuery(categoryy);
-  console.log("filter by category", getProductByCategory);
+  // console.log("filter by category", getProductByCategory);
   const { data: categoryyy } = useGetCategoryQuery();
-  console.log("category", categoryyy);
+  // console.log("category", categoryyy);
   const handleFilter = (category) => {
     setCategoryy(categoryy);
   };

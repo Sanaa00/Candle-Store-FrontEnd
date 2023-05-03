@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
 function Colors({ colors }) {
-  console.log("colors", colors);
+  // console.log("colors", colors);
 
   const [isActive, setActive] = useState(false);
   const [color, setColor] = useState("");

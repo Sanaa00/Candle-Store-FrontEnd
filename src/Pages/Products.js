@@ -17,7 +17,8 @@ function Products() {
     isError,
     error,
   } = useGetProductsQuery(search);
-  console.log("data by search", products);
+  // console.log("data by search", products);
+
   return (
     <div className="bg-gray-50 pt-16">
       <Container>

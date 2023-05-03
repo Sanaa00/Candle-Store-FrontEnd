@@ -30,7 +30,7 @@ function ProductsPagination({ products, isError, isLoading, error }) {
       return 12;
     }
   };
-  console.log(products, "productsssssssssss");
+  // console.log(products, "productsssssssssss");
 
   const [currentItems, setCurrentItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
@@ -47,9 +47,9 @@ function ProductsPagination({ products, isError, isLoading, error }) {
     const newOffset = (event.selected * itemsPerPage) % products?.data?.length;
     setItemOffset(newOffset);
   };
-  {
-    console.log(currentItems);
-  }
+  // {
+  //   console.log(currentItems);
+  // }
   if (isLoading)
     return (
       <div className="flex justify-center items-center h-screen">

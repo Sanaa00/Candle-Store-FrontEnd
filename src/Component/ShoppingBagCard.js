@@ -10,29 +10,33 @@ import {
 
 import EmptyBag from "../images/EmptyBag.png";
 import Counter from "./Counter";
+import products from "../Data";
 
 function ShoppingBagCard() {
   const { data: cart, isLoading, error, isError } = useGetCartQuery();
   console.log("item in shop bag", cart);
-  // let Cart = cart.data[0].products[0];
-  // console.log("before delete", Cart);
+  console.log("quantity", cart?.data[0]?.products[0].quantity);
   const [quantityChange] = useQuantityChangeMutation();
 
   const [deleteFromCart] = useDeleteFromCartMutation();
-  console.log("after delete", cart);
 
   const deleteFromCartHandle = (id) => {
+    console.log(id);
     deleteFromCart(id);
   };
+
   const incrementQuantityHandler = (item) => {
+    console.log(item.quantity, "g");
     let newQuantity = item.quantity + 1;
-    console.log("quantity", item.quantity, newQuantity);
-    quantityChange({ ...item, quantity: newQuantity });
+    // console.log("new quantity", newQuantity);
+    console.log("item we send", {});
+    quantityChange();
 
     return newQuantity;
   };
 
   const decrementQuantityHandler = (item) => {
+    // console.log("item", item.data);
     let newQuantity = item.quantity - 1;
     if (newQuantity <= 1) {
       newQuantity = 1;
@@ -50,13 +54,13 @@ function ShoppingBagCard() {
   if (isError) return <p>{error.status}</p>;
   return (
     <div>
-      {cart === [] ? (
+      {cart?.data === [] ? (
         <div className="flex">
           <img src={EmptyBag} alt="" className="w-full h-96" />
         </div>
       ) : (
         <div>
-          {cart?.data?.products?.map((bag) => {
+          {cart?.data[0]?.products?.map((bag, i) => {
             return (
               <div key={bag._id}>
                 <div className="p-2 lg:p-5 flex border-b-2 ">
@@ -86,6 +90,8 @@ function ShoppingBagCard() {
                       </div>
                     </div>
                     <div className="flex justify-between items-center w-full">
+                      {" "}
+                      {console.log("........", bag)}
                       <Counter
                         data={bag}
                         increment={() => incrementQuantityHandler(bag)}

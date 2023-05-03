@@ -1,19 +1,26 @@
 import React from "react";
 
-import { useGetCartQuery } from "../features/api/cart";
+import { useGetCartQuery, useAddToCartMutation } from "../features/api/cart";
 import { BarLoader } from "react-spinners";
 
 import LinkButton from "./LinkButton";
 
 function TotalPrice() {
-  const { data, isLoading } = useGetCartQuery();
+  const { data: cart, isLoading } = useGetCartQuery();
+  const [addToCart] = useAddToCartMutation();
 
+  // console.log("total price", cart?.data[0]);
   let totalQuantity = 0;
   let totalPrice = 0;
-  data?.data?.forEach((item) => {
+  cart?.data[0]?.products.forEach((item) => {
     totalQuantity = totalQuantity + item.quantity;
     totalPrice += item.price * item.quantity;
   });
+  const addTotalHandler = () => {
+    addToCart({ totalPrice: `${totalPrice}$` });
+    console.log(`${totalPrice}$`);
+    console.log("clicked");
+  };
   const widthofbutton = () => {
     if (window.innerWidth < 640) {
       return "full";
@@ -38,7 +45,7 @@ function TotalPrice() {
     <div className="flex w-full sm:justify-center">
       <div className="bg-greeen bg-opacity-10 p-5 w-full lg:w-fit h-fit flex flex-col items-center my-5 lg:my-0">
         <div className="grid grid-cols-1 w-full lg:w-80 xl:w-96 border-b-2 border-greeen">
-          {data?.data?.map((bag) => {
+          {cart?.data[0]?.products.map((bag) => {
             return (
               <div
                 key={bag._id}
@@ -58,6 +65,9 @@ function TotalPrice() {
         </div>
         <LinkButton
           // onClick={openModal}
+          onClick={() => {
+            addTotalHandler();
+          }}
           location="ShippingAndPayment"
           width={widthofbutton()}
           text="Checkout"

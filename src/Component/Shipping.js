@@ -1,64 +1,35 @@
 import { Formik, useFormik, Form } from "formik";
 import React from "react";
-
+import { useAddToCartMutation } from "../features/api/cart";
 import * as Yup from "yup";
 import InputField from "./InputField";
 
 function Shipping() {
+  const [addToCart] = useAddToCartMutation();
   const formik = useFormik({
     initialValues: {
-      firstname: "",
-      lastname: "",
       phone: "",
-      password: "",
-      confirmpasssword: "",
+      city: "",
+      street: "",
     },
     onSubmit: (values) => {
       console.log(values);
+      addToCart({ address: values });
     },
     validationSchema: Yup.object({
-      firstname: Yup.string().label("First Name").required(),
-      lastname: Yup.string().label("Last Name").required(),
       phone: Yup.number().required(),
-      address: Yup.string().required("Fill Address"),
+      street: Yup.string().required("Fill Address"),
       city: Yup.string().required("fill City"),
     }),
   });
   return (
     <div className="">
-      {/* <Payment /> */}
       <Formik>
         <div className="w-full ">
           <Form
             onSubmit={formik.handleSubmit}
-            className="grid grid-cols-1 lg:grid-cols-2 justify-between mb-10 w-full lg:w-full items-center"
+            className="grid grid-cols-1  justify-between mb-10 w-full lg:w-full items-center"
           >
-            <div className="flex flex-col">
-              <InputField
-                type="text"
-                placeholder="First Name"
-                name="firstname"
-                id="firstname"
-                onChange={formik.handleChange}
-                value={formik.values.firstname}
-              />
-              <span className="text-red-400 text-sm">
-                {formik.errors.firstname}
-              </span>
-            </div>
-            <div className="flex flex-col">
-              <InputField
-                type="text"
-                placeholder="Last Name"
-                name="lastname"
-                id="lastname"
-                onChange={formik.handleChange}
-                value={formik.values.lastname}
-              />
-              <span className="text-red-400 text-sm">
-                {formik.errors.lastname}
-              </span>
-            </div>
             <div className="flex flex-col">
               <InputField
                 type="number"
@@ -92,13 +63,13 @@ function Shipping() {
               <InputField
                 type="text"
                 placeholder="street"
-                name="address"
-                id="address"
+                name="street"
+                id="street"
                 onChange={formik.handleChange}
-                value={formik.values.address}
+                value={formik.values.street}
               />
               <span className="text-red-400 text-sm">
-                {formik.errors.address}
+                {formik.errors.street}
               </span>
             </div>
 

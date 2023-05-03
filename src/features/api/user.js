@@ -7,7 +7,7 @@ const user = apiSlice.injectEndpoints({
     }),
     addUser: builder.mutation({
       query: (item) => ({
-        url: "/user/",
+        url: "/user/signup",
         method: "POST",
         body: item,
       }),
