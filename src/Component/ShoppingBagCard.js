@@ -15,34 +15,43 @@ import products from "../Data";
 function ShoppingBagCard() {
   const { data: cart, isLoading, error, isError } = useGetCartQuery();
   console.log("item in shop bag", cart);
+  const cartId = cart?.data[0]?._id;
+  const userId = cart?.data[0]?.user._id;
+  console.log("userid", userId);
+  console.log(cartId);
   // console.log("quantity", cart?.data[0]?.products[0].quantity);
   const [quantityChange] = useQuantityChangeMutation();
 
   const [deleteFromCart] = useDeleteFromCartMutation();
 
-  const deleteFromCartHandle = (id) => {
-    console.log(id);
-    deleteFromCart(id);
+  const deleteFromCartHandle = (bag) => {
+    const _id = bag._id;
+    console.log(_id);
+    deleteFromCart({ _id, userId });
   };
 
   const incrementQuantityHandler = (item) => {
-    console.log(item.quantity, "g");
-    let newQuantity = item.quantity + 1;
+    console.log(item, "g");
+    let productId = item._id;
+    let quantity = item.quantity + 1;
     // console.log("new quantity", newQuantity);
-    console.log("item we send", {});
-    quantityChange({ ...item, quantity: newQuantity });
+    console.log("item we send", { cartId, productId, quantity });
+    quantityChange({ cartId, productId, quantity });
 
-    return newQuantity;
+    return quantity;
   };
 
   const decrementQuantityHandler = (item) => {
     // console.log("item", item.data);
-    let newQuantity = item.quantity - 1;
-    if (newQuantity <= 1) {
-      newQuantity = 1;
+    let productId = item._id;
+    let quantity = item.quantity - 1;
+    if (quantity <= 1) {
+      quantity = 1;
     }
-    quantityChange({ ...item, quantity: newQuantity });
-    return newQuantity;
+    console.log("item we send", { cartId, productId, quantity });
+
+    quantityChange({ cartId, productId, quantity });
+    return quantity;
   };
 
   // if (isLoading)
@@ -84,7 +93,7 @@ function ShoppingBagCard() {
                           <AiOutlineHeart className="w-6 h-6 mr-1 sm:mr-5 text-gray-700" />
                         </div>
 
-                        <button onClick={() => deleteFromCartHandle(bag._id)}>
+                        <button onClick={() => deleteFromCartHandle(bag)}>
                           <TiDeleteOutline className="w-6 h-6 text-gray-700" />
                         </button>
                       </div>

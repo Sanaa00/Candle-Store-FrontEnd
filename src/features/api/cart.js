@@ -14,18 +14,18 @@ const cart = apiSlice.injectEndpoints({
       invalidatesTags: ["cart"],
     }),
     deleteFromCart: builder.mutation({
-      query: (id) => ({
-        url: `/cart/${id}`,
+      query: ({ _id, userId }) => ({
+        url: `/cart/`,
         method: "DELETE",
-        body: id,
+        body: { _id, userId },
       }),
       invalidatesTags: ["cart"],
     }),
     quantityChange: builder.mutation({
-      query: ({ item }) => ({
-        url: `/cart/update`,
-        method: "PATCH",
-        body: item,
+      query: ({ cartId, productId, quantity }) => ({
+        url: `/cart/`,
+        method: "PUT",
+        body: { cartId, productId, quantity },
       }),
       invalidatesTags: ["cart"],
     }),
