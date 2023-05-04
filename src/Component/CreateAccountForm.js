@@ -1,20 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 import { Formik, Form, useFormik } from "formik";
-import { useGetUserQuery, useAddUserMutation } from "../features/api/user";
+// import { useGetUserQuery, useAddUserMutation } from "../features/api/user";
+import { useSignupMutation } from "../features/api/auth";
 
 import * as Yup from "yup";
 
 import InputField from "./InputField";
 import Button from "./Button";
+import { useDispatch, useSelector } from "react-redux";
+import { addUser } from "../features/user.slice";
 
 function CreateAccountForm() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState();
+  const { user } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   // console.log("form data", formData);
   // const { data: user } = useGetUserQuery();
-  const [addUser] = useAddUserMutation();
+  const [signup, { data: response, isError }] = useSignupMutation();
   // console.log("after add", user);
   const widthOfButton = () => {
     if (window.innerWidth < 640) {
@@ -28,7 +34,7 @@ function CreateAccountForm() {
     }
   };
   const addUserHandler = () => {
-    addUser(formData);
+    signup(formData);
   };
   const formik = useFormik({
     initialValues: {
@@ -40,7 +46,7 @@ function CreateAccountForm() {
     },
     onSubmit: (values) => {
       // setFormData(values);
-      addUser(values);
+      signup(values);
       console.log("form values", values);
     },
 
@@ -57,6 +63,14 @@ function CreateAccountForm() {
       ),
     }),
   });
+  useEffect(() => {
+    if (!isError && response) {
+      localStorage.setItem("access_token", response?.data.token);
+      dispatch(addUser(response.data.user));
+      // navigate("/");
+    }
+  }, [response]);
+  if (user) return <Navigate to="/" replace />;
 
   return (
     <Formik>

@@ -22,8 +22,8 @@ const cart = apiSlice.injectEndpoints({
       invalidatesTags: ["cart"],
     }),
     quantityChange: builder.mutation({
-      query: (item) => ({
-        url: `/cart/${item._id}`,
+      query: ({ item }) => ({
+        url: `/cart/update`,
         method: "PATCH",
         body: item,
       }),

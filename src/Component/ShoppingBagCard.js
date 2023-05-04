@@ -15,7 +15,7 @@ import products from "../Data";
 function ShoppingBagCard() {
   const { data: cart, isLoading, error, isError } = useGetCartQuery();
   console.log("item in shop bag", cart);
-  console.log("quantity", cart?.data[0]?.products[0].quantity);
+  // console.log("quantity", cart?.data[0]?.products[0].quantity);
   const [quantityChange] = useQuantityChangeMutation();
 
   const [deleteFromCart] = useDeleteFromCartMutation();
@@ -30,7 +30,7 @@ function ShoppingBagCard() {
     let newQuantity = item.quantity + 1;
     // console.log("new quantity", newQuantity);
     console.log("item we send", {});
-    quantityChange();
+    quantityChange({ ...item, quantity: newQuantity });
 
     return newQuantity;
   };
@@ -45,13 +45,13 @@ function ShoppingBagCard() {
     return newQuantity;
   };
 
-  if (isLoading)
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <BarLoader color="#316C57" height={5} width={200} />
-      </div>
-    );
-  if (isError) return <p>{error.status}</p>;
+  // if (isLoading)
+  //   return (
+  //     <div className="flex justify-center items-center h-screen">
+  //       <BarLoader color="#316C57" height={5} width={200} />
+  //     </div>
+  //   );
+  // if (isError) return <p>{error.status}</p>;
   return (
     <div>
       {cart?.data === [] ? (

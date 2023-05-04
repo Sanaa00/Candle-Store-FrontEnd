@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Formik, Form, useFormik } from "formik";
 import * as Yup from "yup";
 
 import InputField from "./InputField";
 import Button from "./Button";
+import { useGetCurrentUserQuery, useLoginMutation } from "../features/api/auth";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { Navigate } from "react-router-dom";
+import { addUser } from "../features/user.slice";
 function LoginForm() {
+  const [token, setToken] = useState();
+  const { user } = useSelector((state) => state.user);
+  const [login, { data: loginData, isError: loginDataIsError }] =
+    useLoginMutation();
+  const { data: userData, isError: userDataIsError } = useGetCurrentUserQuery(
+    token,
+    { skip: !token }
+  );
+  // const [login, { data, isError }] = useLoginMutation();
+  const dispatch = useDispatch();
   const widthOfButton = () => {
     if (window.innerWidth < 640) {
       return "full";
@@ -23,6 +38,7 @@ function LoginForm() {
       password: "",
     },
     onSubmit: (values) => {
+      login(values);
       console.log(values);
     },
     validationSchema: Yup.object({
@@ -30,6 +46,21 @@ function LoginForm() {
       password: Yup.string().required(),
     }),
   });
+
+  useEffect(() => {
+    if (!loginDataIsError && loginData) {
+      localStorage.setItem("access_token", loginData?.token);
+      setToken(loginData?.token);
+    }
+  }, [loginData]);
+  useEffect(() => {
+    console.log("test");
+    if (!userDataIsError && userData) {
+      dispatch(addUser(userData.data.user));
+    }
+  }, [userData]);
+
+  if (user) return <Navigate to="/" replace />;
   return (
     <Formik>
       <div className="w-full lg:w-fit">

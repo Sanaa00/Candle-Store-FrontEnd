@@ -17,12 +17,34 @@ import AdminPanel from "./Pages/AdminPanel";
 import AddProductsForm from "./Component/AddProductsForm";
 import Table from "./Component/Table";
 import Dashboard from "./Component/Dashboard";
+import { useDispatch, useSelector } from "react-redux";
+import { useGetCurrentUserQuery } from "./features/api/auth";
+import { useEffect } from "react";
+import { addUser } from "./features/user.slice";
 // import Shipping from "./Component/Shipping";
 
 function App() {
+  const dispatch = useDispatch();
+
+  const { user } = useSelector((state) => state.user);
+  console.log("user", user);
+
+  const { data, isError, isSuccess, isLoading } = useGetCurrentUserQuery();
+  console.log("data", data);
+
+  useEffect(() => {
+    if (isSuccess && data) {
+      if (isSuccess && data) {
+        dispatch(addUser(data.data.user));
+      }
+      // console.log(data?.data?.user);
+    }
+  }, [data]);
   return (
     <div>
       {/* <Container> */}
+      {/* {(!user || user.role === "user") && <p className="text-3xl">hello</p>} */}
+      {/* {if } */}
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

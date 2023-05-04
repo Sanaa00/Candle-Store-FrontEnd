@@ -6,14 +6,18 @@ import { HiOutlineShoppingBag, HiShoppingBag } from "react-icons/hi";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useGetCartQuery } from "../features/api/cart";
 import { BarLoader } from "react-spinners";
-
+import { AiOutlineLogout } from "react-icons/ai";
 import logo from "../images/logo.png";
 import Container from "./Container";
 import MobileMenu from "./MobileMenu";
+import { useDispatch, useSelector } from "react-redux";
+import { addUser } from "../features/user.slice";
 // import Search from "./Search";
 
 function Navbar() {
   const { data: bag, isLoading } = useGetCartQuery();
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.user);
   // console.log(bag);
   // console.log(bag?.data?.length);
 
@@ -73,7 +77,7 @@ function Navbar() {
                     {" "}
                     {bag?.data?.length !== 0 && (
                       <span className="absolute h-5 w-5 flex items-center justify-center text-center translate-x-1/2 -translate-y-1/2 bg-red-500  rounded-full text-xs text-white shadow-sm">
-                        {bag?.data?.length}
+                        {bag?.data[0]?.products?.length}
                       </span>
                     )}
                     <HiOutlineShoppingBag className="w-6 h-6 lg:w-5 lg:h-5 xl:w-6 xl:h-6 hover:text-greeen mx-2" />
@@ -90,16 +94,28 @@ function Navbar() {
                 )
               }
             </NavLink>
-            <NavLink to="/createAcount">
-              {({ isActive }) =>
-                isActive ? (
-                  <HiUserCircle className="w-6 h-6 lg:w-5 lg:h-5 xl:w-6 xl:h-6 hover:text-greeen mx-2" />
-                ) : (
-                  <HiOutlineUserCircle className="w-6 h-6 lg:w-5 lg:h-5 xl:w-6 xl:h-6 hover:text-greeen mx-2" />
-                )
-              }
-            </NavLink>
-            {/* <Search /> */}
+            {!user ? (
+              <NavLink to="/createAcount">
+                {({ isActive }) =>
+                  isActive ? (
+                    <HiUserCircle className="w-6 h-6 lg:w-5 lg:h-5 xl:w-6 xl:h-6 hover:text-greeen mx-2" />
+                  ) : (
+                    <HiOutlineUserCircle className="w-6 h-6 lg:w-5 lg:h-5 xl:w-6 xl:h-6 hover:text-greeen mx-2" />
+                  )
+                }
+              </NavLink>
+            ) : (
+              <NavLink
+                to="/"
+                onClick={(e) => {
+                  localStorage.removeItem("access_token");
+                  dispatch(addUser(null));
+                }}
+              >
+                {" "}
+                <AiOutlineLogout className="w-6 h-6 lg:w-5 lg:h-5 xl:w-6 xl:h-6 hover:text-greeen mx-2" />
+              </NavLink>
+            )}
           </ul>
         </div>
       </Container>
