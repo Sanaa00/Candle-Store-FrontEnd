@@ -6,16 +6,31 @@ import {
   useGetCartQuery,
   useDeleteFromCartMutation,
   useQuantityChangeMutation,
+  useGetCartByUserIdQuery,
 } from "../features/api/cart";
 
 import EmptyBag from "../images/EmptyBag.png";
 import Counter from "./Counter";
 import products from "../Data";
+import { useSelector } from "react-redux";
 
 function ShoppingBagCard() {
+  const { user } = useSelector((state) => state.user);
+  // console.log("user in bag", user);
+  const cardUserId = user?._id;
+  console.log("user in bag", cardUserId);
+
   const { data: cart, isLoading, error, isError } = useGetCartQuery();
+  const {
+    data: cartByUser,
+    cartByUserisLoading,
+    cartByUserisError,
+    cartByUsererror,
+  } = useGetCartByUserIdQuery(cardUserId);
+  console.log("get cart by user id", cartByUser);
   console.log("item in shop bag", cart);
   const cartId = cart?.data[0]?._id;
+  console.log("cart Id", cartId);
   const userId = cart?.data[0]?.user._id;
   console.log("userid", userId);
   console.log(cartId);
@@ -34,7 +49,7 @@ function ShoppingBagCard() {
     console.log(item, "g");
     let productId = item._id;
     let quantity = item.quantity + 1;
-    // console.log("new quantity", newQuantity);
+    console.log("new quantity", quantity);
     console.log("item we send", { cartId, productId, quantity });
     quantityChange({ cartId, productId, quantity });
 

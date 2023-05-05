@@ -4,7 +4,15 @@ export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.REACT_APP_BASE_URL,
-    tagTypes: ["userData", "product", "user", "cart", "review", "category"],
+    tagTypes: [
+      "userData",
+      "product",
+      "user",
+      "cart",
+      "review",
+      "category",
+      "address",
+    ],
     prepareHeaders: (headers) => {
       const token = localStorage.getItem("access_token");
       console.log(token);

@@ -1,8 +1,8 @@
 import React from "react";
 
 import { BarLoader } from "react-spinners";
-import { useGetCurrentUserQuery } from "../features/api/auth";
-import { useGetCartQuery } from "../features/api/cart";
+// import { useGetCurrentUserQuery } from "../features/api/auth";
+import { useGetCartQuery, useGetCartByUserIdQuery } from "../features/api/cart";
 
 import Container from "../Component/Container";
 import ShoppingBagCard from "../Component/ShoppingBagCard";
@@ -11,10 +11,15 @@ import emptyBag from "../images/EmptyBag.png";
 import { useSelector } from "react-redux";
 
 function ShopBag() {
-  const { data: bag, isLoading, error, isError } = useGetCartQuery();
   const { user } = useSelector((state) => state.user);
-
-  console.log(bag, "bag");
+  const userId = user?._id;
+  const {
+    data: bag,
+    isLoading,
+    error,
+    isError,
+  } = useGetCartByUserIdQuery(userId);
+  console.log("bag", bag);
   console.log(user, "usery current");
 
   isLoading && (

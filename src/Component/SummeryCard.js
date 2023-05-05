@@ -3,6 +3,7 @@ import { useGetCartQuery } from "../features/api/cart";
 
 function SummeryCard() {
   const { data } = useGetCartQuery();
+  console.log("cart", data);
   return (
     <div className="grid grid-cols-1 w-full lg:w-80 xl:w-96 border-b-2 border-greeen">
       {data?.data[0]?.products.map((bag) => {

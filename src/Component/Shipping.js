@@ -1,11 +1,20 @@
 import { Formik, useFormik, Form } from "formik";
 import React from "react";
-import { useAddToCartMutation } from "../features/api/cart";
+import { useAddToCartMutation, useGetCartQuery } from "../features/api/cart";
+import {
+  useAddToAddressMutation,
+  useGetAddressQuery,
+} from "../features/api/address";
 import * as Yup from "yup";
 import InputField from "./InputField";
 
 function Shipping() {
   const [addToCart] = useAddToCartMutation();
+  const { data: address } = useGetAddressQuery();
+  console.log("address table", address);
+  const [addToAddress] = useAddToAddressMutation();
+  const { data: bag } = useGetCartQuery();
+  console.log("bag", bag);
   const formik = useFormik({
     initialValues: {
       phone: "",
@@ -13,11 +22,11 @@ function Shipping() {
       street: "",
     },
     onSubmit: (values) => {
-      console.log(values);
+      console.log({ values });
       addToCart({ address: values });
     },
     validationSchema: Yup.object({
-      phone: Yup.number().required(),
+      phone: Yup.string().required(),
       street: Yup.string().required("Fill Address"),
       city: Yup.string().required("fill City"),
     }),
@@ -32,7 +41,7 @@ function Shipping() {
           >
             <div className="flex flex-col">
               <InputField
-                type="number"
+                type="text"
                 placeholder="Phone.no"
                 name="phone"
                 id="phone"

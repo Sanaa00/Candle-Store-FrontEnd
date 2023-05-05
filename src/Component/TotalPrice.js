@@ -7,19 +7,22 @@ import LinkButton from "./LinkButton";
 
 function TotalPrice() {
   const { data: cart, isLoading } = useGetCartQuery();
-  const [addToCart] = useAddToCartMutation();
+  const [addToCart, { isError, error }] = useAddToCartMutation();
+  if (isError || error) {
+    console.log(isError, error);
+  }
 
   // console.log("total price", cart?.data[0]);
   let totalQuantity = 0;
-  let totalPrice = 0;
+  let totalprice = 0;
   cart?.data[0]?.products.forEach((item) => {
     totalQuantity = totalQuantity + item.quantity;
-    totalPrice += item.price * item.quantity;
+    totalprice += item.price * item.quantity;
   });
   const addTotalHandler = () => {
-    addToCart({ totalPrice: `${totalPrice}$` });
-    console.log(`${totalPrice}$`);
-    console.log("clicked");
+    addToCart({ totalprice: `${totalprice}` });
+    console.log({ totalprice: `${totalprice}` });
+    // console.log("clicked");
   };
   const widthofbutton = () => {
     if (window.innerWidth < 640) {
@@ -61,7 +64,7 @@ function TotalPrice() {
         </div>
         <div className="w-full flex justify-between items-center py-5">
           <p className="">Total</p>
-          <p>{totalPrice}</p>
+          <p>{totalprice}</p>
         </div>
         <LinkButton
           // onClick={openModal}

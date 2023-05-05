@@ -5,6 +5,10 @@ const cart = apiSlice.injectEndpoints({
       query: () => "/cart/",
       providesTags: ["cart"],
     }),
+    getCartByUserId: builder.query({
+      query: (userId) => `/cart/${userId}`,
+      providesTags: ["cart"],
+    }),
     addToCart: builder.mutation({
       query: (item) => ({
         url: "/cart/",
@@ -23,9 +27,9 @@ const cart = apiSlice.injectEndpoints({
     }),
     quantityChange: builder.mutation({
       query: ({ cartId, productId, quantity }) => ({
-        url: `/cart/`,
+        url: `/cart/${cartId}`,
         method: "PUT",
-        body: { cartId, productId, quantity },
+        body: { productId, quantity },
       }),
       invalidatesTags: ["cart"],
     }),
@@ -36,5 +40,6 @@ export const {
   useAddToCartMutation,
   useDeleteFromCartMutation,
   useQuantityChangeMutation,
+  useGetCartByUserIdQuery,
 } = cart;
 ////http://localhost:8000/api/cart?search=dsahdsahj bo search
