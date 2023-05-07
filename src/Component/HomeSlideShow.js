@@ -17,9 +17,6 @@ function HomeSlideShow() {
     slidesToShow: 1,
     slidesToScroll: 1,
     adaptiveHeight: true,
-    // autoplay: true,
-    // speed: 2000,
-    // autoplaySpeed: 5000,
     arrows: false,
   };
 
@@ -81,18 +78,6 @@ function HomeSlideShow() {
               </p>
             </Container>
           </div>
-          {/* <div className="justify-center items-center relative w-full">
-            <img
-              alt="candles"
-              src="https://images.unsplash.com/photo-1601479604588-68d9e6d386b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2013&q=80"
-              className="w-full object-cover object-center"
-            />
-            <Container>
-              <p className="absolute top-36 left-0 text-center  py-32 text-greeen font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl px-80">
-                Light Up Your Life
-              </p>
-            </Container>
-          </div> */}
         </div>
         <div className="w-full h-[500px] lg:h-screen flex justify-center items-center">
           <div className="justify-center items-center relative w-full">

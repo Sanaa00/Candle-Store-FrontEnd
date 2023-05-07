@@ -16,4 +16,3 @@ const category = apiSlice.injectEndpoints({
   }),
 });
 export const { useGetCategoryQuery, useAddToCategoryMutation } = category;
-////http://localhost:8000/api/cart?search=dsahdsahj bo search

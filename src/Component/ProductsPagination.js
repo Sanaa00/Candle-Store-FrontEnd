@@ -3,24 +3,8 @@ import ReactPaginate from "react-paginate";
 import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
 import CandleCard from "./CandleCard";
 import { BarLoader } from "react-spinners";
-import {
-  // useGetProductsQuery,
-  useGetProductsByCategoryQuery,
-  // useGetProductsBySearchQuery,
-  useGetProductsQuery,
-} from "../features/api/productApi";
 
 function ProductsPagination({ products, isError, isLoading, error }) {
-  // const { data, isLoading, error, isError } = useGetProductsQuery();
-  // const {
-  //   data: products,
-  //   isLoading,
-  //   isError,
-  //   error,
-  // } = useGetProductsQuery("simple");
-  // console.log("products", products, isLoading, isError, error);
-  // const { data: category } = useGetProductsByCategoryQuery();
-  // console.log("category", category);
   const itemPerPageWindowSize = () => {
     if (window.innerWidth < 640) {
       return 6;
@@ -30,7 +14,6 @@ function ProductsPagination({ products, isError, isLoading, error }) {
       return 12;
     }
   };
-  // console.log(products, "productsssssssssss");
 
   const [currentItems, setCurrentItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
@@ -47,9 +30,6 @@ function ProductsPagination({ products, isError, isLoading, error }) {
     const newOffset = (event.selected * itemsPerPage) % products?.data?.length;
     setItemOffset(newOffset);
   };
-  // {
-  //   console.log(currentItems);
-  // }
   if (isLoading)
     return (
       <div className="flex justify-center items-center h-screen">

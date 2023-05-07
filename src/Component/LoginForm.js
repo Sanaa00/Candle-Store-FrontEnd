@@ -14,12 +14,11 @@ function LoginForm() {
   const [token, setToken] = useState();
   const { user } = useSelector((state) => state.user);
   const [login, { data: loginData, isError: loginDataIsError }] =
-    useLoginMutation();
+    useLoginMutation({ fixedCacheKey: "login" });
   const { data: userData, isError: userDataIsError } = useGetCurrentUserQuery(
     token,
     { skip: !token }
   );
-  // const [login, { data, isError }] = useLoginMutation();
   const dispatch = useDispatch();
   const widthOfButton = () => {
     if (window.innerWidth < 640) {
@@ -86,12 +85,7 @@ function LoginForm() {
           <span className="text-red-400 text-sm">{formik.errors.password}</span>
           <div className="mt-5">
             {" "}
-            <Button
-              text="Login"
-              // width={widthOfButton()}
-              type="submit"
-              px={widthOfButton()}
-            />
+            <Button text="Login" type="submit" px={widthOfButton()} />
           </div>
         </Form>
       </div>

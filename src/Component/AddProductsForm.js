@@ -29,8 +29,6 @@ function AddProductForm() {
       category: "",
     },
     onSubmit: (values) => {
-      //  setFormData(values);
-      // addUser(values);
       console.log("add product", values);
     },
 

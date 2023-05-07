@@ -16,4 +16,3 @@ const cart = apiSlice.injectEndpoints({
   }),
 });
 export const { useGetContactQuery, useAddContactMutation } = cart;
-////http://localhost:8000/api/cart?search=dsahdsahj bo search

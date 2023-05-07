@@ -1,12 +1,10 @@
 import React from "react";
 import Modal from "react-modal";
 
-// import "bootstrap/dist/css/bootstrap.min.css";
 function AdressPaymentModal({ modalIsOpen, closeModal }) {
   let subtitle;
 
   function afterOpenModal() {
-    // references are now sync'd and can be accessed.
     subtitle.style.color = "#f00";
   }
 

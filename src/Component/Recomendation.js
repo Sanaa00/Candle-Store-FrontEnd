@@ -6,7 +6,6 @@ import data from "../Data";
 import CandleCard from "./CandleCard";
 function Recomendation() {
   const sliderRef = useRef(null);
-  // console.log(sliderRef.current);
 
   const itemPerPage = () => {
     if (window.innerWidth < 640) {

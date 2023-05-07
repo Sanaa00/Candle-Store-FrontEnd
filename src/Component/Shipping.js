@@ -1,10 +1,7 @@
 import { Formik, useFormik, Form } from "formik";
 import React from "react";
 import { useAddToCartMutation, useGetCartQuery } from "../features/api/cart";
-import {
-  useAddToAddressMutation,
-  useGetAddressQuery,
-} from "../features/api/address";
+import { useGetAddressQuery } from "../features/api/address";
 import * as Yup from "yup";
 import InputField from "./InputField";
 
@@ -12,7 +9,6 @@ function Shipping() {
   const [addToCart] = useAddToCartMutation();
   const { data: address } = useGetAddressQuery();
   console.log("address table", address);
-  const [addToAddress] = useAddToAddressMutation();
   const { data: bag } = useGetCartQuery();
   console.log("bag", bag);
   const formik = useFormik({

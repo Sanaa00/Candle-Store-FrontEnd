@@ -6,8 +6,6 @@ import { IoMenu } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
 import { HiOutlineShoppingBag, HiShoppingBag } from "react-icons/hi";
 
-import Search from "./Search";
-
 function MobileMenu() {
   const [open, setOpen] = useState(true);
 
@@ -19,7 +17,6 @@ function MobileMenu() {
       <div
         className={`flex lg:hidden  justify-center items-center  h-full text-lg font-bold`}
       >
-        {/* <Search /> */}
         <NavLink to="/shopBag">
           {({ isActive }) =>
             isActive ? (

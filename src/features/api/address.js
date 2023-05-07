@@ -36,4 +36,3 @@ const address = apiSlice.injectEndpoints({
   }),
 });
 export const { useGetAddressQuery, useAddToAddressMutation } = address;
-////http://localhost:8000/api/cart?search=dsahdsahj bo search

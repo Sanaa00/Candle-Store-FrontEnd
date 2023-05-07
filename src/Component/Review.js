@@ -1,15 +1,11 @@
 import React, { useState } from "react";
 import Button from "./Button";
-import { useReviewMutation, useGetReviewQuery } from "../features/api/review";
+import { useReviewMutation } from "../features/api/review";
 function Review({ id }) {
   const [review, setReview] = useState("");
-  const { data: reviews } = useGetReviewQuery();
   const [addReview] = useReviewMutation();
-  // console.log("reviews", reviews);
   const reviewHandler = (e) => {
     setReview(e.target.value);
-    // addReview(review);
-    // console.log("added review", review);
   };
   const addreviewHandler = () => {
     addReview({ message: review, product: id });

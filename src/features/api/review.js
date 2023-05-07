@@ -15,10 +15,4 @@ const review = apiSlice.injectEndpoints({
     }),
   }),
 });
-export const {
-  useGetReviewQuery,
-  useReviewMutation,
-  //   useDeleteFromCartMutation,
-  //   useQuantityChangeMutation,
-} = review;
-////http://localhost:8000/api/cart?search=dsahdsahj bo search
+export const { useGetReviewQuery, useReviewMutation } = review;

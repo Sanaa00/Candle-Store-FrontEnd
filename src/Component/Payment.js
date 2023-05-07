@@ -1,6 +1,5 @@
 import React from "react";
 import paymnet from "../images/payment.png";
-// import Checkbox from "rc-checkbox";
 import "@trendmicro/react-radio/dist/react-radio.css";
 import { RadioButton, RadioGroup } from "@trendmicro/react-radio";
 import SummeryCard from "./SummeryCard";

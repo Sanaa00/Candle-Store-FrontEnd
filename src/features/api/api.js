@@ -27,11 +27,3 @@ export const apiSlice = createApi({
 
   endpoints: () => ({}),
 });
-// export const apiSlice = createApi({
-//   reducerPath: "apiSlice",
-//   baseQuery: fetchBaseQuery({
-//     baseUrl: process.env.REACT_APP_BASE_URL,
-//   }),
-//   tagTypes: ["product", "cart", "favourite", "user", "review"],
-//   endpoints: () => ({}),
-// });

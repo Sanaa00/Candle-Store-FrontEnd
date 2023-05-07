@@ -1,5 +1,5 @@
 import React from "react";
-import { useGetCartQuery, useGetCartByUserIdQuery } from "../features/api/cart";
+import { useGetCartByUserIdQuery } from "../features/api/cart";
 import { useSelector } from "react-redux";
 
 function SummeryCard() {

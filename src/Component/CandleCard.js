@@ -2,7 +2,6 @@ import React from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
-// import StarRatings from "react-star-ratings";
 
 import {
   useDeleteFromFavMutation,
@@ -12,7 +11,6 @@ import {
 } from "../features/api/favourite";
 
 function CandleCard({ candle }) {
-  // console.log("candles ", candle);
   const [addToFav] = useAddToFavMutation();
   const [deleteFromFav] = useDeleteFromFavMutation();
   const [toggleFav] = useToggleFavMutation();
@@ -63,17 +61,6 @@ function CandleCard({ candle }) {
             </p>{" "}
             <p className=" text-greeen font-medium text-lg">{candle.price}$</p>
           </div>
-
-          {/* <StarRatings
-            rating={candle.raiting}
-            changeRating={null}
-            numberOfStars={5}
-            starRatedColor={"#FDCC0D"}
-            name="rating"
-            className="grid grid-cols-5 w-6 h-6"
-            starSpacing="1"
-            starDimension="18"
-          /> */}
         </div>
       </Link>
     </div>

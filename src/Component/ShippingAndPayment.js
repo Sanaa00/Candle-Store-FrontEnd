@@ -4,7 +4,6 @@ import "react-tabs/style/react-tabs.css";
 
 import Shipping from "./Shipping";
 
-import Payment from "./Payment";
 import SummeryCard from "./SummeryCard";
 
 function ShippingAndPayment() {
@@ -22,7 +21,6 @@ function ShippingAndPayment() {
               <p className="text-greeen font-semibold"> Order Summery</p>
               <SummeryCard />
             </div>
-            {/* <Payment /> */}
           </div>
         </div>
       </Container>

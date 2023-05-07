@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 
 import { Formik, Form, useFormik } from "formik";
-// import { useGetUserQuery, useAddUserMutation } from "../features/api/user";
 import { useSignupMutation } from "../features/api/auth";
 
 import * as Yup from "yup";
@@ -16,12 +15,11 @@ import { addUser } from "../features/user.slice";
 function CreateAccountForm() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState();
+
   const { user } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  // console.log("form data", formData);
-  // const { data: user } = useGetUserQuery();
   const [signup, { data: response, isError }] = useSignupMutation();
-  // console.log("after add", user);
+
   const widthOfButton = () => {
     if (window.innerWidth < 640) {
       return "full";
@@ -45,7 +43,6 @@ function CreateAccountForm() {
       confirmpasssword: "",
     },
     onSubmit: (values) => {
-      // setFormData(values);
       signup(values);
       console.log("form values", values);
     },
@@ -124,12 +121,7 @@ function CreateAccountForm() {
             {formik.errors.confirmpasssword}
           </span>
           <div className="mt-5 flex flex-col justify-center items-center">
-            <Button
-              text="Create"
-              width={widthOfButton()}
-              type="submit"
-              // onClick={() => addUserHandler()}
-            />
+            <Button text="Create" width={widthOfButton()} type="submit" />
             <Link
               to="/login"
               className="mt-2 text-blue-700 underline hover:text-blue-500 duration-400 hover:duration-500"
