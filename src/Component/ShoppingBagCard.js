@@ -63,58 +63,52 @@ function ShoppingBagCard() {
   if (cartByUserisError) return <p>{cartByUsererror.status}</p>;
   return (
     <div>
-      {cartByUser?.data === [] ? (
-        <div className="flex">
-          <img src={EmptyBag} alt="" className="w-full h-96" />
-        </div>
-      ) : (
-        <div>
-          {cartByUser?.data[0]?.products?.map((bag, i) => {
-            return (
-              <div key={bag._id}>
-                <div className="p-2 lg:p-5 flex border-b-2 ">
-                  <div className="w-52 h-40">
-                    {" "}
-                    <img
-                      src={bag.images[0]}
-                      alt="shopping card"
-                      className="w-40 h-40 object-cover rounded-sm object-center mr-1 lg:mr-5"
-                    />
-                  </div>
+      <div>
+        {cartByUser?.data[0]?.products?.map((bag, i) => {
+          return (
+            <div key={bag._id}>
+              <div className="p-2 lg:p-5 flex border-b-2 ">
+                <div className="w-52 h-40">
+                  {" "}
+                  <img
+                    src={bag.images[0]}
+                    alt="shopping card"
+                    className="w-40 h-40 object-cover rounded-sm object-center mr-1 lg:mr-5"
+                  />
+                </div>
 
-                  <div className="flex flex-col justify-between items-center w-full p-1 ml-5">
-                    <div className="flex justify-between items-center w-full">
-                      <p className="font-semibold text-greeen ">
-                        {bag.productName}
-                      </p>
-                      <div className="flex ">
-                        <div>
-                          {" "}
-                          <AiOutlineHeart className="w-6 h-6 mr-1 sm:mr-5 text-gray-700" />
-                        </div>
-
-                        <button onClick={() => deleteFromCartHandle(bag._id)}>
-                          <TiDeleteOutline className="w-6 h-6 text-gray-700" />
-                        </button>
+                <div className="flex flex-col justify-between items-center w-full p-1 ml-5">
+                  <div className="flex justify-between items-center w-full">
+                    <p className="font-semibold text-greeen ">
+                      {bag.productName}
+                    </p>
+                    <div className="flex ">
+                      <div>
+                        {" "}
+                        <AiOutlineHeart className="w-6 h-6 mr-1 sm:mr-5 text-gray-700" />
                       </div>
+
+                      <button onClick={() => deleteFromCartHandle(bag._id)}>
+                        <TiDeleteOutline className="w-6 h-6 text-gray-700" />
+                      </button>
                     </div>
-                    <div className="flex justify-between items-center w-full">
-                      {" "}
-                      {console.log("........", bag)}
-                      <Counter
-                        data={bag}
-                        increment={() => incrementQuantityHandler(bag)}
-                        decrement={() => decrementQuantityHandler(bag)}
-                      />
-                      <p>{bag.price}$ </p>
-                    </div>
+                  </div>
+                  <div className="flex justify-between items-center w-full">
+                    {" "}
+                    {console.log("........", bag)}
+                    <Counter
+                      data={bag}
+                      increment={() => incrementQuantityHandler(bag)}
+                      decrement={() => decrementQuantityHandler(bag)}
+                    />
+                    <p>{bag.price}$ </p>
                   </div>
                 </div>
               </div>
-            );
-          })}
-        </div>
-      )}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

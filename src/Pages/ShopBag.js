@@ -34,7 +34,7 @@ function ShopBag() {
         <div className="min-h-screen py-28">
           {/* {bag?.data?.filter((item) => item.user._id === user?._id)} */}
 
-          {bag?.data[0]?.products?.length === 0 ? (
+          {!bag?.data || bag?.data?.[0]?.products.length === 0 ? (
             <div className="flex justify-center items-center">
               {console.log("here")}
               <img
