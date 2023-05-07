@@ -51,13 +51,13 @@ function LoginForm() {
       localStorage.setItem("access_token", loginData?.token);
       setToken(loginData?.token);
     }
-  }, [loginData]);
+  }, [loginData, loginDataIsError]);
   useEffect(() => {
     console.log("test");
     if (!userDataIsError && userData) {
       dispatch(addUser(userData.data.user));
     }
-  }, [userData]);
+  }, [dispatch, userData, userDataIsError]);
 
   if (user) return <Navigate to="/" replace />;
   return (

@@ -1,8 +1,7 @@
 import React from "react";
 
 import { BarLoader } from "react-spinners";
-// import { useGetCurrentUserQuery } from "../features/api/auth";
-import { useGetCartQuery, useGetCartByUserIdQuery } from "../features/api/cart";
+import { useGetCartByUserIdQuery } from "../features/api/cart";
 
 import Container from "../Component/Container";
 import ShoppingBagCard from "../Component/ShoppingBagCard";

@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { HiOutlineUserCircle, HiUserCircle } from "react-icons/hi";
 import { HiOutlineShoppingBag, HiShoppingBag } from "react-icons/hi";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import { useGetCartByUserIdQuery, useGetCartQuery } from "../features/api/cart";
+import { useGetCartByUserIdQuery } from "../features/api/cart";
 import { BarLoader } from "react-spinners";
 import { AiOutlineLogout } from "react-icons/ai";
 import logo from "../images/logo.png";
@@ -15,12 +15,10 @@ import { addUser } from "../features/user.slice";
 // import Search from "./Search";
 
 function Navbar() {
-  const { data: bag, isLoading } = useGetCartQuery();
-
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
   const userId = user?._id;
-  const { data: cartByUser } = useGetCartByUserIdQuery(userId, {
+  const { data: cartByUser, isLoading } = useGetCartByUserIdQuery(userId, {
     skip: !userId,
   });
   console.log("user id in navbar", cartByUser);

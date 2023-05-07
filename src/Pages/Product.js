@@ -1,20 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { useParams } from "react-router-dom";
 import { BarLoader } from "react-spinners";
-import { ClipLoader } from "react-spinners";
 
-import {
-  useGetProductByIdQuery,
-  useProductQuantityChangeMutation,
-} from "../features/api/productApi";
+import { useGetProductByIdQuery } from "../features/api/productApi";
 import { useGetCartQuery, useAddToCartMutation } from "../features/api/cart";
 
 import Recomendation from "../Component/Recomendation";
 import Review from "../Component/Review";
 import Button from "../Component/Button";
 import Container from "../Component/Container";
-import Counter from "../Component/Counter";
+
 import Colors from "../Component/Colors";
 import ProductImageSlider from "../Component/ProductImageSlider";
 
@@ -22,7 +18,7 @@ function Product() {
   const { _id } = useParams();
   console.log("product id", _id);
   // const [addToCart, { isLoadingg }] = useAddToCartMutation();
-  const [productQuantityChange] = useProductQuantityChangeMutation();
+  // const [productQuantityChange] = useProductQuantityChangeMutation();
   const { data: cart } = useGetCartQuery();
   const [addToCart] = useAddToCartMutation();
   console.log("cart items", cart);
@@ -43,20 +39,20 @@ function Product() {
     console.log(singleProduct);
   };
 
-  const incrementQuantityHandler = (item) => {
-    let newQuantity = item.quantity + 1;
-    productQuantityChange({ ...item, quantity: newQuantity });
-    return newQuantity;
-  };
+  // const incrementQuantityHandler = (item) => {
+  //   let newQuantity = item.quantity + 1;
+  //   productQuantityChange({ ...item, quantity: newQuantity });
+  //   return newQuantity;
+  // };
 
-  const decrementQuantityHandler = (item) => {
-    let newQuantity = item.quantity - 1;
-    if (newQuantity <= 1) {
-      newQuantity = 1;
-    }
-    productQuantityChange({ ...item, quantity: newQuantity });
-    return newQuantity;
-  };
+  // const decrementQuantityHandler = (item) => {
+  //   let newQuantity = item.quantity - 1;
+  //   if (newQuantity <= 1) {
+  //     newQuantity = 1;
+  //   }
+  //   productQuantityChange({ ...item, quantity: newQuantity });
+  //   return newQuantity;
+  // };
 
   const widthOfButton = () => {
     if (window.innerWidth < 640) {

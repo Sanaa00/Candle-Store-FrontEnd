@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useGetProductsByCategoryQuery } from "../features/api/productApi";
+import React from "react";
 import { useGetCategoryQuery } from "../features/api/category";
 
 function ProductsNavbar({ categoryId, setCategoryId }) {

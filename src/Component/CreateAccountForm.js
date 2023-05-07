@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 import { Formik, Form, useFormik } from "formik";
 import { useSignupMutation } from "../features/api/auth";
@@ -13,8 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../features/user.slice";
 
 function CreateAccountForm() {
-  const navigate = useNavigate();
-  const [formData, setFormData] = useState();
+  // const navigate = useNavigate();
 
   const { user } = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -31,9 +30,9 @@ function CreateAccountForm() {
       return 96;
     }
   };
-  const addUserHandler = () => {
-    signup(formData);
-  };
+  // const addUserHandler = () => {
+  //   signup(formData);
+  // };
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -66,7 +65,7 @@ function CreateAccountForm() {
       dispatch(addUser(response.data.user));
       // navigate("/");
     }
-  }, [response]);
+  }, [dispatch, isError, response]);
   if (user) return <Navigate to="/" replace />;
 
   return (
