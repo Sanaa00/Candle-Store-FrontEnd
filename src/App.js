@@ -39,7 +39,9 @@ function App() {
       }
       // console.log(data?.data?.user);
     }
-  }, [data, dispatch, isSuccess]);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data]);
   return (
     <div>
       {/* <Container> */}
