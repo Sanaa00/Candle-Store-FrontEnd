@@ -1,12 +1,15 @@
 import React from "react";
-import { useGetCartQuery } from "../features/api/cart";
+import { useGetCartQuery, useGetCartByUserIdQuery } from "../features/api/cart";
+import { useSelector } from "react-redux";
 
 function SummeryCard() {
-  const { data } = useGetCartQuery();
-  console.log("cart", data);
+  const { user } = useSelector((state) => state.user);
+  const userId = user?._id;
+  const { data: cart } = useGetCartByUserIdQuery(userId);
+  console.log("cart", cart);
   return (
     <div className="grid grid-cols-1 w-full lg:w-80 xl:w-96 border-b-2 border-greeen">
-      {data?.data[0]?.products.map((bag) => {
+      {cart?.data[0]?.products.map((bag) => {
         return (
           <div
             key={bag._id}
@@ -19,7 +22,7 @@ function SummeryCard() {
             />
             <div className="flex flex-col justify-between items-end">
               <p>{bag.productName}</p>
-              <p className="text-greeen"> {bag.price * bag.quantity}$</p>
+              <p className="text-greeen"> {bag.price * 1}$</p>
             </div>
           </div>
         );

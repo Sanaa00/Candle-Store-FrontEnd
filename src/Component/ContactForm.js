@@ -1,11 +1,17 @@
 import React from "react";
 import { Formik, Form, useFormik } from "formik";
 import * as Yup from "yup";
-
+import {
+  useAddContactMutation,
+  useGetContactQuery,
+} from "../features/api/contact";
 import InputField from "./InputField";
 import Button from "./Button";
 
 function ContactForm() {
+  const [addContact] = useAddContactMutation();
+  const { data: contact } = useGetContactQuery();
+  console.log("contact", contact);
   const widthOfButton = () => {
     if (window.innerWidth < 640) {
       return "full";
@@ -28,6 +34,7 @@ function ContactForm() {
     },
     onSubmit: (values) => {
       console.log(values);
+      addContact(values);
     },
     validationSchema: Yup.object({
       name: Yup.string().label("Name").required(),

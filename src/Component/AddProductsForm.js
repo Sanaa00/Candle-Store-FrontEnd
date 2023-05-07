@@ -8,7 +8,7 @@ import { useGetCategoryQuery } from "../features/api/category";
 
 function AddProductForm() {
   const { data: category } = useGetCategoryQuery();
-  console.log(category.data);
+  console.log(category?.data);
   const widthOfButton = () => {
     if (window.innerWidth < 640) {
       return "full";
@@ -115,13 +115,13 @@ function AddProductForm() {
                 id="category"
                 className="w-full lg:w-80 xl:w-96 border-2 rounded-sm border-gray-200 focus:outline-none focus:border-greeen bg-gray-50 mt-5 px-1 py-1"
               >
-                {category.data.map((one) => {
+                {/* {category.data.map((one) => {
                   return (
                     <option className="w-full lg:w-80 xl:w-96 border-2 rounded-sm border-gray-200 focus:outline-none hover:bg-greeen bg-gray-50 mt-5 px-1 py-1">
                       {one.category}
                     </option>
                   );
-                })}
+                })} */}
                 {/* <option
                   className="w-full lg:w-80 xl:w-96 border-2 rounded-sm border-gray-200 focus:outline-none hover:bg-greeen bg-gray-50 mt-5 px-1 py-1"
                   value="volvo"

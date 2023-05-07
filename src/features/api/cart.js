@@ -19,7 +19,7 @@ const cart = apiSlice.injectEndpoints({
     }),
     deleteFromCart: builder.mutation({
       query: ({ _id, userId }) => ({
-        url: `/cart/`,
+        url: `/cart`,
         method: "DELETE",
         body: { _id, userId },
       }),

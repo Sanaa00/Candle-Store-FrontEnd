@@ -27,7 +27,7 @@ function App() {
   const dispatch = useDispatch();
 
   const { user } = useSelector((state) => state.user);
-  console.log("user", user);
+  console.log("user", user?.role);
 
   const { data, isError, isSuccess, isLoading } = useGetCurrentUserQuery();
   console.log("data", data);

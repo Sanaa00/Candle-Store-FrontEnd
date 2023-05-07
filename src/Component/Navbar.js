@@ -1,10 +1,10 @@
 import React from "react";
-
+import { RiAdminLine, RiAdminFill } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
 import { HiOutlineUserCircle, HiUserCircle } from "react-icons/hi";
 import { HiOutlineShoppingBag, HiShoppingBag } from "react-icons/hi";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import { useGetCartQuery } from "../features/api/cart";
+import { useGetCartByUserIdQuery, useGetCartQuery } from "../features/api/cart";
 import { BarLoader } from "react-spinners";
 import { AiOutlineLogout } from "react-icons/ai";
 import logo from "../images/logo.png";
@@ -16,8 +16,12 @@ import { addUser } from "../features/user.slice";
 
 function Navbar() {
   const { data: bag, isLoading } = useGetCartQuery();
+
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
+  const userId = user?._id;
+  const { data: cartByUser } = useGetCartByUserIdQuery(userId);
+  console.log("user id in navbar", cartByUser);
   // console.log(bag);
   // console.log(bag?.data?.length);
 
@@ -67,7 +71,17 @@ function Navbar() {
             {/* <div className="">
               <Search />
             </div> */}
-
+            {user?.role === "admin" && (
+              <NavLink to="/adminPanel">
+                {({ isActive }) =>
+                  isActive ? (
+                    <RiAdminFill className="w-6 h-6 lg:w-5 lg:h-5 xl:w-6 xl:h-6 hover:text-greeen mx-2" />
+                  ) : (
+                    <RiAdminLine className="w-6 h-6 lg:w-5 lg:h-5 xl:w-6 xl:h-6 hover:text-greeen mx-2" />
+                  )
+                }
+              </NavLink>
+            )}
             <NavLink to="/shopBag">
               {({ isActive }) =>
                 isActive ? (
@@ -75,11 +89,12 @@ function Navbar() {
                 ) : (
                   <span>
                     {" "}
-                    {bag?.data?.length !== 0 && (
-                      <span className="absolute h-5 w-5 flex items-center justify-center text-center translate-x-1/2 -translate-y-1/2 bg-red-500  rounded-full text-xs text-white shadow-sm">
-                        {bag?.data[0]?.products?.length}
-                      </span>
-                    )}
+                    {!user ||
+                      (cartByUser?.data[0]?.products.length && (
+                        <span className="absolute h-5 w-5 flex items-center justify-center text-center translate-x-1/2 -translate-y-1/2 bg-red-500  rounded-full text-xs text-white shadow-sm">
+                          {cartByUser?.data[0]?.products?.length}
+                        </span>
+                      ))}
                     <HiOutlineShoppingBag className="w-6 h-6 lg:w-5 lg:h-5 xl:w-6 xl:h-6 hover:text-greeen mx-2" />
                   </span>
                 )

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "./Button";
 import { useReviewMutation, useGetReviewQuery } from "../features/api/review";
-function Review() {
+function Review({ id }) {
   const [review, setReview] = useState("");
   const { data: reviews } = useGetReviewQuery();
   const [addReview] = useReviewMutation();
@@ -12,7 +12,7 @@ function Review() {
     // console.log("added review", review);
   };
   const addreviewHandler = () => {
-    addReview(review);
+    addReview({ message: review, product: id });
   };
   const widthOfButton = () => {
     return 40;

@@ -8,83 +8,68 @@ import {
   useQuantityChangeMutation,
   useGetCartByUserIdQuery,
 } from "../features/api/cart";
-
+import { useSelector } from "react-redux";
 import EmptyBag from "../images/EmptyBag.png";
 import Counter from "./Counter";
-import products from "../Data";
-import { useSelector } from "react-redux";
 
 function ShoppingBagCard() {
   const { user } = useSelector((state) => state.user);
-  // console.log("user in bag", user);
-  const cardUserId = user?._id;
-  console.log("user in bag", cardUserId);
+  const userId = user?._id;
 
-  const { data: cart, isLoading, error, isError } = useGetCartQuery();
+  const { data: cart } = useGetCartQuery();
   const {
     data: cartByUser,
     cartByUserisLoading,
     cartByUserisError,
     cartByUsererror,
-  } = useGetCartByUserIdQuery(cardUserId);
+  } = useGetCartByUserIdQuery(userId);
   console.log("get cart by user id", cartByUser);
-  console.log("item in shop bag", cart);
-  const cartId = cart?.data[0]?._id;
-  console.log("cart Id", cartId);
-  const userId = cart?.data[0]?.user._id;
-  console.log("userid", userId);
-  console.log(cartId);
-  // console.log("quantity", cart?.data[0]?.products[0].quantity);
-  const [quantityChange] = useQuantityChangeMutation();
 
+  const cartId = cart?.data[0]?._id;
+
+  const [quantityChange] = useQuantityChangeMutation();
   const [deleteFromCart] = useDeleteFromCartMutation();
 
   const deleteFromCartHandle = (bag) => {
-    const _id = bag._id;
-    console.log(_id);
+    const _id = bag;
     deleteFromCart({ _id, userId });
+    console.log("delete", { _id, userId });
   };
 
+  //TODO : quantity xalata chaky bkamm
   const incrementQuantityHandler = (item) => {
-    console.log(item, "g");
     let productId = item._id;
     let quantity = item.quantity + 1;
-    console.log("new quantity", quantity);
-    console.log("item we send", { cartId, productId, quantity });
     quantityChange({ cartId, productId, quantity });
-
     return quantity;
   };
 
   const decrementQuantityHandler = (item) => {
-    // console.log("item", item.data);
     let productId = item._id;
     let quantity = item.quantity - 1;
     if (quantity <= 1) {
       quantity = 1;
     }
-    console.log("item we send", { cartId, productId, quantity });
-
     quantityChange({ cartId, productId, quantity });
     return quantity;
   };
 
-  // if (isLoading)
-  //   return (
-  //     <div className="flex justify-center items-center h-screen">
-  //       <BarLoader color="#316C57" height={5} width={200} />
-  //     </div>
-  //   );
-  // if (isError) return <p>{error.status}</p>;
+  if (cartByUserisLoading)
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <BarLoader color="#316C57" height={5} width={200} />
+      </div>
+    );
+  if (cartByUserisError) return <p>{cartByUsererror.status}</p>;
   return (
     <div>
-      {cart?.data === [] ? (
+      {cartByUser?.data === [] ? (
         <div className="flex">
           <img src={EmptyBag} alt="" className="w-full h-96" />
         </div>
       ) : (
         <div>
-          {cart?.data[0]?.products?.map((bag, i) => {
+          {cartByUser?.data[0]?.products?.map((bag, i) => {
             return (
               <div key={bag._id}>
                 <div className="p-2 lg:p-5 flex border-b-2 ">
@@ -108,7 +93,7 @@ function ShoppingBagCard() {
                           <AiOutlineHeart className="w-6 h-6 mr-1 sm:mr-5 text-gray-700" />
                         </div>
 
-                        <button onClick={() => deleteFromCartHandle(bag)}>
+                        <button onClick={() => deleteFromCartHandle(bag._id)}>
                           <TiDeleteOutline className="w-6 h-6 text-gray-700" />
                         </button>
                       </div>

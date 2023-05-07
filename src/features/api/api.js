@@ -12,6 +12,7 @@ export const apiSlice = createApi({
       "review",
       "category",
       "address",
+      "contact",
     ],
     prepareHeaders: (headers) => {
       const token = localStorage.getItem("access_token");

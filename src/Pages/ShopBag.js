@@ -35,7 +35,7 @@ function ShopBag() {
         <div className="min-h-screen py-28">
           {/* {bag?.data?.filter((item) => item.user._id === user?._id)} */}
 
-          {bag?.data?.length === 0 ? (
+          {bag?.data[0]?.products?.length === 0 ? (
             <div className="flex justify-center items-center">
               {console.log("here")}
               <img
@@ -45,32 +45,10 @@ function ShopBag() {
               />
             </div>
           ) : (
-            // <div>hello</div>
-            bag?.data?.map((data, i) => {
-              return (
-                <>
-                  {data?.user._id === user?._id ? (
-                    data?.products?.length === 0 ? (
-                      <div className="flex justify-center items-center">
-                        {/* {console.log("here")} */}
-                        <img
-                          alt="empty bag"
-                          src={emptyBag}
-                          className="lg:w-2/4 lg:h-fit object-cover"
-                        />
-                      </div>
-                    ) : (
-                      <div className="grid grid-cols-1 lg:grid-cols-2 pag-5">
-                        <ShoppingBagCard bagData={data.products} />
-                        <TotalPrice />
-                      </div>
-                    )
-                  ) : (
-                    <p>your bag is emtpty</p>
-                  )}
-                </>
-              );
-            })
+            <div className="grid grid-cols-1 lg:grid-cols-2 pag-5">
+              <ShoppingBagCard bagData={bag?.data?.products} />
+              <TotalPrice bagData={bag} />
+            </div>
           )}
         </div>
       </Container>

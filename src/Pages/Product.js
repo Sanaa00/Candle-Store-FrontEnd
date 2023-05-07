@@ -20,11 +20,10 @@ import ProductImageSlider from "../Component/ProductImageSlider";
 
 function Product() {
   const { _id } = useParams();
-  // console.log("product id", _id);
+  console.log("product id", _id);
   // const [addToCart, { isLoadingg }] = useAddToCartMutation();
   const [productQuantityChange] = useProductQuantityChangeMutation();
   const { data: cart } = useGetCartQuery();
-  // const [addToCart, setAddToCart] = useState([]);
   const [addToCart] = useAddToCartMutation();
   console.log("cart items", cart);
   // console.log("cart in product page", cart);
@@ -67,7 +66,7 @@ function Product() {
     } else if (window.innerWidth < 1024) {
       return "full";
     } else {
-      return "96";
+      return "full";
     }
   };
 
@@ -101,18 +100,18 @@ function Product() {
               <div className="mt-2 lg:mt-0">
                 <Colors colors={singleProduct.data.color} />
               </div>
-              <div className="mt-2 lg:mt-0 flex justify-between items-center sm:w-96">
+              <div className="mt-2 lg:mt-0 flex justify-between items-center sm:w-96 lg:w-full">
                 <p className=" font-semibold text-greeen text-lg">
                   {singleProduct.data.price}.00 $
                 </p>
-                <Counter
+                {/* <Counter
                   data={singleProduct.data}
                   increment={() => incrementQuantityHandler(singleProduct.data)}
                   decrement={() => decrementQuantityHandler(singleProduct.data)}
-                />
+                /> */}
               </div>
               {console.log(singleProduct.data._id)}
-              <div className="mt-2 lg:mt-0 flex justify-between items-center">
+              <div className="mt-2 lg:mt-0 flex justify-between items-center w-full">
                 {" "}
                 <Button
                   onClick={() => addToCartHandle(singleProduct)}
@@ -138,7 +137,7 @@ function Product() {
         ) : null}
 
         <Recomendation />
-        <Review />
+        <Review id={_id} />
       </Container>
     </div>
   );

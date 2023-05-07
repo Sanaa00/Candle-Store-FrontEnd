@@ -19,7 +19,7 @@ function MobileMenu() {
       <div
         className={`flex lg:hidden  justify-center items-center  h-full text-lg font-bold`}
       >
-        <Search />
+        {/* <Search /> */}
         <NavLink to="/shopBag">
           {({ isActive }) =>
             isActive ? (

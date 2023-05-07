@@ -8,27 +8,11 @@ const review = apiSlice.injectEndpoints({
     review: builder.mutation({
       query: (item) => ({
         url: "/review/",
-        method: "review",
+        method: "POST",
         body: item,
       }),
       invalidatesTags: ["review"],
     }),
-    // deleteFromCart: builder.mutation({
-    //   query: (id) => ({
-    //     url: `/cart/${id}`,
-    //     method: "DELETE",
-    //     body: id,
-    //   }),
-    //   invalidatesTags: ["cart"],
-    // }),
-    // quantityChange: builder.mutation({
-    //   query: (item) => ({
-    //     url: `/cart/${item._id}`,
-    //     method: "PATCH",
-    //     body: item,
-    //   }),
-    //   invalidatesTags: ["cart"],
-    // }),
   }),
 });
 export const {

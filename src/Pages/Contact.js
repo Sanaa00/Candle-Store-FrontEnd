@@ -6,8 +6,6 @@ function Contact() {
   return (
     <div className="bg-gray-50">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 justify-between items-center pt-16 ">
-        {/* <Container> */}
-
         <img
           className="w-full h-[600px] object-cover"
           alt="candle"
@@ -16,10 +14,8 @@ function Contact() {
         <div className="px-6 sm:px-10 md:px-14 lg:px-0 mb-5 lg:mb-0 grid grid-cols-1 lg:ml-10">
           <p className="text-2xl font-semibold text-greeen ">Contact Us</p>
           <ContactForm />
-          {/* <Button text="Send" width={96} /> */}
         </div>
       </div>
-      {/* </Container> */}
     </div>
   );
 }

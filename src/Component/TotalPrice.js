@@ -1,23 +1,31 @@
 import React from "react";
 
-import { useGetCartQuery, useAddToCartMutation } from "../features/api/cart";
+import {
+  useGetCartQuery,
+  useAddToCartMutation,
+  useGetCartByUserIdQuery,
+} from "../features/api/cart";
 import { BarLoader } from "react-spinners";
 
 import LinkButton from "./LinkButton";
+import { useSelector } from "react-redux";
 
 function TotalPrice() {
-  const { data: cart, isLoading } = useGetCartQuery();
+  const { user } = useSelector((state) => state.user);
+  const userId = user?._id;
+  const { data: cart, isLoading } = useGetCartByUserIdQuery(userId);
   const [addToCart, { isError, error }] = useAddToCartMutation();
   if (isError || error) {
     console.log(isError, error);
   }
+  // console.log("total price", bagData);
 
   // console.log("total price", cart?.data[0]);
   let totalQuantity = 0;
   let totalprice = 0;
   cart?.data[0]?.products.forEach((item) => {
     totalQuantity = totalQuantity + item.quantity;
-    totalprice += item.price * item.quantity;
+    totalprice += item.price * 1;
   });
   const addTotalHandler = () => {
     addToCart({ totalprice: `${totalprice}` });
@@ -38,12 +46,12 @@ function TotalPrice() {
     }
   };
 
-  if (isLoading)
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <BarLoader color="#316C57" height={5} width={200} />
-      </div>
-    );
+  // if (isLoading)
+  //   return (
+  //     <div className="flex justify-center items-center h-screen">
+  //       <BarLoader color="#316C57" height={5} width={200} />
+  //     </div>
+  //   );
   return (
     <div className="flex w-full sm:justify-center">
       <div className="bg-greeen bg-opacity-10 p-5 w-full lg:w-fit h-fit flex flex-col items-center my-5 lg:my-0">
@@ -56,7 +64,8 @@ function TotalPrice() {
               >
                 <p>{bag.productName}</p>
                 <p>
-                  {bag.price}*{bag.quantity}={bag.price * bag.quantity}
+                  {/* {bag.price}*{bag.quantity}= */}
+                  {bag.price * 1}$
                 </p>
               </div>
             );
@@ -64,7 +73,7 @@ function TotalPrice() {
         </div>
         <div className="w-full flex justify-between items-center py-5">
           <p className="">Total</p>
-          <p>{totalprice}</p>
+          <p>{totalprice}$</p>
         </div>
         <LinkButton
           // onClick={openModal}

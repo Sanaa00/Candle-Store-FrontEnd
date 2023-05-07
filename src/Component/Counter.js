@@ -9,7 +9,7 @@ function Counter({ data, increment, decrement }) {
       <CounterButton text="-" onClick={decrement} />
       <div>
         {" "}
-        {data.quantity}
+        {1}
         {console.log("counter", data.quantity)}
       </div>
       <CounterButton text="+" onClick={increment} />
