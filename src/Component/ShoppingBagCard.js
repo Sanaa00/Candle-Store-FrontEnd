@@ -9,7 +9,7 @@ import {
   useGetCartByUserIdQuery,
 } from "../features/api/cart";
 import { useSelector } from "react-redux";
-import EmptyBag from "../images/EmptyBag.png";
+// import EmptyBag from "../images/EmptyBag.png";
 import Counter from "./Counter";
 
 function ShoppingBagCard() {
