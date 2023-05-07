@@ -29,7 +29,7 @@ function App() {
   const { user } = useSelector((state) => state.user);
   console.log("user", user?.role);
 
-  const { data, isError, isSuccess, isLoading } = useGetCurrentUserQuery();
+  const { data, isSuccess } = useGetCurrentUserQuery();
   console.log("data", data);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ function App() {
       }
       // console.log(data?.data?.user);
     }
-  }, [data]);
+  }, [data, dispatch, isSuccess]);
   return (
     <div>
       {/* <Container> */}

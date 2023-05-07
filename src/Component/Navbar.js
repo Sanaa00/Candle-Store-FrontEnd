@@ -20,7 +20,9 @@ function Navbar() {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
   const userId = user?._id;
-  const { data: cartByUser } = useGetCartByUserIdQuery(userId);
+  const { data: cartByUser } = useGetCartByUserIdQuery(userId, {
+    skip: !userId,
+  });
   console.log("user id in navbar", cartByUser);
   // console.log(bag);
   // console.log(bag?.data?.length);
