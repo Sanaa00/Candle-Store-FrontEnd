@@ -89,7 +89,7 @@ function Navbar() {
                 ) : (
                   <span>
                     {" "}
-                    {(!user || cartByUser?.data[0]?.products.length !== 0) && (
+                    {user && cartByUser?.data[0]?.products?.length !== 0 && (
                       <span className="absolute h-5 w-5 flex items-center justify-center text-center translate-x-1/2 -translate-y-1/2 bg-red-500  rounded-full text-xs text-white shadow-sm">
                         {cartByUser?.data[0]?.products?.length}
                       </span>

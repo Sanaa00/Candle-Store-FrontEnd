@@ -2,8 +2,8 @@ import { apiSlice } from "./api";
 const productApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getProducts: builder.query({
-      query: ({ search, category }) =>
-        `products?search=${search}&categoryId=${category}`,
+      query: ({ search, category, page }) =>
+        `products?search=${search}&categoryId=${category}&page=${page}`,
       providesTags: ["product"],
     }),
     getProductsBySearch: builder.query({

@@ -10,6 +10,7 @@ import { useGetCategoryQuery } from "../features/api/category";
 function Products() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
+  const [page, setPage] = useState(1);
   const { data: allCategory } = useGetCategoryQuery();
   console.log("allCategory", allCategory);
   const {
@@ -17,14 +18,14 @@ function Products() {
     isLoading,
     isError,
     error,
-  } = useGetProductsQuery({ search, category });
+  } = useGetProductsQuery({ search, category, page });
   // console.log("data by search", products);
 
   return (
     <div className="bg-gray-50 pt-16">
       <Container>
         <FilterButtons categoryId={category} setCategoryId={setCategory} />
-        <div className="flex w-full justify-center items-center">
+        <div className="mt-5 flex w-full justify-center items-center">
           <div className=" flex justify-between items-center w-full lg:w-80 xl:w-96 border-2 rounded-sm border-gray-200 focus:outline-none duration-500 hover:duration-500 hover:border-greeen bg-gray-50 mt-2">
             <input
               placeholder="Search"
@@ -43,6 +44,8 @@ function Products() {
           error={error}
           isError={isError}
           search={search}
+          page={page}
+          setPage={setPage}
         />
       </Container>
     </div>
