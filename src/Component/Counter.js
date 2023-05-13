@@ -8,8 +8,7 @@ function Counter({ data, increment, decrement }) {
     <div className="flex">
       <CounterButton text="-" onClick={decrement} />
       <div>
-        {" "}
-        {1}
+        {data.quantity}
         {console.log("counter", data.quantity)}
       </div>
       <CounterButton text="+" onClick={increment} />

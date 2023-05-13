@@ -34,11 +34,10 @@ function Navbar() {
     <div className="bg-gray-50 bg-opacity-70  w-full fixed z-50">
       <Container>
         <div className="flex justify-between items-center h-16 text-lg lg:text-base xl:text-lg text-gray-800 font-semibold">
-          <NavLink to="/" className="w-1/3">
-            <img alt="logo" src={logo} className="w-10 h-10 lg:w-12 lg:h-12" />
-          </NavLink>
-          <MobileMenu />
-          <ul className="hidden lg:flex w-1/3 justify-center">
+          <ul className="hidden lg:flex items-center  justify-start">
+            <NavLink to="/" className="hidden lg:flex">
+              <img alt="logo" src={logo} className="w-10 h-10 " />
+            </NavLink>
             <NavLink
               to="/"
               className={({ isActive }) =>
@@ -66,8 +65,12 @@ function Navbar() {
             >
               Contact
             </NavLink>
-          </ul>
-          <ul className="hidden lg:flex w-1/3 justify-end items-center">
+          </ul>{" "}
+          <NavLink to="/" className="w-1/3 lg:w-0 lg:hidden">
+            <img alt="logo" src={logo} className="w-10 h-10 lg:w-12 lg:h-12" />
+          </NavLink>
+          <MobileMenu />
+          <ul className="hidden lg:flex justify-end items-center">
             {/* <div className="">
               <Search />
             </div> */}

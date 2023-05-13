@@ -37,7 +37,7 @@
     "react-tabs": "^6.0.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.9",
-    "swiper": "^9.2.0",
+    "swiper": "^9.3.1",
     "web-vitals": "^2.1.4",
     "yup": "^1.0.2"
   },

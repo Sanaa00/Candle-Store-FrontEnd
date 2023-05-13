@@ -6,7 +6,7 @@ import CandleCard from "../Component/CandleCard";
 import emptyBag from "../images/EmptyBag.png";
 
 function Favourite() {
-  const fav = useSelector((state) => state.favourite.fav);
+  const fav = useSelector((state) => state.favourite);
   // console.log(fav, "favourite page");
   return (
     <div className="bg-gray-50">
@@ -25,7 +25,7 @@ function Favourite() {
           ) : (
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4  justify-between items-center ">
               {fav.map((candle) => {
-                return <CandleCard candle={candle} key={candle.id} />;
+                return <CandleCard candle={candle} key={candle._id} />;
               })}
             </div>
           )}{" "}

@@ -132,7 +132,7 @@ function Product() {
           </div>
         ) : null}
 
-        <Recomendation />
+        <Recomendation singleProduct={singleProduct} />
         <Review id={_id} />
       </Container>
     </div>

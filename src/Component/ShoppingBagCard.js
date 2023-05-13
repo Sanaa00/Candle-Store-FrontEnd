@@ -26,26 +26,28 @@ function ShoppingBagCard() {
   console.log("get cart by user id", cartByUser);
 
   const cartId = cart?.data[0]?._id;
+  // console.log("cartId", cartByUser);
 
   const [quantityChange] = useQuantityChangeMutation();
   const [deleteFromCart] = useDeleteFromCartMutation();
 
   const deleteFromCartHandle = (bag) => {
+    console.log("id aw productay amwet delety kam ", bag);
     const _id = bag;
-    deleteFromCart({ _id, userId });
-    console.log("delete", { _id, userId });
+    deleteFromCart({ productId: _id, cartId: cartId });
+    console.log("delete", { _id, cartId });
   };
 
   //TODO : quantity xalata chaky bkamm
   const incrementQuantityHandler = (item) => {
-    let productId = item._id;
+    let productId = item.productId._id;
     let quantity = item.quantity + 1;
     quantityChange({ cartId, productId, quantity });
     return quantity;
   };
 
   const decrementQuantityHandler = (item) => {
-    let productId = item._id;
+    let productId = item.productId._id;
     let quantity = item.quantity - 1;
     if (quantity <= 1) {
       quantity = 1;
@@ -66,12 +68,12 @@ function ShoppingBagCard() {
       <div>
         {cartByUser?.data[0]?.products?.map((bag, i) => {
           return (
-            <div key={bag._id}>
+            <div key={bag.productId._id}>
               <div className="p-2 lg:p-5 flex border-b-2 ">
                 <div className="w-52 h-40">
                   {" "}
                   <img
-                    src={bag.images[0]}
+                    src={bag.productId.images[0]}
                     alt="shopping card"
                     className="w-40 h-40 object-cover rounded-sm object-center mr-1 lg:mr-5"
                   />
@@ -80,7 +82,7 @@ function ShoppingBagCard() {
                 <div className="flex flex-col justify-between items-center w-full p-1 ml-5">
                   <div className="flex justify-between items-center w-full">
                     <p className="font-semibold text-greeen ">
-                      {bag.productName}
+                      {bag.productId.productName}
                     </p>
                     <div className="flex ">
                       <div>
@@ -88,7 +90,9 @@ function ShoppingBagCard() {
                         <AiOutlineHeart className="w-6 h-6 mr-1 sm:mr-5 text-gray-700" />
                       </div>
 
-                      <button onClick={() => deleteFromCartHandle(bag._id)}>
+                      <button
+                        onClick={() => deleteFromCartHandle(bag.productId._id)}
+                      >
                         <TiDeleteOutline className="w-6 h-6 text-gray-700" />
                       </button>
                     </div>
@@ -101,7 +105,7 @@ function ShoppingBagCard() {
                       increment={() => incrementQuantityHandler(bag)}
                       decrement={() => decrementQuantityHandler(bag)}
                     />
-                    <p>{bag.price}$ </p>
+                    <p>{bag.productId.price}$ </p>
                   </div>
                 </div>
               </div>

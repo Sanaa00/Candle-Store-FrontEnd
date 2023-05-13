@@ -1,24 +1,28 @@
 import React, { useRef } from "react";
-import "react-slideshow-image/dist/styles.css";
-import { Slide } from "react-slideshow-image";
+import Slider from "react-slick";
 import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
-import data from "../Data";
+import { useGetProductsByCategoryQuery } from "../features/api/productApi";
 import CandleCard from "./CandleCard";
-function Recomendation() {
+
+function Recomendation({ singleProduct }) {
+  const productCategoryId = singleProduct.data.categoryId._id;
+  console.log(productCategoryId);
   const sliderRef = useRef(null);
 
-  const itemPerPage = () => {
-    if (window.innerWidth < 640) {
-      return 2;
-    } else if (window.innerWidth < 768) {
-      return 3;
-    } else if (window.innerWidth < 1280) {
-      return 4;
-    } else {
-      return 5;
-    }
-  };
+  const { data: category } = useGetProductsByCategoryQuery(productCategoryId);
 
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    initialSlide: 1,
+    arrows: true,
+    vertical: false,
+    prevArrow: "<",
+    nextArrow: ">",
+  };
   return (
     <div className="flex flex-col my-10">
       <div className="flex justify-between items-center">
@@ -26,29 +30,25 @@ function Recomendation() {
           Recommendation
         </p>
         <div className="flex">
-          <div className="mr-5" onClick={() => sliderRef.current.goBack()}>
+          <div className="mr-5" onClick={() => sliderRef.current.slickPrev()}>
             <BsArrowLeftCircle className="w-6 h-6 text-gray-800" />
           </div>
-          <div className="" onClick={() => sliderRef.current.goNext()}>
+          <div className="" onClick={() => sliderRef?.current?.slickNext()}>
             <BsArrowRightCircle className="w-6 h-6 text-gray-800" />
           </div>
         </div>
       </div>
 
-      <Slide
-        className=""
-        ref={sliderRef}
-        autoplay={false}
-        slidesToScroll={1}
-        canSwipe={true}
-        slidesToShow={itemPerPage()}
-        arrows={false}
-        cssClass=""
-      >
-        {data.map((candle) => (
-          <CandleCard candle={candle} key={candle.id} />
-        ))}
-      </Slide>
+      <div>
+        {" "}
+        <Slider ref={sliderRef} {...settings} className=" ">
+          {/* <div className=""> */}{" "}
+          {category?.data?.products.map((candle) => {
+            return <CandleCard key={candle._id} candle={candle} />;
+          })}
+          {/* </div> */}
+        </Slider>
+      </div>
     </div>
   );
 }

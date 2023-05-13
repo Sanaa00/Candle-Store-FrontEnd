@@ -12,17 +12,17 @@ function SummeryCard() {
       {cart?.data[0]?.products.map((bag) => {
         return (
           <div
-            key={bag._id}
+            key={bag.productId._id}
             className="w-full flex justify-between border-b border-greeen py-2 "
           >
             <img
               alt="product iamge"
-              src={bag.images[0]}
+              src={bag.productId.images[0]}
               className="w-28 h-28 object-cover lg:mr-10"
             />
             <div className="flex flex-col justify-between items-end">
               <p>{bag.productName}</p>
-              <p className="text-greeen"> {bag.price * 1}$</p>
+              <p className="text-greeen"> {bag.productId.price * 1}$</p>
             </div>
           </div>
         );

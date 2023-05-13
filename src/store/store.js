@@ -12,6 +12,31 @@ export const store = configureStore({
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(apiSlice.middleware),
+  preloadedState: loadStateFromLocalStorage(),
 });
+function loadStateFromLocalStorage() {
+  try {
+    const serializedState = localStorage.getItem("favoriteList");
+    if (serializedState === null) {
+      return undefined;
+    }
+    return JSON.parse(serializedState);
+  } catch (err) {
+    return undefined;
+  }
+}
+
+store.subscribe(() => {
+  saveStateToLocalStorage(store.getState());
+});
+// Save state to local storage
+function saveStateToLocalStorage(state) {
+  try {
+    const serializedState = JSON.stringify(state);
+    localStorage.setItem("favoriteList", serializedState);
+  } catch (err) {
+    console.log(err);
+  }
+}
 
 export default store;

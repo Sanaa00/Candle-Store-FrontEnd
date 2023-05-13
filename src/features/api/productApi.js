@@ -12,7 +12,7 @@ const productApi = apiSlice.injectEndpoints({
       providesTags: ["product"],
     }),
     getProductsByCategory: builder.query({
-      query: (category) => `/products?price=${category}`,
+      query: (category) => `products?categoryId=${category}`,
       providesTags: ["product"],
     }),
     getProductById: builder.query({
