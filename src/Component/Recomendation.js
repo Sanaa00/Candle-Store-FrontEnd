@@ -10,6 +10,7 @@ function Recomendation({ singleProduct }) {
   const sliderRef = useRef(null);
 
   const { data: category } = useGetProductsByCategoryQuery(productCategoryId);
+  console.log("recommendations", category?.data?.products);
 
   const settings = {
     dots: false,
@@ -17,11 +18,11 @@ function Recomendation({ singleProduct }) {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    initialSlide: 1,
-    arrows: true,
+    initialSlide: 0,
+    // arrows: true,
     vertical: false,
-    prevArrow: "<",
-    nextArrow: ">",
+    // prevArrow: "<",
+    // nextArrow: ">",
   };
   return (
     <div className="flex flex-col my-10">
@@ -33,22 +34,17 @@ function Recomendation({ singleProduct }) {
           <div className="mr-5" onClick={() => sliderRef.current.slickPrev()}>
             <BsArrowLeftCircle className="w-6 h-6 text-gray-800" />
           </div>
-          <div className="" onClick={() => sliderRef?.current?.slickNext()}>
+          <div className="" onClick={() => sliderRef.current.slickNext()}>
             <BsArrowRightCircle className="w-6 h-6 text-gray-800" />
           </div>
         </div>
-      </div>
-
-      <div>
-        {" "}
-        <Slider ref={sliderRef} {...settings} className=" ">
-          {/* <div className=""> */}{" "}
-          {category?.data?.products.map((candle) => {
-            return <CandleCard key={candle._id} candle={candle} />;
-          })}
-          {/* </div> */}
-        </Slider>
-      </div>
+      </div>{" "}
+      <Slider {...settings} className=" ">
+        {category?.data?.products?.map((candle) => {
+          return <div>{candle._id}</div>;
+          //  <CandleCard key={candle._id} candle={candle} />;
+        })}
+      </Slider>
     </div>
   );
 }
