@@ -61,7 +61,7 @@ function CandleCard({ candle }) {
         to={`/products/${candle._id}`}
         className="w-full h-full relative overflow-hidden z-0"
       >
-        <div className="">
+        <div className="relative overflow-hidden">
           <img
             alt="candles"
             src={candle.images}
