@@ -11,15 +11,17 @@ import { useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import { addUser } from "../features/user.slice";
 function LoginForm() {
+  const dispatch = useDispatch();
   const [token, setToken] = useState();
   const { user } = useSelector((state) => state.user);
   const [login, { data: loginData, isError: loginDataIsError }] =
-    useLoginMutation({ fixedCacheKey: "login" });
+    useLoginMutation();
+  // { fixedCacheKey: "login" }
   const { data: userData, isError: userDataIsError } = useGetCurrentUserQuery(
     token,
     { skip: !token }
   );
-  const dispatch = useDispatch();
+
   const widthOfButton = () => {
     if (window.innerWidth < 640) {
       return "full";
@@ -53,7 +55,7 @@ function LoginForm() {
     }
   }, [loginData, loginDataIsError]);
   useEffect(() => {
-    console.log("test");
+    // console.log("test");
     if (!userDataIsError && userData) {
       dispatch(addUser(userData.data.user));
     }

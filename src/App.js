@@ -28,18 +28,16 @@ function App() {
   const dispatch = useDispatch();
 
   const { user } = useSelector((state) => state.user);
-  console.log("user", user?.role);
+  // console.log("user", user?.role);
 
   const { data, isSuccess } = useGetCurrentUserQuery();
   console.log("data", data);
 
   useEffect(() => {
     if (isSuccess && data) {
-      if (isSuccess && data) {
-        dispatch(addUser(data.data.user));
-      }
-      // console.log(data?.data?.user);
+      dispatch(addUser(data.data.user));
     }
+    // console.log(data?.data?.user);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);

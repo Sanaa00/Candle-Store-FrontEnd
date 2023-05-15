@@ -17,7 +17,7 @@ function Review({ id }) {
     <div className="flex flex-col w-full h-fit rounded-sm py-5">
       <p className="text-lg font-semibold text-gray-800 my-2">
         {" "}
-        Give u s your feedback
+        Give us your feedback
       </p>
       <div className="flex flex-col justify-end items-end">
         <textarea

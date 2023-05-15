@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const favouriteSlice = createSlice({
   name: "favourite",
-  initialState: [],
+  initialState: {},
   reducers: {
     addtoFav: (state, action) => {
       const itemsToAdd = Array.isArray(action.payload)

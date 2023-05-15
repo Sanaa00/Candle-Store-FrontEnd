@@ -127,6 +127,7 @@ function Navbar() {
                 onClick={(e) => {
                   localStorage.removeItem("access_token");
                   dispatch(addUser(null));
+                  // console.log(user);
                 }}
               >
                 {" "}

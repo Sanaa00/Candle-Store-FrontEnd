@@ -14,10 +14,10 @@ import { addUser } from "../features/user.slice";
 
 function CreateAccountForm() {
   // const navigate = useNavigate();
-
-  const { user } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  const [signup, { data: response, isError }] = useSignupMutation();
+  const { user } = useSelector((state) => state.user);
+
+  const [signup, { data: response, isError, error }] = useSignupMutation();
 
   const widthOfButton = () => {
     if (window.innerWidth < 640) {
@@ -67,7 +67,9 @@ function CreateAccountForm() {
     }
   }, [dispatch, isError, response]);
   if (user) return <Navigate to="/" replace />;
-
+  if (error) {
+    console.log(error?.data?.data?.message);
+  }
   return (
     <Formik>
       <div className="w-full lg:w-fit">
@@ -101,6 +103,13 @@ function CreateAccountForm() {
             value={formik.values.email}
           />
           <span className="text-red-400 text-sm">{formik.errors.email}</span>
+
+          {error && error?.data?.data?.message.startsWith("E11000") && (
+            <span className="text-red-400 text-sm">
+              This user already exists
+            </span>
+          )}
+
           <InputField
             placeholder="Password"
             name="password"

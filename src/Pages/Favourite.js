@@ -7,7 +7,7 @@ import emptyBag from "../images/EmptyBag.png";
 
 function Favourite() {
   const fav = useSelector((state) => state.favourite);
-  // console.log(fav, "favourite page");
+  console.log(fav, "favourite page");
   return (
     <div className="bg-gray-50">
       <Container>
@@ -30,21 +30,6 @@ function Favourite() {
             </div>
           )}{" "}
         </div>
-
-        {/* <div className="container mx-auto flex justify-center my-10"> */}
-        {/* <ReactPaginate
-          breakLabel="..."
-          onPageChange={handlePageClick}
-          pageRangeDisplayed={3}
-          pageCount={pageCount}
-          className="flex gap-5"
-          previousLabel="< "
-          nextLabel=" >"
-          pageClassName="text-gray-800 mx-2 "
-          activeClassName="text-gray-800 border-b-2 border-gray-800 "
-          renderOnZeroPageCount={null}
-        /> */}
-        {/* </div> */}
       </Container>
     </div>
   );
