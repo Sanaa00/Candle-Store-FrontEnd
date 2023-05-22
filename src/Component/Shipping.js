@@ -1,13 +1,12 @@
 import { Formik, useFormik, Form } from "formik";
 import React from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
   useAddToCartMutation,
-  useGetCartQuery,
   useGetCartByUserIdQuery,
 } from "../features/api/cart";
-import { useGetAddressQuery } from "../features/api/address";
+// import { useGetAddressQuery } from "../features/api/address";
 import * as Yup from "yup";
 import InputField from "./InputField";
 import { Navigate } from "react-router-dom";
@@ -17,7 +16,7 @@ function Shipping() {
   const [addToCart] = useAddToCartMutation();
   const { user } = useSelector((state) => state.user);
   const userId = user?._id;
-  const { data: address } = useGetAddressQuery();
+  // const { data: address } = useGetAddressQuery();
 
   const { data: bag } = useGetCartByUserIdQuery(userId);
   console.log("bagg", bag);

@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { BarLoader } from "react-spinners";
 import { useGetProductByIdQuery } from "../features/api/productApi";
-import { useGetCartQuery, useAddToCartMutation } from "../features/api/cart";
+import { useAddToCartMutation } from "../features/api/cart";
 import Recomendation from "../Component/Recomendation";
 import Review from "../Component/Review";
 import Button from "../Component/Button";
@@ -14,7 +14,7 @@ import { ToastContainer } from "react-toastify";
 function Product() {
   const { _id } = useParams();
 
-  const { data: cart } = useGetCartQuery();
+  // const { data: cart } = useGetCartQuery();
   const [addToCart] = useAddToCartMutation();
 
   const {

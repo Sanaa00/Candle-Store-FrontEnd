@@ -18,7 +18,7 @@ import AdminPanel from "./Pages/AdminPanel";
 import AddProductsForm from "./Component/AddProductsForm";
 import Table from "./Component/Table";
 import Dashboard from "./Component/Dashboard";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useGetCurrentUserQuery } from "./features/api/auth";
 import { useEffect } from "react";
 import { addUser } from "./features/user.slice";
@@ -26,7 +26,7 @@ import { addUser } from "./features/user.slice";
 function App() {
   const dispatch = useDispatch();
 
-  const { user } = useSelector((state) => state.user);
+  // const { user } = useSelector((state) => state.user);
 
   const { data, isSuccess } = useGetCurrentUserQuery();
 

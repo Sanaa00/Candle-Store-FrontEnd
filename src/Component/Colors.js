@@ -4,6 +4,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 function Colors({ colors }) {
   const [isActive, setActive] = useState(false);
   const [color, setColor] = useState("");
+  console.log(color);
   const handleDropdownClick = () => setActive(!isActive);
   const handleColor = (coloritem) => {
     setColor(coloritem);

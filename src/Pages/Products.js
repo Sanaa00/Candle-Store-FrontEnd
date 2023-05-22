@@ -5,17 +5,17 @@ import Container from "../Component/Container";
 import FilterButtons from "../Component/FilterButtons";
 import { FiSearch } from "react-icons/fi";
 import { useGetProductsQuery } from "../features/api/productApi";
-import { useGetCategoryQuery } from "../features/api/category";
+// import { useGetCategoryQuery } from "../features/api/category";
 // import { toast } from "react-toastify";
-import { Slide, ToastContainer, toast } from "react-toastify";
+import { Slide, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Products() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
   const [page, setPage] = useState(1);
-  const { data: allCategory } = useGetCategoryQuery();
-  const notify = () => toast("Orderd Successfully");
+  // const { data: allCategory } = useGetCategoryQuery();
+  // const notify = () => toast("Orderd Successfully");
   const {
     data: products,
     isLoading,

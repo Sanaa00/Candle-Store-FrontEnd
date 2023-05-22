@@ -4,10 +4,10 @@ import * as Yup from "yup";
 import InputField from "./InputField";
 import Button from "./Button";
 import AddCategoryForm from "./AddCategoryForm";
-import { useGetCategoryQuery } from "../features/api/category";
+// import { useGetCategoryQuery } from "../features/api/category";
 
 function AddProductForm() {
-  const { data: category } = useGetCategoryQuery();
+  // const { data: category } = useGetCategoryQuery();
 
   const widthOfButton = () => {
     if (window.innerWidth < 640) {
