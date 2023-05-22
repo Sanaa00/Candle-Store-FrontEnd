@@ -1,16 +1,27 @@
 import { Formik, useFormik, Form } from "formik";
 import React from "react";
-import { useAddToCartMutation, useGetCartQuery } from "../features/api/cart";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import {
+  useAddToCartMutation,
+  useGetCartQuery,
+  useGetCartByUserIdQuery,
+} from "../features/api/cart";
 import { useGetAddressQuery } from "../features/api/address";
 import * as Yup from "yup";
 import InputField from "./InputField";
+import { Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Shipping() {
   const [addToCart] = useAddToCartMutation();
+  const { user } = useSelector((state) => state.user);
+  const userId = user?._id;
   const { data: address } = useGetAddressQuery();
-  console.log("address table", address);
-  const { data: bag } = useGetCartQuery();
-  console.log("bag", bag);
+
+  const { data: bag } = useGetCartByUserIdQuery(userId);
+  console.log("bagg", bag);
+  const notify = () => toast("Orderd Successfully");
   const formik = useFormik({
     initialValues: {
       phone: "",
@@ -18,8 +29,7 @@ function Shipping() {
       street: "",
     },
     onSubmit: (values) => {
-      console.log({ values });
-      addToCart({ address: values });
+      addToCart({ address: values, status: "order" });
     },
     validationSchema: Yup.object({
       phone: Yup.string().required(),
@@ -27,8 +37,10 @@ function Shipping() {
       city: Yup.string().required("fill City"),
     }),
   });
+
+  if (bag?.data?.length === 0) return <Navigate to="/products" replace />;
   return (
-    <div className="">
+    <div className="w-full">
       <Formik>
         <div className="w-full ">
           <Form
@@ -57,10 +69,18 @@ function Shipping() {
                 value={formik.values.city}
                 className="w-full lg:w-80 xl:w-96 border-2 text-gray-400 focus:text-gray-800 bg-gray-50 border-gray-200 focus:border-greeen focus:outline-none mt-5 px-1 py-1"
               >
-                <option>Erbil</option>
-                <option>Sulaymaniah</option>
-                <option>Duhok</option>
-                <option>Halabja</option>
+                <option className="w-full rounded-none lg:w-80 xl:w-96  text-gray-400 focus:text-gray-800 bg-gray-50  focus:bg-greeen active:bg-greeen focus:outline-none mt-5 px-1 py-1">
+                  Erbil
+                </option>
+                <option className="w-full lg:w-80 xl:w-96 border-2 text-gray-400 focus:text-gray-800 bg-gray-50 border-gray-200 focus:border-greeen focus:outline-none mt-5 px-1 py-1">
+                  Sulaymaniah
+                </option>
+                <option className="w-full lg:w-80 xl:w-96 border-2 text-gray-400 focus:text-gray-800 bg-gray-50 border-gray-200 focus:border-greeen focus:outline-none mt-5 px-1 py-1">
+                  Duhok
+                </option>
+                <option className="w-full lg:w-80 xl:w-96 border-2 text-gray-400 focus:text-gray-800 bg-gray-50 border-gray-200 focus:border-greeen focus:outline-none mt-5 px-1 py-1">
+                  Halabja
+                </option>
               </select>{" "}
               <span className="text-red-400 text-sm">{formik.errors.city}</span>
             </div>
@@ -77,13 +97,25 @@ function Shipping() {
                 {formik.errors.street}
               </span>
             </div>
-
             <button
-              type="submit"
+              onClick={notify}
+              type="order"
               className="py-1.5 mt-5 w-full lg:w-80 xl:w-96 rounded-sm  bg-greeen text-center text-gray-100 hover:bg-darkgreen hover:duration-500 duration-500 hover:shadow-lg"
             >
               submit
-            </button>
+            </button>{" "}
+            {/* <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+            /> */}
           </Form>{" "}
         </div>
       </Formik>
@@ -92,3 +124,4 @@ function Shipping() {
 }
 
 export default Shipping;
+// if (user) return <Navigate to="/" replace />

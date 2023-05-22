@@ -16,7 +16,7 @@ function LoginForm() {
   const { user } = useSelector((state) => state.user);
   const [login, { data: loginData, isError: loginDataIsError }] =
     useLoginMutation();
-  // { fixedCacheKey: "login" }
+
   const { data: userData, isError: userDataIsError } = useGetCurrentUserQuery(
     token,
     { skip: !token }
@@ -40,7 +40,6 @@ function LoginForm() {
     },
     onSubmit: (values) => {
       login(values);
-      console.log(values);
     },
     validationSchema: Yup.object({
       email: Yup.string().email().required(),
@@ -55,7 +54,6 @@ function LoginForm() {
     }
   }, [loginData, loginDataIsError]);
   useEffect(() => {
-    // console.log("test");
     if (!userDataIsError && userData) {
       dispatch(addUser(userData.data.user));
     }

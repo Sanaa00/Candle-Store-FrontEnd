@@ -20,12 +20,11 @@ function TotalPrice() {
   let totalprice = 0;
   cart?.data[0]?.products.forEach((item) => {
     totalQuantity = totalQuantity + item.quantity;
-    console.log(item.quantity);
+
     totalprice += item.productId.price * item.quantity;
   });
   const addTotalHandler = () => {
     addToCart({ totalprice: `${totalprice}` });
-    console.log({ totalprice: `${totalprice}` });
   };
   const widthofbutton = () => {
     if (window.innerWidth < 640) {

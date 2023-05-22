@@ -22,30 +22,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { useGetCurrentUserQuery } from "./features/api/auth";
 import { useEffect } from "react";
 import { addUser } from "./features/user.slice";
-// import Shipping from "./Component/Shipping";
 
 function App() {
   const dispatch = useDispatch();
 
   const { user } = useSelector((state) => state.user);
-  // console.log("user", user?.role);
 
   const { data, isSuccess } = useGetCurrentUserQuery();
-  console.log("data", data);
 
   useEffect(() => {
     if (isSuccess && data) {
       dispatch(addUser(data.data.user));
     }
-    // console.log(data?.data?.user);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
   return (
     <div>
-      {/* <Container> */}
-      {/* {(!user || user.role === "user") && <p className="text-3xl">hello</p>} */}
-      {/* {if } */}
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -65,7 +58,6 @@ function App() {
         </Route>
       </Routes>{" "}
       <Footer />
-      {/* </Container> */}
     </div>
   );
 }

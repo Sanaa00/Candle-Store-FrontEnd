@@ -6,7 +6,6 @@ function Colors({ colors }) {
   const [color, setColor] = useState("");
   const handleDropdownClick = () => setActive(!isActive);
   const handleColor = (coloritem) => {
-    console.log("colors", color);
     setColor(coloritem);
     setActive(!isActive);
   };

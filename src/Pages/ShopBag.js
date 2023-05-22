@@ -18,8 +18,6 @@ function ShopBag() {
     error,
     isError,
   } = useGetCartByUserIdQuery(userId);
-  console.log("bag", bag);
-  console.log(user, "usery current");
 
   isLoading && (
     <div className="flex justify-center items-center h-screen">
@@ -32,11 +30,8 @@ function ShopBag() {
     <div className="bg-gray-50">
       <Container>
         <div className="min-h-screen py-28">
-          {/* {bag?.data?.filter((item) => item.user._id === user?._id)} */}
-
-          {!bag?.data || bag?.data?.[0]?.products.length === 0 ? (
+          {!bag?.data || bag?.data?.length === 0 ? (
             <div className="flex justify-center items-center">
-              {console.log("here")}
               <img
                 alt="empty bag"
                 src={emptyBag}

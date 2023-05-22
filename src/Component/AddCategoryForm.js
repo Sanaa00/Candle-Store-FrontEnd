@@ -21,7 +21,7 @@ function AddCategoryForm() {
       category: "",
     },
     onSubmit: (values) => {
-      console.log(values);
+      // console.log(values);
     },
 
     validationSchema: Yup.object({

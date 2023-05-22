@@ -9,7 +9,6 @@ import {
   useGetCartByUserIdQuery,
 } from "../features/api/cart";
 import { useSelector } from "react-redux";
-// import EmptyBag from "../images/EmptyBag.png";
 import Counter from "./Counter";
 
 function ShoppingBagCard() {
@@ -26,19 +25,15 @@ function ShoppingBagCard() {
   console.log("get cart by user id", cartByUser);
 
   const cartId = cart?.data[0]?._id;
-  // console.log("cartId", cartByUser);
 
   const [quantityChange] = useQuantityChangeMutation();
   const [deleteFromCart] = useDeleteFromCartMutation();
 
   const deleteFromCartHandle = (bag) => {
-    console.log("id aw productay amwet delety kam ", bag);
     const _id = bag;
     deleteFromCart({ productId: _id, cartId: cartId });
-    console.log("delete", { _id, cartId });
   };
 
-  //TODO : quantity xalata chaky bkamm
   const incrementQuantityHandler = (item) => {
     let productId = item.productId._id;
     let quantity = item.quantity + 1;
@@ -68,12 +63,12 @@ function ShoppingBagCard() {
       <div>
         {cartByUser?.data[0]?.products?.map((bag, i) => {
           return (
-            <div key={bag.productId._id}>
+            <div key={bag?.productId?._id}>
               <div className="p-2 lg:p-5 flex border-b-2 ">
                 <div className="w-52 h-40">
                   {" "}
                   <img
-                    src={bag.productId.images[0]}
+                    src={bag?.productId?.images[0]}
                     alt="shopping card"
                     className="w-40 h-40 object-cover rounded-sm object-center mr-1 lg:mr-5"
                   />
@@ -82,7 +77,7 @@ function ShoppingBagCard() {
                 <div className="flex flex-col justify-between items-center w-full p-1 ml-5">
                   <div className="flex justify-between items-center w-full">
                     <p className="font-semibold text-greeen ">
-                      {bag.productId.productName}
+                      {bag?.productId?.productName}
                     </p>
                     <div className="flex ">
                       <div>
@@ -91,21 +86,21 @@ function ShoppingBagCard() {
                       </div>
 
                       <button
-                        onClick={() => deleteFromCartHandle(bag.productId._id)}
+                        onClick={() =>
+                          deleteFromCartHandle(bag?.productId?._id)
+                        }
                       >
                         <TiDeleteOutline className="w-6 h-6 text-gray-700" />
                       </button>
                     </div>
                   </div>
                   <div className="flex justify-between items-center w-full">
-                    {" "}
-                    {console.log("........", bag)}
                     <Counter
                       data={bag}
                       increment={() => incrementQuantityHandler(bag)}
                       decrement={() => decrementQuantityHandler(bag)}
                     />
-                    <p>{bag.productId.price}$ </p>
+                    <p>{bag?.productId?.price}$ </p>
                   </div>
                 </div>
               </div>

@@ -11,9 +11,7 @@ function Payment() {
         <RadioGroup
           name="radiogroup"
           defaultValue="one"
-          onChange={(event) => {
-            console.log(event.target.value);
-          }}
+          onChange={(event) => {}}
         >
           <p className="text-2xl font-semibold text-greeen pt-5">
             Paymnet details

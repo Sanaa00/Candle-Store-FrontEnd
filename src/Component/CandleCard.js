@@ -5,41 +5,14 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { addtoFav, removeItemFav } from "../features/favouriteSlice";
 
-// import {
-//   useDeleteFromFavMutation,
-//   useAddToFavMutation,
-//   useToggleFavMutation,
-//   useGetFavouriteQuery,
-// } from "../features/api/favourite";
-
 function CandleCard({ candle }) {
   const favoriteList = useSelector((state) => state.favourite);
-  console.log(favoriteList);
+
   const dispatch = useDispatch();
   const isItemInFavorite = favoriteList.some(
     (favoriteItem) => favoriteItem._id === candle._id
   );
-  // const [addToFav] = useAddToFavMutation();
-  // const [deleteFromFav] = useDeleteFromFavMutation();
-  // const [toggleFav] = useToggleFavMutation();
-  // const { fav } = useGetFavouriteQuery();
-  // const addToFavHandler = (item) => {
-  //   toggleFav({ ...item, favourite: !item.favourite });
-  //   addToFav(item);
-  // };
 
-  // const deleteFromFavHandler = (item) => {
-  //   toggleFav({ ...item, favourite: !item.favourite });
-  //   deleteFromFav(item);
-  // };
-  // const isItemInFavorite = favoriteList.some(
-  //   (favoriteItem) => favoriteItem.id === item.id
-  // );
-  // if (isItemInFavorite) {
-  //   dispatch(removeFromFavorite(item));
-  // } else {
-  //   dispatch(addToFavorite(item));
-  // }
   return (
     <div
       key={candle._id}

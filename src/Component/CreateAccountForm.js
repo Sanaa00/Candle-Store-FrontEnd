@@ -1,22 +1,16 @@
 import React, { useEffect } from "react";
-
 import { Link, Navigate } from "react-router-dom";
-
 import { Formik, Form, useFormik } from "formik";
 import { useSignupMutation } from "../features/api/auth";
-
 import * as Yup from "yup";
-
 import InputField from "./InputField";
 import Button from "./Button";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../features/user.slice";
 
 function CreateAccountForm() {
-  // const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
-
   const [signup, { data: response, isError, error }] = useSignupMutation();
 
   const widthOfButton = () => {
@@ -30,9 +24,7 @@ function CreateAccountForm() {
       return 96;
     }
   };
-  // const addUserHandler = () => {
-  //   signup(formData);
-  // };
+
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -43,7 +35,6 @@ function CreateAccountForm() {
     },
     onSubmit: (values) => {
       signup(values);
-      console.log("form values", values);
     },
 
     validationSchema: Yup.object({
@@ -63,13 +54,10 @@ function CreateAccountForm() {
     if (!isError && response) {
       localStorage.setItem("access_token", response?.data.token);
       dispatch(addUser(response.data.user));
-      // navigate("/");
     }
   }, [dispatch, isError, response]);
   if (user) return <Navigate to="/" replace />;
-  if (error) {
-    console.log(error?.data?.data?.message);
-  }
+
   return (
     <Formik>
       <div className="w-full lg:w-fit">

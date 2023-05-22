@@ -8,7 +8,7 @@ import { useGetCategoryQuery } from "../features/api/category";
 
 function AddProductForm() {
   const { data: category } = useGetCategoryQuery();
-  console.log(category?.data);
+
   const widthOfButton = () => {
     if (window.innerWidth < 640) {
       return "full";
@@ -29,7 +29,7 @@ function AddProductForm() {
       category: "",
     },
     onSubmit: (values) => {
-      console.log("add product", values);
+      // console.log("add product", values);
     },
 
     validationSchema: Yup.object({
@@ -94,14 +94,12 @@ function AddProductForm() {
               <span className="text-red-400 text-sm">
                 {formik.errors.category}
               </span>
-              {/* <input type="file" id="file-input" name="ImageStyle" /> */}
+
               <InputField
                 type="file"
-                // placeholder="upload image "
                 name="images"
                 id="images"
                 onChange={formik.handleChange}
-                // onChang={(e) => formik.setFieldValue("image", e.target.files[0])}
                 value={formik.values.images}
               />
 
@@ -112,37 +110,10 @@ function AddProductForm() {
                 name="category"
                 id="category"
                 className="w-full lg:w-80 xl:w-96 border-2 rounded-sm border-gray-200 focus:outline-none focus:border-greeen bg-gray-50 mt-5 px-1 py-1"
-              >
-                {/* {category.data.map((one) => {
-                  return (
-                    <option className="w-full lg:w-80 xl:w-96 border-2 rounded-sm border-gray-200 focus:outline-none hover:bg-greeen bg-gray-50 mt-5 px-1 py-1">
-                      {one.category}
-                    </option>
-                  );
-                })} */}
-                {/* <option
-                  className="w-full lg:w-80 xl:w-96 border-2 rounded-sm border-gray-200 focus:outline-none hover:bg-greeen bg-gray-50 mt-5 px-1 py-1"
-                  value="volvo"
-                >
-                  Volvo
-                </option> */}
-              </select>
-              {/* <select
-                name="category"
-                placeholder="category"
-                className="w-full lg:w-80 xl:w-96 border-2 rounded-sm border-gray-200 focus:outline-none focus:border-greeen bg-gray-50 mt-5 px-1 py-1"
-              > */}
-              {/* <button className="w-full lg:w-80 xl:w-96 border-2 rounded-sm border-gray-200 focus:outline-none focus:border-greeen bg-gray-50 mt-5 px-1 py-1">
-                  option1
-                </button>
-              </select> */}
+              ></select>
+
               <div className="mt-5 flex flex-col justify-center items-center">
-                <Button
-                  text="Add"
-                  width={widthOfButton()}
-                  type="submit"
-                  // onClick={() => addUserHandler()}
-                />{" "}
+                <Button text="Add" width={widthOfButton()} type="submit" />{" "}
               </div>
             </Form>{" "}
           </div>

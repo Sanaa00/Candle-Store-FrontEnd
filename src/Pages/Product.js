@@ -1,58 +1,32 @@
 import React from "react";
-
 import { useParams } from "react-router-dom";
 import { BarLoader } from "react-spinners";
-
 import { useGetProductByIdQuery } from "../features/api/productApi";
 import { useGetCartQuery, useAddToCartMutation } from "../features/api/cart";
-
 import Recomendation from "../Component/Recomendation";
 import Review from "../Component/Review";
 import Button from "../Component/Button";
 import Container from "../Component/Container";
-
 import Colors from "../Component/Colors";
 import ProductImageSlider from "../Component/ProductImageSlider";
+import { ToastContainer } from "react-toastify";
 
 function Product() {
   const { _id } = useParams();
-  console.log("product id", _id);
-  // const [addToCart, { isLoadingg }] = useAddToCartMutation();
-  // const [productQuantityChange] = useProductQuantityChangeMutation();
+
   const { data: cart } = useGetCartQuery();
   const [addToCart] = useAddToCartMutation();
-  console.log("cart items", cart);
-  // console.log("cart in product page", cart);
+
   const {
     data: singleProduct,
     isLoading,
     error,
     isError,
   } = useGetProductByIdQuery(_id);
-  // const { data: category } = useGetProductsByCategoryQuery(10);
-  console.log("single product", singleProduct);
-  // const { data } = console.log("singleproduct", singleProduct);
-  // console.log("function", addToCart);
 
   const addToCartHandle = (singleProduct) => {
     addToCart({ productId: singleProduct.data._id });
-    console.log(singleProduct);
   };
-
-  // const incrementQuantityHandler = (item) => {
-  //   let newQuantity = item.quantity + 1;
-  //   productQuantityChange({ ...item, quantity: newQuantity });
-  //   return newQuantity;
-  // };
-
-  // const decrementQuantityHandler = (item) => {
-  //   let newQuantity = item.quantity - 1;
-  //   if (newQuantity <= 1) {
-  //     newQuantity = 1;
-  //   }
-  //   productQuantityChange({ ...item, quantity: newQuantity });
-  //   return newQuantity;
-  // };
 
   const widthOfButton = () => {
     if (window.innerWidth < 640) {
@@ -75,6 +49,18 @@ function Product() {
   if (isError) return <p>{error.status}</p>;
   return (
     <div className="bg-gray-50 pt-10">
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <Container>
         {singleProduct.data ? (
           <div
@@ -89,7 +75,6 @@ function Product() {
                 </p>
                 <p className="bg-gray-100 py-1 px-5 text-greeen rounded-sm w-fit mt-5 font-semibold">
                   {singleProduct?.data.categoryId.category}
-                  {/* {console.log("category", singleProduct.data.category)} */}
                 </p>
               </div>
               <p className="mt-2 lg:mt-0">{singleProduct.data.description}</p>
@@ -100,11 +85,6 @@ function Product() {
                 <p className=" font-semibold text-greeen text-lg">
                   {singleProduct.data.price}.00 $
                 </p>
-                {/* <Counter
-                  data={singleProduct.data}
-                  increment={() => incrementQuantityHandler(singleProduct.data)}
-                  decrement={() => decrementQuantityHandler(singleProduct.data)}
-                /> */}
               </div>
               {console.log(singleProduct.data._id)}
               <div className="mt-2 lg:mt-0 flex justify-between items-center w-full">

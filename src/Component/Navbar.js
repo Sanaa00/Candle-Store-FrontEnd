@@ -12,7 +12,6 @@ import Container from "./Container";
 import MobileMenu from "./MobileMenu";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../features/user.slice";
-// import Search from "./Search";
 
 function Navbar() {
   const dispatch = useDispatch();
@@ -21,9 +20,6 @@ function Navbar() {
   const { data: cartByUser, isLoading } = useGetCartByUserIdQuery(userId, {
     skip: !userId,
   });
-  console.log("user id in navbar", cartByUser);
-  // console.log(bag);
-  // console.log(bag?.data?.length);
 
   isLoading && (
     <div className="flex justify-center items-center h-screen">
@@ -71,9 +67,6 @@ function Navbar() {
           </NavLink>
           <MobileMenu />
           <ul className="hidden lg:flex justify-end items-center">
-            {/* <div className="">
-              <Search />
-            </div> */}
             {user?.role === "admin" && (
               <NavLink to="/adminPanel">
                 {({ isActive }) =>
@@ -91,8 +84,7 @@ function Navbar() {
                   <HiShoppingBag className="w-6 h-6 lg:w-5 lg:h-5 xl:w-6 xl:h-6 hover:text-greeen mx-2" />
                 ) : (
                   <span>
-                    {" "}
-                    {user && cartByUser?.data[0]?.products?.length !== 0 && (
+                    {user && cartByUser?.data?.length !== 0 && (
                       <span className="absolute h-5 w-5 flex items-center justify-center text-center translate-x-1/2 -translate-y-1/2 bg-red-500  rounded-full text-xs text-white shadow-sm">
                         {cartByUser?.data[0]?.products?.length}
                       </span>
@@ -127,7 +119,6 @@ function Navbar() {
                 onClick={(e) => {
                   localStorage.removeItem("access_token");
                   dispatch(addUser(null));
-                  // console.log(user);
                 }}
               >
                 {" "}

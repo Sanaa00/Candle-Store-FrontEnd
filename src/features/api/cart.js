@@ -11,7 +11,7 @@ const cart = apiSlice.injectEndpoints({
     }),
     addToCart: builder.mutation({
       query: (item) => ({
-        url: "/cart",
+        url: "/cart/",
         method: "POST",
         body: item,
       }),
@@ -19,7 +19,7 @@ const cart = apiSlice.injectEndpoints({
     }),
     deleteFromCart: builder.mutation({
       query: ({ productId, cartId }) => ({
-        url: `/cart`,
+        url: `/cart/`,
         method: "DELETE",
         body: { productId, cartId },
       }),
@@ -27,7 +27,7 @@ const cart = apiSlice.injectEndpoints({
     }),
     quantityChange: builder.mutation({
       query: ({ cartId, productId, quantity }) => ({
-        url: `cart/${cartId}/products/${productId}`,
+        url: `/cart/${cartId}/products/${productId}/`,
         method: "PUT",
         body: { quantity },
       }),

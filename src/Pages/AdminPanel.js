@@ -6,7 +6,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 function AdminPanel() {
   const { user } = useSelector((state) => state.user);
-  console.log("user", user?.role);
+
   const options = [
     {
       id: 1,

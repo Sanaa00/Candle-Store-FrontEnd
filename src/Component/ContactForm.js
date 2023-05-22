@@ -11,7 +11,7 @@ import Button from "./Button";
 function ContactForm() {
   const [addContact] = useAddContactMutation();
   const { data: contact } = useGetContactQuery();
-  console.log("contact", contact);
+
   const widthOfButton = () => {
     if (window.innerWidth < 640) {
       return "full";
@@ -33,7 +33,6 @@ function ContactForm() {
       message: "",
     },
     onSubmit: (values) => {
-      console.log(values);
       addContact(values);
     },
     validationSchema: Yup.object({

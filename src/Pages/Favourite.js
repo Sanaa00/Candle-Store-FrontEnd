@@ -7,13 +7,12 @@ import emptyBag from "../images/EmptyBag.png";
 
 function Favourite() {
   const fav = useSelector((state) => state.favourite);
-  console.log(fav, "favourite page");
+
   return (
     <div className="bg-gray-50">
       <Container>
         <div className="min-h-screen pt-20">
           <p className="text-2xl font-semibold text-greeen py-5">Favourite</p>
-          {/* <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 justify-between items-center"> */}
           {fav.length === 0 ? (
             <div className="flex justify-center items-center">
               <img
