@@ -1,10 +1,25 @@
 import React from "react";
 import CreateAccountForm from "../Component/CreateAccountForm";
+import { Slide, ToastContainer } from "react-toastify";
 
 function CreateAcount() {
   return (
     <div className="bg-gray-50 ">
       {/* <Container> */}
+      <ToastContainer
+        position="bottom-center"
+        autoClose={3000}
+        hideProgressBar
+        newestOnTop
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable={false}
+        pauseOnHover
+        theme="light"
+        transition={Slide}
+        className="h-32"
+      />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 justify-between items-center pt-16 ">
         <img
           className="w-full h-[600px] object-cover"

@@ -1,6 +1,6 @@
 import React from "react";
 import { AiOutlineHeart } from "react-icons/ai";
-import { TiDeleteOutline } from "react-icons/ti";
+import { SlClose } from "react-icons/sl";
 import { BarLoader } from "react-spinners";
 import {
   useGetCartQuery,
@@ -27,11 +27,13 @@ function ShoppingBagCard() {
   const cartId = cart?.data[0]?._id;
 
   const [quantityChange] = useQuantityChangeMutation();
-  const [deleteFromCart] = useDeleteFromCartMutation();
+  const [deleteFromCart, isLoading, isError, error] =
+    useDeleteFromCartMutation();
+  console.log(isError, isLoading, error);
 
   const deleteFromCartHandle = (bag) => {
-    const _id = bag;
-    deleteFromCart({ productId: _id, cartId: cartId });
+    const productId = bag;
+    deleteFromCart({ productId: productId, cartId: cartId });
   };
 
   const incrementQuantityHandler = (item) => {
@@ -80,17 +82,17 @@ function ShoppingBagCard() {
                       {bag?.productId?.productName}
                     </p>
                     <div className="flex ">
-                      <div>
+                      {/* <div>
                         {" "}
                         <AiOutlineHeart className="w-6 h-6 mr-1 sm:mr-5 text-gray-700" />
-                      </div>
+                      </div> */}
 
                       <button
                         onClick={() =>
                           deleteFromCartHandle(bag?.productId?._id)
                         }
                       >
-                        <TiDeleteOutline className="w-6 h-6 text-gray-700" />
+                        <SlClose className="w-5 h-5 text-gray-700" />
                       </button>
                     </div>
                   </div>

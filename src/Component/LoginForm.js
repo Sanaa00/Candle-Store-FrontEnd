@@ -10,12 +10,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import { addUser } from "../features/user.slice";
+import { ClipLoader } from "react-spinners";
 function LoginForm() {
   const dispatch = useDispatch();
   const [token, setToken] = useState();
   const { user } = useSelector((state) => state.user);
-  const [login, { data: loginData, isError: loginDataIsError }] =
-    useLoginMutation();
+  const [
+    login,
+    { data: loginData, isError: loginDataIsError, isLoading: loginIsLoading },
+  ] = useLoginMutation();
 
   const { data: userData, isError: userDataIsError } = useGetCurrentUserQuery(
     token,
@@ -60,6 +63,7 @@ function LoginForm() {
   }, [dispatch, userData, userDataIsError]);
 
   if (user) return <Navigate to="/" replace />;
+  // if (loginIsLoading) return <Navigate to="/" replace />;
   return (
     <Formik>
       <div className="w-full lg:w-fit">
@@ -85,7 +89,24 @@ function LoginForm() {
           <span className="text-red-400 text-sm">{formik.errors.password}</span>
           <div className="mt-5">
             {" "}
-            <Button text="Login" type="submit" px={widthOfButton()} />
+            <Button
+              // text="Login"
+              text={
+                !loginIsLoading ? (
+                  "Login"
+                ) : (
+                  <div className="flex justify-center items-center">
+                    <ClipLoader
+                      color="#F8FAFC"
+                      size={20}
+                      speedMultiplier={0.5}
+                    />
+                  </div>
+                )
+              }
+              type="submit"
+              px={widthOfButton()}
+            />
           </div>
         </Form>
       </div>

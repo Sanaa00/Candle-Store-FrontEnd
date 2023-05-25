@@ -18,7 +18,7 @@ function ShopBag() {
     error,
     isError,
   } = useGetCartByUserIdQuery(userId);
-
+  console.log("bag", bag);
   isLoading && (
     <div className="flex justify-center items-center h-screen">
       <BarLoader color="#316C57" height={5} width={200} />
@@ -30,7 +30,7 @@ function ShopBag() {
     <div className="bg-gray-50">
       <Container>
         <div className="min-h-screen py-28">
-          {!bag?.data || bag?.data?.length === 0 ? (
+          {!bag?.data.length !== 0 || bag?.data?.products?.length === 0 ? (
             <div className="flex justify-center items-center">
               <img
                 alt="empty bag"

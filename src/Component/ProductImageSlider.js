@@ -8,7 +8,7 @@ function ProductImageSlider({ images }) {
   };
   return (
     <div className="h-[500px] ">
-      <img src={wordData} alt="" className="w-full h-[400px] object-cover" />
+      <img src={images[0]} alt="" className="w-full h-[400px] object-cover" />
       <div className="flex w-full justify-between">
         {images.map((data, i) => (
           <div className="mt-5 relative overflow-hidden" key={i}>

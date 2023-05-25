@@ -84,7 +84,7 @@ function Navbar() {
                   <HiShoppingBag className="w-6 h-6 lg:w-5 lg:h-5 xl:w-6 xl:h-6 hover:text-greeen mx-2" />
                 ) : (
                   <span>
-                    {user && cartByUser?.data?.length !== 0 && (
+                    {user && cartByUser?.data[0]?.products?.length > 0 && (
                       <span className="absolute h-5 w-5 flex items-center justify-center text-center translate-x-1/2 -translate-y-1/2 bg-red-500  rounded-full text-xs text-white shadow-sm">
                         {cartByUser?.data[0]?.products?.length}
                       </span>

@@ -1,6 +1,6 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import { BarLoader } from "react-spinners";
+import { Navigate, useParams } from "react-router-dom";
+import { BarLoader, ClipLoader } from "react-spinners";
 import { useGetProductByIdQuery } from "../features/api/productApi";
 import { useAddToCartMutation } from "../features/api/cart";
 import Recomendation from "../Component/Recomendation";
@@ -9,14 +9,18 @@ import Button from "../Component/Button";
 import Container from "../Component/Container";
 import Colors from "../Component/Colors";
 import ProductImageSlider from "../Component/ProductImageSlider";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
+import { useSelector } from "react-redux";
 
 function Product() {
   const { _id } = useParams();
-
+  const { user } = useSelector((state) => state.user);
+  const notifyforSignUp = () => toast("create account please");
+  // console.log(user);
   // const { data: cart } = useGetCartQuery();
-  const [addToCart] = useAddToCartMutation();
-
+  const [addToCart, addIsError, addIsLoading, addError] =
+    useAddToCartMutation();
+  console.log("erroy add", addIsError);
   const {
     data: singleProduct,
     isLoading,
@@ -25,6 +29,7 @@ function Product() {
   } = useGetProductByIdQuery(_id);
 
   const addToCartHandle = (singleProduct) => {
+    // if (!user) return <Navigate to="/createAcount" replace />;
     addToCart({ productId: singleProduct.data._id });
   };
 
@@ -47,9 +52,17 @@ function Product() {
       </div>
     );
   if (isError) return <p>{error.status}</p>;
+  // if (addError) return <p>{console.log(addError)}</p>;
+  if (addIsError && addIsError?.error?.originalStatus === 401)
+    return (
+      <>
+        {notifyforSignUp}
+        <Navigate to="/createAcount" replace />
+      </>
+    );
   return (
     <div className="bg-gray-50 pt-10">
-      <ToastContainer
+      {/* <ToastContainer
         position="top-right"
         autoClose={5000}
         hideProgressBar={false}
@@ -60,7 +73,7 @@ function Product() {
         draggable
         pauseOnHover
         theme="light"
-      />
+      /> */}
       <Container>
         {singleProduct.data ? (
           <div
@@ -91,20 +104,20 @@ function Product() {
                 {" "}
                 <Button
                   onClick={() => addToCartHandle(singleProduct)}
-                  text="add to cart"
-                  // text={
-                  //   !isLoadingg ? (
-                  //     "Add to cart"
-                  //   ) : (
-                  //     <div className="flex justify-center items-center">
-                  //       <ClipLoader
-                  //         color="#F8FAFC"
-                  //         size={20}
-                  //         speedMultiplier={0.5}
-                  //       />
-                  //     </div>
-                  //   )
-                  // }
+                  // text="add to cart"
+                  text={
+                    !addIsLoading ? (
+                      "Add to cart"
+                    ) : (
+                      <div className="flex justify-center items-center">
+                        <ClipLoader
+                          color="#F8FAFC"
+                          size={20}
+                          speedMultiplier={0.5}
+                        />
+                      </div>
+                    )
+                  }
                   width={widthOfButton()}
                 />
               </div>

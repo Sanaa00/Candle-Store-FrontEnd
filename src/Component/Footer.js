@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../images/logo.png";
 
 import { AiFillInstagram } from "react-icons/ai";
 import { AiOutlineTwitter } from "react-icons/ai";
@@ -11,21 +12,21 @@ function Footer() {
       {" "}
       <Container>
         <div className=" py-10 flex flex-col items-center justify-center px-5">
-          <p>LOGO</p>
+          <img alt="logo" src={logo} className="w-10 h-10 " />
           <div className="grid grid-cols-2 gap-5 md:grid-cols-4 justify-between w-full mt-5">
             <div className="flex flex-col">
               <p className="font-semibold text-greeen">Category</p>
-              <p>category 1</p>
-              <p>category 2</p>
-              <p>category 3</p>
-              <p>category 4</p>
+              <p>Simple</p>
+              <p>Collection</p>
+              <p>Scently</p>
+              <p>Flowers</p>
             </div>
             <div className="flex flex-col">
               <p className="font-semibold text-greeen">About As</p>
-              <p>Profile</p>
-              <p>Gifts</p>
-              <p>Brand</p>
-              <p>category 4</p>
+              <p>Home</p>
+              <p>Products</p>
+              <p>Contact</p>
+              <p>Gift</p>
             </div>
             <div className="flex flex-col">
               <p className="font-semibold text-greeen">Customer Care</p>
