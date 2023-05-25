@@ -9,17 +9,11 @@ import Button from "../Component/Button";
 import Container from "../Component/Container";
 import Colors from "../Component/Colors";
 import ProductImageSlider from "../Component/ProductImageSlider";
-import { ToastContainer, toast } from "react-toastify";
-import { useSelector } from "react-redux";
 
 function Product() {
   const { _id } = useParams();
-  const { user } = useSelector((state) => state.user);
-  const notifyforSignUp = () => toast("create account please");
-  // console.log(user);
-  // const { data: cart } = useGetCartQuery();
-  const [addToCart, addIsError, addIsLoading, addError] =
-    useAddToCartMutation();
+
+  const [addToCart, addIsError, addIsLoading] = useAddToCartMutation();
   console.log("erroy add", addIsError);
   const {
     data: singleProduct,
@@ -29,7 +23,6 @@ function Product() {
   } = useGetProductByIdQuery(_id);
 
   const addToCartHandle = (singleProduct) => {
-    // if (!user) return <Navigate to="/createAcount" replace />;
     addToCart({ productId: singleProduct.data._id });
   };
 
@@ -52,28 +45,15 @@ function Product() {
       </div>
     );
   if (isError) return <p>{error.status}</p>;
-  // if (addError) return <p>{console.log(addError)}</p>;
+
   if (addIsError && addIsError?.error?.originalStatus === 401)
     return (
       <>
-        {notifyforSignUp}
         <Navigate to="/createAcount" replace />
       </>
     );
   return (
     <div className="bg-gray-50 pt-10">
-      {/* <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      /> */}
       <Container>
         {singleProduct.data ? (
           <div
@@ -104,7 +84,6 @@ function Product() {
                 {" "}
                 <Button
                   onClick={() => addToCartHandle(singleProduct)}
-                  // text="add to cart"
                   text={
                     !addIsLoading ? (
                       "Add to cart"

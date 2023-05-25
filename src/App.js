@@ -63,5 +63,3 @@ function App() {
 }
 
 export default App;
-// to={`/hotel/${hotel.id}`}
-// const { id } = useParams();

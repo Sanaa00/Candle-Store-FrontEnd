@@ -9,17 +9,9 @@ export const favouriteSlice = createSlice({
         ? action.payload
         : [action.payload];
       return [...state, ...itemsToAdd];
-      // const itemInFav = state.fav.find((item) => item.id === action.payload.id);
-      // if (itemInFav) {
-      //   itemInFav.fav = false;
-      // } else {
-      //   state.fav.push({ ...action.payload, fav: true });
-      // }
     },
     removeItemFav: (state, action) => {
       return state.filter((item) => item._id !== action.payload._id);
-      // const removeItem = state.fav.filter((item) => item.fav !== true);
-      // state.fav = removeItem;
     },
   },
 });

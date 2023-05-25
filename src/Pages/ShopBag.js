@@ -1,8 +1,6 @@
 import React from "react";
-
 import { BarLoader } from "react-spinners";
 import { useGetCartByUserIdQuery } from "../features/api/cart";
-
 import Container from "../Component/Container";
 import ShoppingBagCard from "../Component/ShoppingBagCard";
 import TotalPrice from "../Component/TotalPrice";

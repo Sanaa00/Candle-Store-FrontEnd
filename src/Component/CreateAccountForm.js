@@ -8,7 +8,6 @@ import Button from "./Button";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../features/user.slice";
 import { ClipLoader } from "react-spinners";
-import { Slide, ToastContainer } from "react-toastify";
 
 function CreateAccountForm() {
   const dispatch = useDispatch();
@@ -64,20 +63,6 @@ function CreateAccountForm() {
   return (
     <Formik>
       <div className="w-full lg:w-fit">
-        {/* <ToastContainer
-          position="bottom-center"
-          autoClose={3000}
-          hideProgressBar
-          newestOnTop
-          closeOnClick={false}
-          rtl={false}
-          pauseOnFocusLoss={false}
-          draggable={false}
-          pauseOnHover
-          theme="light"
-          transition={Slide}
-          className="h-32"
-        /> */}
         <Form
           onSubmit={formik.handleSubmit}
           className="grid grid-cols-1 mb-10 w-full lg:w-fit"
@@ -116,7 +101,6 @@ function CreateAccountForm() {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.email}
-            // onBlur={formik.handleBlur}
           />
           {formik.touched.email && formik.errors.email && (
             <span className="text-red-400 text-sm">{formik.errors.email}</span>
@@ -154,7 +138,6 @@ function CreateAccountForm() {
           ) : null}
           <div className="mt-5 flex flex-col justify-center items-center">
             <Button
-              // text="Create"
               text={
                 !isLoading ? (
                   "Create"

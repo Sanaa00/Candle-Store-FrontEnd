@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-// import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
+
 import { useGetProductsByCategoryQuery } from "../features/api/productApi";
 import CandleCard from "./CandleCard";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -19,20 +19,6 @@ function Recomendation({ singleProduct }) {
         <p className="text-2xl font-semibold text-greeen my-5">
           Recommendation
         </p>
-        {/* <div className="flex">
-          <div
-            className="mr-5"
-            onClick={() => sliderRef?.current?.sliderPrev()}
-          >
-            <BsArrowLeftCircle className="w-6 h-6 text-gray-800" />
-          </div>
-          <div
-            className=""
-            onClick={() => sliderRef.current.Swiper.allowSlideNext(true)}
-          >
-            <BsArrowRightCircle className="w-6 h-6 text-gray-800" />
-          </div>
-        </div> */}
       </div>{" "}
       <Swiper
         ref={sliderRef}

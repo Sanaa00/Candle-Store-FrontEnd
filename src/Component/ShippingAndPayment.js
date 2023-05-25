@@ -1,9 +1,7 @@
 import Container from "./Container";
 import React from "react";
 import "react-tabs/style/react-tabs.css";
-
 import Shipping from "./Shipping";
-
 import SummeryCard from "./SummeryCard";
 
 function ShippingAndPayment() {

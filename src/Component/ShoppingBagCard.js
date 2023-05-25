@@ -1,5 +1,4 @@
 import React from "react";
-import { AiOutlineHeart } from "react-icons/ai";
 import { SlClose } from "react-icons/sl";
 import { BarLoader } from "react-spinners";
 import {
@@ -82,11 +81,6 @@ function ShoppingBagCard() {
                       {bag?.productId?.productName}
                     </p>
                     <div className="flex ">
-                      {/* <div>
-                        {" "}
-                        <AiOutlineHeart className="w-6 h-6 mr-1 sm:mr-5 text-gray-700" />
-                      </div> */}
-
                       <button
                         onClick={() =>
                           deleteFromCartHandle(bag?.productId?._id)

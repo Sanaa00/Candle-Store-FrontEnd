@@ -6,7 +6,6 @@ function ProductsNavbar({ categoryId, setCategoryId }) {
   const { data: categoryyy } = useGetCategoryQuery();
   const handleFilter = (category) => {
     setCategoryId(category);
-    // console.log("category id", category);
   };
   return (
     <div className="pt-5 flex flex-wrap gap-5 bg-gray-50">

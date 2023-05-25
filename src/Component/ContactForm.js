@@ -1,16 +1,12 @@
 import React from "react";
 import { Formik, Form, useFormik } from "formik";
 import * as Yup from "yup";
-import {
-  useAddContactMutation,
-  // useGetContactQuery,
-} from "../features/api/contact";
+import { useAddContactMutation } from "../features/api/contact";
 import InputField from "./InputField";
 import Button from "./Button";
 
 function ContactForm() {
   const [addContact] = useAddContactMutation();
-  // const { data: contact } = useGetContactQuery();
 
   const widthOfButton = () => {
     if (window.innerWidth < 640) {

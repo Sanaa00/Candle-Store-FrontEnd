@@ -72,9 +72,7 @@ function HomeSlideShow() {
             />
             <Container>
               <p className="absolute top-1/2  left-0 text-center   text-greeen font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl px-6 lg:px-40 xl:px-80">
-                {/* <p className="text-greeen font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl px-80"> */}
                 Transform Your Home into a Cozy Haven with Our Beautiful Candles
-                {/* </p> */}
               </p>
             </Container>
           </div>

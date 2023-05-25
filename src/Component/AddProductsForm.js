@@ -4,11 +4,8 @@ import * as Yup from "yup";
 import InputField from "./InputField";
 import Button from "./Button";
 import AddCategoryForm from "./AddCategoryForm";
-// import { useGetCategoryQuery } from "../features/api/category";
 
 function AddProductForm() {
-  // const { data: category } = useGetCategoryQuery();
-
   const widthOfButton = () => {
     if (window.innerWidth < 640) {
       return "full";
@@ -28,9 +25,7 @@ function AddProductForm() {
       images: "",
       category: "",
     },
-    onSubmit: (values) => {
-      // console.log("add product", values);
-    },
+    onSubmit: (values) => {},
 
     validationSchema: Yup.object({
       productName: Yup.string().label("product Name").required(),

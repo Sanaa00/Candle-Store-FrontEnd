@@ -3,10 +3,8 @@ import { RiTableAltLine } from "react-icons/ri";
 import { AiOutlineForm } from "react-icons/ai";
 import { RxDashboard } from "react-icons/rx";
 import { NavLink, Outlet } from "react-router-dom";
-// import { useSelector } from "react-redux";
-function AdminPanel() {
-  // const { user } = useSelector((state) => state.user);
 
+function AdminPanel() {
   const options = [
     {
       id: 1,

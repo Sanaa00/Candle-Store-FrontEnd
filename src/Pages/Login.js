@@ -4,7 +4,6 @@ import LoginForm from "../Component/LoginForm";
 function Login() {
   return (
     <div className="bg-gray-50">
-      {/* <Container> */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 pt-16 justify-between items-center">
         <img
           className="w-full h-[600px] object-cover"
@@ -16,7 +15,6 @@ function Login() {
           <LoginForm />
         </div>
       </div>
-      {/* </Container> */}
     </div>
   );
 }

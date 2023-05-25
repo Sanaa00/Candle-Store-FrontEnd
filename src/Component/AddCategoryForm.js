@@ -20,9 +20,7 @@ function AddCategoryForm() {
     initialValues: {
       category: "",
     },
-    onSubmit: (values) => {
-      // console.log(values);
-    },
+    onSubmit: (values) => {},
 
     validationSchema: Yup.object({
       productName: Yup.string().label("category").required(),

@@ -5,7 +5,6 @@ import { Slide, ToastContainer } from "react-toastify";
 function CreateAcount() {
   return (
     <div className="bg-gray-50 ">
-      {/* <Container> */}
       <ToastContainer
         position="bottom-center"
         autoClose={3000}
@@ -33,10 +32,7 @@ function CreateAcount() {
           </p>
           <CreateAccountForm />
         </div>
-
-        {/* <Link to="/login">Have Account? Login </Link> */}
       </div>
-      {/* </Container> */}
     </div>
   );
 }

@@ -90,7 +90,6 @@ function LoginForm() {
           <div className="mt-5">
             {" "}
             <Button
-              // text="Login"
               text={
                 !loginIsLoading ? (
                   "Login"

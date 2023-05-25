@@ -6,7 +6,7 @@ import {
   useAddToCartMutation,
   useGetCartByUserIdQuery,
 } from "../features/api/cart";
-// import { useGetAddressQuery } from "../features/api/address";
+
 import * as Yup from "yup";
 import InputField from "./InputField";
 import { Navigate } from "react-router-dom";
@@ -16,7 +16,6 @@ function Shipping() {
   const [addToCart] = useAddToCartMutation();
   const { user } = useSelector((state) => state.user);
   const userId = user?._id;
-  // const { data: address } = useGetAddressQuery();
 
   const { data: bag } = useGetCartByUserIdQuery(userId);
   console.log("bagg", bag);
@@ -103,18 +102,6 @@ function Shipping() {
             >
               submit
             </button>{" "}
-            {/* <ToastContainer
-              position="top-right"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-              theme="light"
-            /> */}
           </Form>{" "}
         </div>
       </Formik>
@@ -123,4 +110,3 @@ function Shipping() {
 }
 
 export default Shipping;
-// if (user) return <Navigate to="/" replace />
