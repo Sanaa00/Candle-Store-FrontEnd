@@ -6,11 +6,6 @@ const productApi = apiSlice.injectEndpoints({
         `products?search=${search}&categoryId=${category}&page=${page}`,
       providesTags: ["product"],
     }),
-    // getProductsBySearch: builder.query({
-    //   query: ({ search, category }) =>
-    //     `products?search=${search}&categoryId=${category}`,
-    //   providesTags: ["product"],
-    // // }),
     getProductsByCategory: builder.query({
       query: (category) => `products?categoryId=${category}`,
       providesTags: ["product"],
@@ -42,6 +37,5 @@ export const {
   useGetProductByIdQuery,
   useFavouriteMutation,
   useGetProductsByCategoryQuery,
-  // useGetProductsBySearchQuery,
   useAddProductMutation,
 } = productApi;

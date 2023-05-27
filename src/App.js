@@ -13,7 +13,6 @@ import Footer from "./Component/Footer";
 import Login from "./Pages/Login";
 import ShippingAndPayment from "./Component/ShippingAndPayment";
 import Product from "./Pages/Product";
-// import Payment from "./Component/Payment";
 import AdminPanel from "./Pages/AdminPanel";
 import AddProductsForm from "./Component/AddProductsForm";
 import Table from "./Component/Table";
@@ -25,9 +24,6 @@ import { addUser } from "./features/user.slice";
 
 function App() {
   const dispatch = useDispatch();
-
-  // const { user } = useSelector((state) => state.user);
-
   const { data, isSuccess } = useGetCurrentUserQuery();
 
   useEffect(() => {
@@ -50,7 +46,6 @@ function App() {
         <Route path="shopBag" element={<ShopBag />} />
         <Route path="login" element={<Login />} />
         <Route path="shippingAndPayment" element={<ShippingAndPayment />} />
-        {/* <Route path="payment" element={<Payment />} /> */}
         <Route path="adminPanel" element={<AdminPanel />}>
           <Route path="form" element={<AddProductsForm />} />
           <Route path="table" element={<Table />} />

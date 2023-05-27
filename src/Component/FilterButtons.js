@@ -16,7 +16,6 @@ function ProductsNavbar({ categoryId, setCategoryId }) {
             : "  text-greeen  bg-gray-100  py-1 px-5 ") +
           "hover:duration-500 text-sm flex font-semibold py-1 px-5 rounded-sm hover:bg-greeen hover:text-gray-50 hover:shadow-lg duration-500 "
         }
-        // className="bg-gray-100 py-1 px-5 focus:bg-greeen rounded-sm hover:bg-greeen hover:text-gray-50 text-greeen focus:text-gray-50  hover:shadow-lg duration-500 hover:duration-500 text-sm flex font-semibold"
         key={1}
         onClick={() => handleFilter("")}
       >
@@ -31,8 +30,6 @@ function ProductsNavbar({ categoryId, setCategoryId }) {
                 : "  text-greeen  bg-gray-100  py-1 px-5 ") +
               "hover:duration-500 text-sm flex font-semibold py-1 px-5 rounded-sm hover:bg-greeen hover:text-gray-50 hover:shadow-lg duration-500 "
             }
-            //
-            // className="bg-gray-100 py-1 px-5 focus:bg-greeen rounded-sm hover:bg-greeen hover:text-gray-50 text-greeen focus:text-gray-50  hover:shadow-lg duration-500 hover:duration-500 text-sm flex font-semibold"
             key={product._id}
             onClick={() => handleFilter(product._id)}
           >

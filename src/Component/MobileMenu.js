@@ -86,20 +86,6 @@ function MobileMenu() {
             >
               Contact
             </Link>{" "}
-            {/* <Link
-              to="/favourite"
-              onClick={() => setOpen(!open)}
-              className="text-orange text-center py-3"
-            >
-              Favourite
-            </Link>{" "} */}
-            {/* <Link
-              to="/createAcount"
-              onClick={() => setOpen(!open)}
-              className="text-orange text-center py-3"
-            >
-              Account
-            </Link>{" "} */}
             {!user ? (
               <NavLink
                 to="/createAcount"

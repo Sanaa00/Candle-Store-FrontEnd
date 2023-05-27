@@ -11,7 +11,6 @@ import { Link } from "react-router-dom";
 
 function HomeSlideShow() {
   var settings = {
-    // className="x",
     dots: true,
     infinite: true,
     slidesToShow: 1,

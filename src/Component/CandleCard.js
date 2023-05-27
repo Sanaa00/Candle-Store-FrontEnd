@@ -2,19 +2,11 @@ import React from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
-// import { useSelector, useDispatch } from "react-redux";
-// import { addtoFav, removeItemFav } from "../features/favouriteSlice";
 import { useFavouriteMutation } from "../features/api/productApi";
-// import { addtoFav } from "../features/favouriteSlice";
 
 function CandleCard({ candle }) {
   const [favourite] = useFavouriteMutation();
 
-  // const favoriteList = useSelector((state) => state.favourite);
-  // const dispatch = useDispatch();
-  // const isItemInFavorite =favoriteList?.some((favoriteItem) => favoriteItem._id === candle._id) || [];
-
-  // console.log(candle);
   const handleAddFavourite = (candle) => {
     let addtoFav = candle.favourite;
     addtoFav = true;

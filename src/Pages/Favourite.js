@@ -1,12 +1,10 @@
 import React from "react";
-// import { useSelector } from "react-redux";
 import { useGetProductsQuery } from "../features/api/productApi";
 import Container from "../Component/Container";
 import CandleCard from "../Component/CandleCard";
 import emptyBag from "../images/EmptyBag.png";
 
 function Favourite() {
-  // const fav = useSelector((state) => state.favourite);
   const { data: products } = useGetProductsQuery({
     search: "",
     category: "",
