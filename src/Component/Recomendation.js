@@ -13,6 +13,16 @@ function Recomendation({ singleProduct }) {
 
   const { data: category } = useGetProductsByCategoryQuery(productCategoryId);
 
+  const cardperPage = () => {
+    if (window.innerWidth < 640) {
+      return 1;
+    } else if (window.innerWidth < 768) {
+      return 2;
+    } else if (window.innerWidth > 768) {
+      return 3;
+    }
+  };
+
   return (
     <div className="flex flex-col my-10">
       <div className="flex justify-between items-center">
@@ -22,7 +32,7 @@ function Recomendation({ singleProduct }) {
       </div>{" "}
       <Swiper
         ref={sliderRef}
-        slidesPerView={3}
+        slidesPerView={cardperPage()}
         spaceBetween={30}
         className="w-full"
       >

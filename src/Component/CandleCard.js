@@ -2,30 +2,42 @@ import React from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { addtoFav, removeItemFav } from "../features/favouriteSlice";
+// import { useSelector, useDispatch } from "react-redux";
+// import { addtoFav, removeItemFav } from "../features/favouriteSlice";
+import { useFavouriteMutation } from "../features/api/productApi";
+// import { addtoFav } from "../features/favouriteSlice";
 
 function CandleCard({ candle }) {
-  const favoriteList = useSelector((state) => state.favourite);
+  const [favourite] = useFavouriteMutation();
 
-  const dispatch = useDispatch();
-  const isItemInFavorite = favoriteList.some(
-    (favoriteItem) => favoriteItem._id === candle._id
-  );
+  // const favoriteList = useSelector((state) => state.favourite);
+  // const dispatch = useDispatch();
+  // const isItemInFavorite =favoriteList?.some((favoriteItem) => favoriteItem._id === candle._id) || [];
 
+  // console.log(candle);
+  const handleAddFavourite = (candle) => {
+    let addtoFav = candle.favourite;
+    addtoFav = true;
+    favourite({ ...candle, favourite: addtoFav });
+  };
+  const handleRemoveFavourite = (candle) => {
+    let removetoFav = candle.favourite;
+    removetoFav = false;
+    favourite({ ...candle, favourite: removetoFav });
+  };
   return (
     <div
       key={candle._id}
       className="hover:duration-500 duration-500 rounded hover:rounded m-2 flex relative"
     >
       {" "}
-      <div className="absolute top-2 right-2 bg-gray-50 w-7 h-7 rounded-full flex justify-center items-center z-50">
-        {isItemInFavorite ? (
-          <button onClick={() => dispatch(removeItemFav(candle))}>
+      <div className="absolute top-2 right-2 bg-gray-50 w-7 h-7 rounded-full flex justify-center items-center z-40">
+        {candle.favourite === true ? (
+          <button onClick={() => handleRemoveFavourite(candle)}>
             <AiFillHeart className="w-6 h-6 text-red-500" />
           </button>
         ) : (
-          <button onClick={() => dispatch(addtoFav(candle))}>
+          <button onClick={() => handleAddFavourite(candle)}>
             <AiOutlineHeart className="w-6 h-6 text-red-500" />
           </button>
         )}

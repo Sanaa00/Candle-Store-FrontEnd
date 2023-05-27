@@ -21,7 +21,7 @@ function ProductsPagination({
   if (isError) return <p>error</p>;
   return (
     <div className="min-h-screen pt-5">
-      <div className="grid gap-5 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 justify-between items-center ">
+      <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-between items-center ">
         {products.data?.products?.map((candle) => {
           return <CandleCard candle={candle} key={candle._id} />;
         })}

@@ -28,7 +28,7 @@ function ShopBag() {
     <div className="bg-gray-50">
       <Container>
         <div className="min-h-screen py-28">
-          {!bag?.data.length !== 0 || bag?.data?.products?.length === 0 ? (
+          {!bag?.data.length === 0 || bag?.data?.products?.length === 0 ? (
             <div className="flex justify-center items-center">
               <img
                 alt="empty bag"

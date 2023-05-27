@@ -38,27 +38,30 @@ function Products() {
           className="h-32"
         />
         <FilterButtons categoryId={category} setCategoryId={setCategory} />
-        <div className="mt-5 flex w-full justify-center items-center">
-          <div className=" flex justify-between items-center w-full lg:w-80 xl:w-96 border-2 rounded-sm border-gray-200 focus:outline-none duration-500 hover:duration-500 hover:border-greeen bg-gray-50 mt-2">
-            <input
-              placeholder="Search"
-              onChange={(e) => {
-                setSearch(e.target.value);
-              }}
-              className="pl-1 w-full h-full  text-sm font-regular bg-transparent outline-none focus:text-greeen"
-            />
-            <FiSearch className=" w-8 h-8 px-1 text-gray-300 focus:scale-110 duration-500" />
+        <div className="flex flex-col justify-start items-center">
+          {" "}
+          <div className="mt-5 flex w-80 sm:w-96 lg:w-full justify-center items-center">
+            <div className=" flex justify-between items-center w-full lg:w-80 xl:w-96 border-2 rounded-sm border-gray-200 focus:outline-none duration-500 hover:duration-500 hover:border-greeen bg-gray-50 mt-2">
+              <input
+                placeholder="Search"
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                }}
+                className="pl-1 w-full h-full  text-sm font-regular bg-transparent outline-none focus:text-greeen"
+              />
+              <FiSearch className=" w-8 h-8 px-1 text-gray-300 focus:scale-110 duration-500" />
+            </div>
           </div>
+          <ProductsPagination
+            products={products}
+            isLoading={isLoading}
+            error={error}
+            isError={isError}
+            search={search}
+            page={page}
+            setPage={setPage}
+          />
         </div>
-        <ProductsPagination
-          products={products}
-          isLoading={isLoading}
-          error={error}
-          isError={isError}
-          search={search}
-          page={page}
-          setPage={setPage}
-        />
       </Container>
     </div>
   );

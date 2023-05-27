@@ -2,12 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const favouriteSlice = createSlice({
   name: "favourite",
-  initialState: {},
+  initialState: [],
   reducers: {
     addtoFav: (state, action) => {
-      const itemsToAdd = Array.isArray(action.payload)
-        ? action.payload
-        : [action.payload];
+      const itemsToAdd = action.payload;
+
       return [...state, ...itemsToAdd];
     },
     removeItemFav: (state, action) => {

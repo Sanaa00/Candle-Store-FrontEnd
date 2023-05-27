@@ -1,19 +1,29 @@
 import React from "react";
-import { useSelector } from "react-redux";
-
+// import { useSelector } from "react-redux";
+import { useGetProductsQuery } from "../features/api/productApi";
 import Container from "../Component/Container";
 import CandleCard from "../Component/CandleCard";
 import emptyBag from "../images/EmptyBag.png";
 
 function Favourite() {
-  const fav = useSelector((state) => state.favourite);
+  // const fav = useSelector((state) => state.favourite);
+  const { data: products } = useGetProductsQuery({
+    search: "",
+    category: "",
+    page: null,
+  });
+  console.log(products);
+  const favItems = products?.data?.products?.filter((item) => {
+    return item.favourite === true;
+  });
 
+  console.log(favItems);
   return (
     <div className="bg-gray-50">
       <Container>
         <div className="min-h-screen pt-20">
           <p className="text-2xl font-semibold text-greeen py-5">Favourite</p>
-          {fav.length === 0 ? (
+          {favItems?.length === 0 ? (
             <div className="flex justify-center items-center">
               <img
                 alt="empty bag"
@@ -22,8 +32,8 @@ function Favourite() {
               />
             </div>
           ) : (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4  justify-between items-center ">
-              {fav.map((candle) => {
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-between items-center ">
+              {favItems?.map((candle) => {
                 return <CandleCard candle={candle} key={candle._id} />;
               })}
             </div>
