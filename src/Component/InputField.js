@@ -1,7 +1,16 @@
 import React from "react";
 import { Field } from "formik";
 
-function InputField({ name, placeholder, value, onChange, id, type }) {
+function InputField({
+  name,
+  placeholder,
+  value,
+  onChange,
+  id,
+  type,
+  accept,
+  // multiple,
+}) {
   return (
     <Field
       placeholder={placeholder}
@@ -10,7 +19,9 @@ function InputField({ name, placeholder, value, onChange, id, type }) {
       onChange={onChange}
       id={id}
       type={type}
-      className="w-full lg:w-80 xl:w-96 border-2 rounded-sm border-gray-200 focus:outline-none focus:border-greeen bg-gray-50 mt-5 px-1 py-1"
+      multiple
+      accept={accept}
+      className="w-full lg:w-80 xl:w-96 h-14 pl-3 border-2 rounded-sm border-gray-300 focus:outline-none focus:border-greeen bg-gray-50 mt-5 px-1 py-1"
     />
   );
 }

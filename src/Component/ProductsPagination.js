@@ -3,6 +3,8 @@ import ReactPaginate from "react-paginate";
 import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
 import CandleCard from "./CandleCard";
 import { BarLoader } from "react-spinners";
+import { useSelector } from "react-redux";
+import { useGetfavouritebyUserIdQuery } from "../features/api/favourite";
 
 function ProductsPagination({
   products,
@@ -12,6 +14,20 @@ function ProductsPagination({
   page,
   setPage,
 }) {
+  const { user } = useSelector((state) => state.user);
+  const userId = user?._id;
+  const { data: fav } = useGetfavouritebyUserIdQuery(userId);
+  console.log(fav);
+  fav?.data[0]?.products.map((checkFav) => {
+    return (
+      <div>
+        {checkFav?.productId?._id}
+        {/* {console.log("ama", checkFav?.productId?._id)} */}
+      </div>
+    );
+  });
+  // console.log("ama", checkFav);
+
   if (isLoading)
     return (
       <div className="flex justify-center items-center h-screen">
@@ -22,8 +38,12 @@ function ProductsPagination({
   return (
     <div className="min-h-screen pt-5">
       <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-between items-center ">
-        {products.data?.products?.map((candle) => {
+        {products?.data?.products?.map((candle) => {
+          // {
+          // checkFav?.productId?._id === candle?._id
+
           return <CandleCard candle={candle} key={candle._id} />;
+          // }
         })}
       </div>
       <div className="container mx-auto flex justify-center py-10">

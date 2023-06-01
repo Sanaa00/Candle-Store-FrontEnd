@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 
 function ShopBag() {
   const { user } = useSelector((state) => state.user);
+  console.log(user);
   const userId = user?._id;
   const {
     data: bag,
@@ -28,7 +29,9 @@ function ShopBag() {
     <div className="bg-gray-50">
       <Container>
         <div className="min-h-screen py-28">
-          {!bag?.data.length === 0 || bag?.data?.products?.length === 0 ? (
+          {!user ||
+          bag?.data.length === 0 ||
+          bag?.data[0]?.products?.length === 0 ? (
             <div className="flex justify-center items-center">
               <img
                 alt="empty bag"
@@ -37,7 +40,7 @@ function ShopBag() {
               />
             </div>
           ) : (
-            <div className="grid grid-cols-1 lg:grid-cols-2 pag-5">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
               <ShoppingBagCard bagData={bag?.data?.products} />
               <TotalPrice bagData={bag} />
             </div>

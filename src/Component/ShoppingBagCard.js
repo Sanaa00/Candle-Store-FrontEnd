@@ -21,14 +21,14 @@ function ShoppingBagCard() {
     cartByUserisError,
     cartByUsererror,
   } = useGetCartByUserIdQuery(userId);
-  console.log("get cart by user id", cartByUser);
+  // console.log("get cart by user id", cartByUser);
 
   const cartId = cart?.data[0]?._id;
 
   const [quantityChange] = useQuantityChangeMutation();
   const [deleteFromCart, isLoading, isError, error] =
     useDeleteFromCartMutation();
-  console.log(isError, isLoading, error);
+  // console.log(isError, isLoading, error);
 
   const deleteFromCartHandle = (bag) => {
     const productId = bag;
@@ -61,49 +61,45 @@ function ShoppingBagCard() {
   if (cartByUserisError) return <p>{cartByUsererror.status}</p>;
   return (
     <div>
-      <div>
-        {cartByUser?.data[0]?.products?.map((bag, i) => {
-          return (
-            <div key={bag?.productId?._id}>
-              <div className="p-2 lg:p-5 flex border-b-2 ">
-                <div className="w-52 h-40">
-                  {" "}
-                  <img
-                    src={bag?.productId?.images[0]}
-                    alt="shopping card"
-                    className="w-40 h-40 object-cover rounded-sm object-center mr-1 lg:mr-5"
-                  />
-                </div>
+      {cartByUser?.data[0]?.products?.map((bag, i) => {
+        return (
+          <div key={bag?.productId?._id}>
+            <div className="p-2 lg:p-5 flex border-b-2 ">
+              <div className="w-52 h-40">
+                {" "}
+                <img
+                  src={bag?.productId?.images[0]}
+                  alt="shopping card"
+                  className="w-40 h-40 object-cover rounded-sm object-center mr-1 lg:mr-5"
+                />
+              </div>
 
-                <div className="flex flex-col justify-between items-center w-full p-1 ml-5">
-                  <div className="flex justify-between items-center w-full">
-                    <p className="font-semibold text-greeen ">
-                      {bag?.productId?.productName}
-                    </p>
-                    <div className="flex ">
-                      <button
-                        onClick={() =>
-                          deleteFromCartHandle(bag?.productId?._id)
-                        }
-                      >
-                        <SlClose className="w-5 h-5 text-gray-700" />
-                      </button>
-                    </div>
+              <div className="flex flex-col justify-between items-center w-full p-1 ml-5">
+                <div className="flex justify-between items-center w-full">
+                  <p className="font-semibold text-greeen ">
+                    {bag?.productId?.productName}
+                  </p>
+                  <div className="flex ">
+                    <button
+                      onClick={() => deleteFromCartHandle(bag?.productId?._id)}
+                    >
+                      <SlClose className="w-5 h-5 text-gray-700" />
+                    </button>
                   </div>
-                  <div className="flex justify-between items-center w-full">
-                    <Counter
-                      data={bag}
-                      increment={() => incrementQuantityHandler(bag)}
-                      decrement={() => decrementQuantityHandler(bag)}
-                    />
-                    <p>{bag?.productId?.price}$ </p>
-                  </div>
+                </div>
+                <div className="flex justify-between items-center w-full">
+                  <Counter
+                    data={bag}
+                    increment={() => incrementQuantityHandler(bag)}
+                    decrement={() => decrementQuantityHandler(bag)}
+                  />
+                  <p>{bag?.productId?.price}$ </p>
                 </div>
               </div>
             </div>
-          );
-        })}
-      </div>
+          </div>
+        );
+      })}
     </div>
   );
 }

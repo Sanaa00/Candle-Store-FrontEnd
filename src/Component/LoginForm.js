@@ -76,17 +76,27 @@ function LoginForm() {
             placeholder="Email"
             id="email"
             value={formik.values.email}
+            onBlur={formik.handleBlur}
             onChange={formik.handleChange}
           />
-          <span className="text-red-400 text-sm">{formik.errors.email}</span>
+          {formik.touched.email && formik.errors.email ? (
+            <span className="text-red-400 text-sm">{formik.errors.email}</span>
+          ) : null}
+          {/* <span className="text-red-400 text-sm">{formik.errors.email}</span> */}
           <InputField
             name="password"
             placeholder="Password"
             id="password"
             value={formik.values.password}
+            onBlur={formik.handleBlur}
             onChange={formik.handleChange}
           />
-          <span className="text-red-400 text-sm">{formik.errors.password}</span>
+          {formik.touched.password && formik.errors.password ? (
+            <span className="text-red-400 text-sm">
+              {formik.errors.password}
+            </span>
+          ) : null}
+          {/* <span className="text-red-400 text-sm">{formik.errors.password}</span> */}
           <div className="mt-5">
             {" "}
             <Button

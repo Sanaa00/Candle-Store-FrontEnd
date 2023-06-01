@@ -70,7 +70,7 @@ function ContactForm() {
               name="message"
               value={formik.values.message}
               onChange={formik.handleChange}
-              className="w-full lg:w-80 xl:w-96 border-2 rounded-sm resize-none border-gray-200 bg-gray-50 focus:border-greeen focus:outline-none px-1 py-1"
+              className="pl-3 w-full lg:w-80 xl:w-96 border-2 rounded-sm resize-none border-gray-300 bg-gray-50 focus:border-greeen focus:outline-none px-1 py-1"
             />{" "}
             <span className="text-red-400 text-sm bottom-full">
               {formik.errors.message}

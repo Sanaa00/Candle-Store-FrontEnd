@@ -14,7 +14,7 @@ function Product() {
   const { _id } = useParams();
 
   const [addToCart, addIsError, addIsLoading] = useAddToCartMutation();
-  console.log("erroy add", addIsError);
+  // console.log("erroy add", addIsError);
   const {
     data: singleProduct,
     isLoading,
@@ -79,7 +79,7 @@ function Product() {
                   {singleProduct.data.price}.00 $
                 </p>
               </div>
-              {console.log(singleProduct.data._id)}
+              {/* {console.log(singleProduct.data._id)} */}
               <div className="mt-2 lg:mt-0 flex justify-between items-center w-full">
                 {" "}
                 <Button

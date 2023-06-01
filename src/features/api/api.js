@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
@@ -13,6 +12,7 @@ export const apiSlice = createApi({
       "category",
       "address",
       "contact",
+      "favourite",
     ],
     prepareHeaders: (headers) => {
       const token = localStorage.getItem("access_token");

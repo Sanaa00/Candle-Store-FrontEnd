@@ -1,10 +1,17 @@
 import React from "react";
 import { Formik, useFormik, Form } from "formik";
-
+import {
+  useAddToCategoryMutation,
+  useGetCategoryQuery,
+} from "../features/api/category";
 import * as Yup from "yup";
 import InputField from "./InputField";
 import Button from "./Button";
 function AddCategoryForm() {
+  const [addToCategory] = useAddToCategoryMutation();
+  // console.log(addToCategory);
+  const { data: allcategory } = useGetCategoryQuery();
+  // console.log(allcategory);
   const widthOfButton = () => {
     if (window.innerWidth < 640) {
       return "full";
@@ -13,23 +20,25 @@ function AddCategoryForm() {
     } else if (window.innerWidth < 1024) {
       return "full";
     } else if (window.innerWidth < 1280) {
-      return 96;
+      return "full";
     }
   };
   const formik = useFormik({
     initialValues: {
       category: "",
     },
-    onSubmit: (values) => {},
+    onSubmit: (values) => {
+      console.log(values);
+      addToCategory(values);
+    },
 
     validationSchema: Yup.object({
-      productName: Yup.string().label("category").required(),
+      category: Yup.string().label("category").required(),
     }),
   });
-
   return (
     <div>
-      <p className=" font-semibold">Add New category</p>
+      <p className=" font-semibold">Add New Category</p>
       <Formik>
         <div className="w-full lg:w-fit">
           <Form
@@ -37,18 +46,20 @@ function AddCategoryForm() {
             className="grid grid-cols-1 mb-10 w-full lg:w-fit"
           >
             <InputField
-              placeholder="Category"
+              placeholder="category"
               name="category"
               id="category"
               onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
               value={formik.values.category}
             />
-            <span className="text-red-400 text-sm">
-              {formik.errors.category}
-            </span>
-
+            {formik.touched.category && formik.errors.category && (
+              <span className="text-red-400 text-sm">
+                {formik.errors.category}
+              </span>
+            )}{" "}
             <div className="mt-5 flex flex-col justify-center items-center">
-              <Button text="Add" width={widthOfButton()} type="submit" />
+              <Button text="Add" width={widthOfButton()} type="submit" />{" "}
             </div>
           </Form>{" "}
         </div>

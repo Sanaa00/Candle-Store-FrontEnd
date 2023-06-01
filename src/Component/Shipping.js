@@ -1,4 +1,5 @@
 import { Formik, useFormik, Form } from "formik";
+import { Box, MenuItem, TextField } from "@mui/material";
 import React from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -28,6 +29,7 @@ function Shipping() {
     },
     onSubmit: (values) => {
       addToCart({ address: values, status: "order" });
+      console.log("values", values);
     },
     validationSchema: Yup.object({
       phone: Yup.string().required(),
@@ -52,18 +54,51 @@ function Shipping() {
                 name="phone"
                 id="phone"
                 onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
                 value={formik.values.phone}
               />
-              <span className="text-red-400 text-sm">
+              {formik.touched.phone && formik.errors.phone ? (
+                <span className="text-red-400 text-sm">
+                  {formik.errors.phone}
+                </span>
+              ) : null}
+              {/* <span className="text-red-400 text-sm">
                 {formik.errors.phone}
-              </span>
+              </span> */}
             </div>
-            <div className="flex flex-col bg-gray-50">
+            <div className=" mt-5 w-full lg:w-80 xl:w-96">
+              <Box width="full">
+                <TextField
+                  height=""
+                  name="city"
+                  id="city"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.city}
+                  label="select country"
+                  select
+                  fullWidth
+                >
+                  <MenuItem value="hawler">Hawler</MenuItem>
+                  <MenuItem value="selemany">Slemany</MenuItem>
+                  <MenuItem value="duhok">Duhok</MenuItem>
+                  <MenuItem value="halabja">Halabja</MenuItem>
+                </TextField>
+              </Box>
+              {formik.touched.city && formik.errors.city ? (
+                <span className="text-red-400 text-sm">
+                  {formik.errors.city}
+                </span>
+              ) : null}
+            </div>
+            {/* <div className="flex flex-col bg-gray-50">
               <select
                 placeholder="City"
+                option="city"
                 name="city"
                 id="city"
                 onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
                 value={formik.values.city}
                 className="w-full lg:w-80 xl:w-96 border-2 text-gray-400 focus:text-gray-800 bg-gray-50 border-gray-200 focus:border-greeen focus:outline-none mt-5 px-1 py-1"
               >
@@ -80,8 +115,13 @@ function Shipping() {
                   Halabja
                 </option>
               </select>{" "}
-              <span className="text-red-400 text-sm">{formik.errors.city}</span>
-            </div>
+              {formik.touched.city && formik.errors.city ? (
+                <span className="text-red-400 text-sm">
+                  {formik.errors.city}
+                </span>
+              ) : null}
+              {/* <span className="text-red-400 text-sm">{formik.errors.city}</span> */}
+            {/* </div> */}
             <div className="flex flex-col">
               <InputField
                 type="text"
@@ -89,11 +129,17 @@ function Shipping() {
                 name="street"
                 id="street"
                 onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
                 value={formik.values.street}
-              />
-              <span className="text-red-400 text-sm">
+              />{" "}
+              {formik.touched.street && formik.errors.street ? (
+                <span className="text-red-400 text-sm">
+                  {formik.errors.street}
+                </span>
+              ) : null}
+              {/* <span className="text-red-400 text-sm">
                 {formik.errors.street}
-              </span>
+              </span> */}
             </div>
             <button
               onClick={notify}
