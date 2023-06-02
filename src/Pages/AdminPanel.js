@@ -2,9 +2,11 @@ import React from "react";
 import { RiTableAltLine } from "react-icons/ri";
 import { AiOutlineForm } from "react-icons/ai";
 import { RxDashboard } from "react-icons/rx";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Navigate, Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function AdminPanel() {
+  const { user } = useSelector((state) => state.user);
   const options = [
     {
       id: 1,
@@ -26,9 +28,7 @@ function AdminPanel() {
     },
   ];
 
-  //TODO: add this check correctly
-  // if (!user) return <Navigate to="/login" replace />;
-  // if (user && user.role !== "admin") return <Navigate to="/" replace />;
+  if (!user || user.role !== "admin") return <Navigate to="/" replace />;
 
   return (
     <div className="bg-gray-50 pt-16 w-full h-full flex  ">
@@ -49,7 +49,6 @@ function AdminPanel() {
               </NavLink>
             );
           })}
-          {/* </div> */}
         </div>
       </div>
       <div className="ml-10 mt-8 w-4/6">

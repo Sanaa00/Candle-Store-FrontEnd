@@ -119,6 +119,7 @@ function AddProductForm() {
                 id="images"
                 accept="image/*"
                 onChange={(e) => {
+                  formik.handleChange(e);
                   upload(e.target.files);
                 }}
                 onBlur={formik.handleBlur}
