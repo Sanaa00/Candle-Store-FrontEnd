@@ -21,7 +21,7 @@ function Product() {
     error,
     isError,
   } = useGetProductByIdQuery(_id);
-
+  console.log("single product", singleProduct);
   const addToCartHandle = (singleProduct) => {
     addToCart({ productId: singleProduct.data._id });
   };
@@ -63,9 +63,18 @@ function Product() {
             <ProductImageSlider images={singleProduct.data.images} />
             <div className="text-gray-800 flex flex-col justify-between p-2 lg:p-0  mt-20 sm:mt-28 md:mt-52 lg:mt-0 2xl:pl-2">
               <div className=" ">
-                <p className="font-semibold text-2xl">
-                  {singleProduct.data.productName}
-                </p>
+                <div className="flex flex-row items-center">
+                  {" "}
+                  <p className="font-semibold text-2xl">
+                    {singleProduct.data.productName}
+                  </p>
+                  {singleProduct.data.review.length !== 0 && (
+                    <p className="text-gray-400 text-sm ml-2">
+                      ({singleProduct.data.review.length})
+                    </p>
+                  )}
+                </div>
+
                 <p className="bg-gray-100 py-1 px-5 text-greeen rounded-sm w-fit mt-5 font-semibold">
                   {singleProduct?.data.categoryId.category}
                 </p>

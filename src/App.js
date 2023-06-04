@@ -21,6 +21,7 @@ import { useDispatch } from "react-redux";
 import { useGetCurrentUserQuery } from "./features/api/auth";
 import { useEffect } from "react";
 import { addUser } from "./features/user.slice";
+import ReviewForAdmin from "./Component/ReviewForAdmin";
 
 function App() {
   const dispatch = useDispatch();
@@ -50,6 +51,7 @@ function App() {
           <Route path="form" element={<AddProductsForm />} />
           <Route path="table" element={<Table />} />
           <Route path="dashboard" element={<Dashboard />} />
+          <Route path="reviews" element={<ReviewForAdmin />} />
         </Route>
       </Routes>{" "}
       <Footer />

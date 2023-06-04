@@ -4,6 +4,7 @@ import { AiOutlineForm } from "react-icons/ai";
 import { RxDashboard } from "react-icons/rx";
 import { NavLink, Navigate, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { MdOutlineFeedback } from "react-icons/md";
 
 function AdminPanel() {
   const { user } = useSelector((state) => state.user);
@@ -25,6 +26,12 @@ function AdminPanel() {
       name: "Table",
       url: "table",
       icon: <RiTableAltLine className="w-6 h-6" />,
+    },
+    {
+      id: 4,
+      name: "Reviews",
+      url: "reviews",
+      icon: <MdOutlineFeedback className="w-6 h-6" />,
     },
   ];
 
