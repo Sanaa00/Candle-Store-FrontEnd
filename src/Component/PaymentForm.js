@@ -9,7 +9,7 @@ function PaymentForm() {
       cardHolderName: "",
       expiration: "",
     },
-    onSubmit: (values) => {},
+    onSubmit: () => {},
     validationSchema: Yup.object({
       cardNumber: Yup.string().label("cardNumber").required(),
       cardHolderName: Yup.string().label("cardHolderName").required(),

@@ -23,7 +23,6 @@ function AddCategoryForm() {
       category: "",
     },
     onSubmit: (values) => {
-      console.log(values);
       addToCategory(values);
     },
 

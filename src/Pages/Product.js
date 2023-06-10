@@ -21,7 +21,7 @@ function Product() {
     error,
     isError,
   } = useGetProductByIdQuery(_id);
-  console.log("single product", singleProduct);
+
   const addToCartHandle = (singleProduct) => {
     addToCart({ productId: singleProduct.data._id });
   };

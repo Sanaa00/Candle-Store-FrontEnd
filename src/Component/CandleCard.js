@@ -9,8 +9,6 @@ import {
 } from "../features/api/favourite";
 import { useSelector } from "react-redux";
 function CandleCard({ candle }) {
-  console.log(candle);
-
   const { user } = useSelector((state) => state.user);
   const userId = user?._id;
   const { data: fav } = useGetfavouritebyUserIdQuery(userId);

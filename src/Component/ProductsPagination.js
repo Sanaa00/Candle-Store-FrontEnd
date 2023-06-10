@@ -12,14 +12,9 @@ function ProductsPagination({ products, isError, isLoading, page, setPage }) {
   const { data: fav } = useGetfavouritebyUserIdQuery(userId);
 
   const testData = useMemo(() => {
-    console.log("products ", products?.data?.products);
-    console.log("fav products ", fav?.data[0]?.products);
-
     const isFavored = products?.data?.products?.filter((prod) =>
       fav?.data[0]?.products?.some((item) => item.productId?._id === prod?._id)
     );
-
-    console.log("test fav ", isFavored);
 
     return products?.data?.products?.map((prod) => ({
       ...prod,

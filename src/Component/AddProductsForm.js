@@ -1,12 +1,11 @@
 import { Formik, useFormik, Form } from "formik";
-import React, { useEffect } from "react";
+import React from "react";
 import * as Yup from "yup";
 import InputField from "./InputField";
 import Button from "./Button";
 import AddCategoryForm from "./AddCategoryForm";
 import { useAddProductMutation } from "../features/api/productApi";
 import { Box, MenuItem, TextField } from "@mui/material";
-import { useGetCartQuery } from "../features/api/cart";
 import { useGetCategoryQuery } from "../features/api/category";
 import { useUploadMutation } from "../features/api/upload";
 function AddProductForm() {

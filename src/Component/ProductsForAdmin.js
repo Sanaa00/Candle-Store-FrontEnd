@@ -17,7 +17,6 @@ import { RiDeleteBinLine } from "react-icons/ri";
 function ProductsForAdmin() {
   const { data: products } = useGetProductsForAdminQuery();
 
-  console.log("products", products?.data);
   const [deleteProduct] = useDeleteProductMutation();
   const deleteProductHandler = (id) => {
     deleteProduct(id);
@@ -36,7 +35,6 @@ function ProductsForAdmin() {
         <TableBody>
           {products?.data?.map((row) => (
             <TableRow key={row?._id}>
-              {console.log("row", row)}
               <TableCell>{row?.productName}</TableCell>
               <TableCell>{row?.price}</TableCell>
               <TableCell>

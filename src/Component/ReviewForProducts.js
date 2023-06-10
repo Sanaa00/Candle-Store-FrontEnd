@@ -23,14 +23,12 @@ function ReviewForProducts() {
   } = useGetProductByIdQuery(_id);
 
   const [discountToProduct] = useDiscountToProductMutation();
-  console.log("single product", singleProduct);
 
   const formik = useFormik({
     initialValues: {
       discount: 0,
     },
     onSubmit: (values) => {
-      console.log(values);
       discountToProduct({ id: singleProduct.data._id, discount: values });
     },
 

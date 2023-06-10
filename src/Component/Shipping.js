@@ -19,7 +19,6 @@ function Shipping() {
   const userId = user?._id;
 
   const { data: bag } = useGetCartByUserIdQuery(userId);
-  console.log("bagg", bag);
   const notify = () => toast("Orderd Successfully");
   const formik = useFormik({
     initialValues: {
@@ -29,7 +28,6 @@ function Shipping() {
     },
     onSubmit: (values) => {
       addToCart({ address: values, status: "order" });
-      console.log("values", values);
     },
     validationSchema: Yup.object({
       phone: Yup.string().required(),

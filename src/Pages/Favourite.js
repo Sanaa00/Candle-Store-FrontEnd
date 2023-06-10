@@ -8,7 +8,6 @@ function Favourite() {
   const { user } = useSelector((state) => state.user);
   const userId = user?._id;
   const { data: fav } = useGetfavouritebyUserIdQuery(userId) || [];
-  console.log("fav list", fav);
 
   return (
     <div className="bg-gray-50">

@@ -12,10 +12,8 @@ function TotalPrice() {
   const { user } = useSelector((state) => state.user);
   const userId = user?._id;
   const { data: cart } = useGetCartByUserIdQuery(userId);
-  const [addToCart, { isError, error }] = useAddToCartMutation();
-  if (isError || error) {
-    console.log(isError, error);
-  }
+  const [addToCart] = useAddToCartMutation();
+
   let totalQuantity = 0;
   let totalprice = 0;
   cart?.data[0]?.products.forEach((item) => {

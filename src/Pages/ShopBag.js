@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 
 function ShopBag() {
   const { user } = useSelector((state) => state.user);
-  console.log(user);
+
   const userId = user?._id;
   const {
     data: bag,
@@ -17,7 +17,7 @@ function ShopBag() {
     error,
     isError,
   } = useGetCartByUserIdQuery(userId);
-  console.log("bag", bag);
+
   isLoading && (
     <div className="flex justify-center items-center h-screen">
       <BarLoader color="#316C57" height={5} width={200} />
