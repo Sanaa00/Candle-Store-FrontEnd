@@ -13,7 +13,6 @@ import {
 } from "../features/api/productApi";
 import { Link } from "react-router-dom";
 import { RiDeleteBinLine } from "react-icons/ri";
-import { TbDiscount } from "react-icons/tb";
 
 function ProductsForAdmin() {
   const { data: products } = useGetProductsForAdminQuery();
