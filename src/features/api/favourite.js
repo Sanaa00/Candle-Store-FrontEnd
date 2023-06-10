@@ -9,14 +9,7 @@ const favourite = apiSlice.injectEndpoints({
       query: (userId) => `favourite/${userId}`,
       providesTags: ["favourite"],
     }),
-    // getProductsByCategory: builder.query({
-    //   query: (category) => `products?categoryId=${category}`,
-    //   providesTags: ["product"],
-    // }),
-    // getProductById: builder.query({
-    //   query: (id) => `/products/${id}`,
-    //   providesTags: ["product"],
-    // }),
+
     deleteFavourite: builder.mutation({
       query: ({ productId, favId }) => ({
         url: `/favourite/`,

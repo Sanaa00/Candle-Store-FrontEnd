@@ -1,16 +1,7 @@
 import React from "react";
 import { Field } from "formik";
 
-function InputField({
-  name,
-  placeholder,
-  value,
-  onChange,
-  id,
-  type,
-  accept,
-  // multiple,
-}) {
+function InputField({ name, placeholder, value, onChange, id, type, accept }) {
   return (
     <Field
       placeholder={placeholder}

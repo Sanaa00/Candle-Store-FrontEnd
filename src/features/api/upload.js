@@ -3,7 +3,6 @@ const uploadfiles = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getUpload: builder.query({
       query: () => "/products/upload",
-      //   providesTags: ["review"],
     }),
     upload: builder.mutation({
       query: (files) => {
@@ -34,8 +33,6 @@ const uploadfiles = apiSlice.injectEndpoints({
         }
       },
     }),
-    //   invalidatesTags: ["review"],
-    // }),
   }),
 });
 export const { useUploadMutation, useGetUploadQuery } = uploadfiles;

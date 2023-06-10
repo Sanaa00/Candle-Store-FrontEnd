@@ -10,12 +10,10 @@ import { useGetCartQuery } from "../features/api/cart";
 import { useGetCategoryQuery } from "../features/api/category";
 import { useUploadMutation } from "../features/api/upload";
 function AddProductForm() {
-  const [addproduct, isError, error] = useAddProductMutation();
+  const [addproduct] = useAddProductMutation();
   const [upload, { data: uploadResponse }] = useUploadMutation();
-  console.log(uploadResponse);
-  // console.log("error", isError, error);
   const { data: allcategory } = useGetCategoryQuery();
-  // console.log(allcategory);
+
   const widthOfButton = () => {
     if (window.innerWidth < 640) {
       return "full";
@@ -37,18 +35,7 @@ function AddProductForm() {
     },
 
     onSubmit: (values) => {
-      addproduct(
-        { ...values, images: uploadResponse?.path },
-        console.log({ ...values, images: uploadResponse?.path })
-      );
-      // console.log({ ...values, images: uploadResponse?.path });
-
-      // addproduct({ ...values, images: uploadResponse?.path });
-      //  useEffect(() => {
-      //    if (uploadResponse?.path) {
-      //      addproduct({ ...formik.initialStatus, images: uploadResponse });
-      //    }
-      //  }, [uploadResponse]);
+      addproduct({ ...values, images: uploadResponse?.path });
     },
 
     validationSchema: Yup.object({

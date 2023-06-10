@@ -18,7 +18,7 @@ function Products() {
     isError,
     error,
   } = useGetProductsQuery({ search, category, page });
-
+  console.log("products", products);
   return (
     <div className="bg-gray-50 pt-16">
       <Container>

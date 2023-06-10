@@ -23,14 +23,14 @@ function AdminPanel() {
     },
     {
       id: 3,
-      name: "Table",
+      name: "Orders",
       url: "table",
       icon: <RiTableAltLine className="w-6 h-6" />,
     },
     {
       id: 4,
-      name: "Reviews",
-      url: "reviews",
+      name: "Products",
+      url: "ProductsForAdmin",
       icon: <MdOutlineFeedback className="w-6 h-6" />,
     },
   ];

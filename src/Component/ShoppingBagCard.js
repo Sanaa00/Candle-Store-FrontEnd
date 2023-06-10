@@ -21,14 +21,11 @@ function ShoppingBagCard() {
     cartByUserisError,
     cartByUsererror,
   } = useGetCartByUserIdQuery(userId);
-  // console.log("get cart by user id", cartByUser);
 
   const cartId = cart?.data[0]?._id;
 
   const [quantityChange] = useQuantityChangeMutation();
-  const [deleteFromCart, isLoading, isError, error] =
-    useDeleteFromCartMutation();
-  // console.log(isError, isLoading, error);
+  const [deleteFromCart] = useDeleteFromCartMutation();
 
   const deleteFromCartHandle = (bag) => {
     const productId = bag;

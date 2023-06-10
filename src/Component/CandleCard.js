@@ -2,31 +2,31 @@ import React from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
 import { Link, Navigate } from "react-router-dom";
-import { useFavouriteMutation } from "../features/api/productApi";
 import {
   useAddfavouriteMutation,
   useDeleteFavouriteMutation,
   useGetfavouritebyUserIdQuery,
 } from "../features/api/favourite";
 import { useSelector } from "react-redux";
-function CandleCard({ candle, checkFav }) {
+function CandleCard({ candle }) {
+  console.log(candle);
+
   const { user } = useSelector((state) => state.user);
   const userId = user?._id;
   const { data: fav } = useGetfavouritebyUserIdQuery(userId);
-  console.log(fav);
   const favId = fav?.data[0]?._id;
-  console.log("checkfav", checkFav?.productId?._id);
-  console.log(candle._id);
-  const [addfavourite, favIsError, favIsLoading] = useAddfavouriteMutation();
+
+  const [addfavourite, favIsError] = useAddfavouriteMutation();
   const [deleteFavourite] = useDeleteFavouriteMutation();
+
   const handleAddFavourite = (candle) => {
     addfavourite({ productId: candle._id });
   };
+
   const handleRemoveFavourite = (candle) => {
-    let productId = candle?.productId?._id;
+    let productId = candle?.productId?._id || candle?._id;
     deleteFavourite({ productId: productId, favId: favId });
   };
-  // if (isError) return <p>{error.status}</p>;
 
   if (favIsError && favIsError?.error?.originalStatus === 401)
     return (
@@ -44,36 +44,11 @@ function CandleCard({ candle, checkFav }) {
           <button onClick={() => handleRemoveFavourite(candle)}>
             <AiFillHeart className="w-6 h-6 text-red-500" />
           </button>
-        ) : candle?._id === checkFav?.productId?._id ? (
-          <button onClick={() => handleRemoveFavourite(candle)}>
-            {console.log("candle._id", candle._id)}
-            {console.log("fav._id", checkFav?.productId?._id)}
-            <AiFillHeart className="w-6 h-6 text-red-500" />
-          </button>
         ) : (
           <button onClick={() => handleAddFavourite(candle)}>
-            {" "}
-            {console.log("candle._id", candle._id)}
-            {console.log("fav._id", checkFav?.productId?._id)}
             <AiOutlineHeart className="w-6 h-6 text-red-500" />
           </button>
         )}
-        {/* {checkFav?.productId?._id === candle?._id ||
-        candle?.productId?._id === true ? (
-          checkFav === true ? (
-            <button onClick={() => handleRemoveFavourite(candle)}>
-              <AiFillHeart className="w-6 h-6 text-red-500" />
-            </button>
-          ) : (
-            <button onClick={() => handleAddFavourite(candle)}>
-              <AiOutlineHeart className="w-6 h-6 text-red-500" />
-            </button>
-          )
-        ) : (
-          <button onClick={() => handleAddFavourite(candle)}>
-            <AiOutlineHeart className="w-6 h-6 text-red-500" />
-          </button>
-        )} */}
       </div>
       <Link
         to={`/products/${candle?.productId?._id || candle._id}`}
@@ -94,10 +69,29 @@ function CandleCard({ candle, checkFav }) {
                 ? candle?.productId?.productName?.slice(0, 15) ||
                   candle?.productName?.slice(0, 15) + "..."
                 : candle?.productId?.productName || candle?.productName}
-            </p>{" "}
-            <p className=" text-greeen font-medium text-lg">
-              {candle?.productId?.price || candle.price}$
             </p>
+            <div className="flex ">
+              {candle?.productId?.discount || candle?.discount
+                ? candle?.productId?.discount !== 0 &&
+                  candle?.discount !== 0 && (
+                    <p className=" text-greeen font-medium text-lg">
+                      {candle?.productId?.discount || candle?.discount}$
+                    </p>
+                  )
+                : ""}
+              <p
+                className={`${
+                  candle?.productId?.discount || candle?.discount
+                    ? candle?.productId?.discount !== 0 ||
+                      candle?.discount !== 0
+                      ? "text-gray-600  font-medium line-through text-lg ml-3"
+                      : "text-greeen font-medium text-lg ml-3"
+                    : "text-greeen font-medium text-lg ml-3"
+                }  `}
+              >
+                {candle?.productId?.price || candle?.price}$
+              </p>
+            </div>
           </div>
         </div>
       </Link>

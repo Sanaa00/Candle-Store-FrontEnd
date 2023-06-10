@@ -1,7 +1,7 @@
 import React from "react";
-import { Table } from "antd";
 import { useGetOrderQuery } from "../features/api/cart";
 import {
+  Table,
   TableBody,
   TableCell,
   TableHead,
@@ -31,9 +31,9 @@ function TableOrder() {
               // sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               {console.log("row", row)}
-              <TableCell>{row?.user?.fisrtName}</TableCell>
+              <TableCell>{row?.user?.firstName}</TableCell>
               <TableCell>{row?.address[0]?.city}</TableCell>
-              <TableCell>{row?.totalPrice}</TableCell>
+              <TableCell>{row?.totalprice}</TableCell>
             </TableRow>
           ))}
         </TableBody>

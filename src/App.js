@@ -15,13 +15,14 @@ import ShippingAndPayment from "./Component/ShippingAndPayment";
 import Product from "./Pages/Product";
 import AdminPanel from "./Pages/AdminPanel";
 import AddProductsForm from "./Component/AddProductsForm";
-import Table from "./Component/Table";
+import OrderTable from "./Component/OrderTable";
 import Dashboard from "./Component/Dashboard";
 import { useDispatch } from "react-redux";
 import { useGetCurrentUserQuery } from "./features/api/auth";
 import { useEffect } from "react";
 import { addUser } from "./features/user.slice";
-import ReviewForAdmin from "./Component/ReviewForAdmin";
+import ProductsForAdmin from "./Component/ProductsForAdmin";
+import ReviewForProducts from "./Component/ReviewForProducts";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,7 +32,6 @@ function App() {
     if (isSuccess && data) {
       dispatch(addUser(data.data.user));
     }
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
   return (
@@ -49,10 +49,11 @@ function App() {
         <Route path="shippingAndPayment" element={<ShippingAndPayment />} />
         <Route path="adminPanel" element={<AdminPanel />}>
           <Route path="form" element={<AddProductsForm />} />
-          <Route path="table" element={<Table />} />
+          <Route path="table" element={<OrderTable />} />
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="reviews" element={<ReviewForAdmin />} />
-        </Route>
+          <Route path="ProductsForAdmin" element={<ProductsForAdmin />} />
+        </Route>{" "}
+        <Route path="ProductsForAdmin/:_id" element={<ReviewForProducts />} />
       </Routes>{" "}
       <Footer />
     </div>

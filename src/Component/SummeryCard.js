@@ -43,7 +43,6 @@ function SummeryCard() {
             <p className="">Total</p>
             <p>{totalprice}$</p>
           </div>
-          {/* </div> */}
         </div>
       </div>
     </div>

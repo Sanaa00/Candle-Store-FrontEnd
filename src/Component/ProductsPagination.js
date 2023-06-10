@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import ReactPaginate from "react-paginate";
 import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
 import CandleCard from "./CandleCard";
@@ -6,27 +6,30 @@ import { BarLoader } from "react-spinners";
 import { useSelector } from "react-redux";
 import { useGetfavouritebyUserIdQuery } from "../features/api/favourite";
 
-function ProductsPagination({
-  products,
-  isError,
-  isLoading,
-  error,
-  page,
-  setPage,
-}) {
+function ProductsPagination({ products, isError, isLoading, page, setPage }) {
   const { user } = useSelector((state) => state.user);
   const userId = user?._id;
   const { data: fav } = useGetfavouritebyUserIdQuery(userId);
-  console.log(fav);
-  fav?.data[0]?.products.map((checkFav) => {
-    return (
-      <div>
-        {checkFav?.productId?._id}
-        {/* {console.log("ama", checkFav?.productId?._id)} */}
-      </div>
+
+  const testData = useMemo(() => {
+    console.log("products ", products?.data?.products);
+    console.log("fav products ", fav?.data[0]?.products);
+
+    const isFavored = products?.data?.products?.filter((prod) =>
+      fav?.data[0]?.products?.some((item) => item.productId?._id === prod?._id)
     );
+
+    console.log("test fav ", isFavored);
+
+    return products?.data?.products?.map((prod) => ({
+      ...prod,
+      favourite: isFavored?.some((item) => item?._id === prod?._id),
+    }));
+  }, [products, fav]);
+
+  fav?.data[0]?.products.map((checkFav) => {
+    return <div>{checkFav?.productId?._id}</div>;
   });
-  // console.log("ama", checkFav);
 
   if (isLoading)
     return (
@@ -38,12 +41,8 @@ function ProductsPagination({
   return (
     <div className="min-h-screen pt-5">
       <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-between items-center ">
-        {products?.data?.products?.map((candle) => {
-          // {
-          // checkFav?.productId?._id === candle?._id
-
+        {testData?.map((candle) => {
           return <CandleCard candle={candle} key={candle._id} />;
-          // }
         })}
       </div>
       <div className="container mx-auto flex justify-center py-10">

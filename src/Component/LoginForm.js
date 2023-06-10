@@ -63,7 +63,7 @@ function LoginForm() {
   }, [dispatch, userData, userDataIsError]);
 
   if (user) return <Navigate to="/" replace />;
-  // if (loginIsLoading) return <Navigate to="/" replace />;
+
   return (
     <Formik>
       <div className="w-full lg:w-fit">
@@ -82,7 +82,7 @@ function LoginForm() {
           {formik.touched.email && formik.errors.email ? (
             <span className="text-red-400 text-sm">{formik.errors.email}</span>
           ) : null}
-          {/* <span className="text-red-400 text-sm">{formik.errors.email}</span> */}
+
           <InputField
             name="password"
             placeholder="Password"
@@ -96,7 +96,7 @@ function LoginForm() {
               {formik.errors.password}
             </span>
           ) : null}
-          {/* <span className="text-red-400 text-sm">{formik.errors.password}</span> */}
+
           <div className="mt-5">
             {" "}
             <Button

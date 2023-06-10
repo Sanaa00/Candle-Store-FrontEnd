@@ -10,6 +10,10 @@ const productApi = apiSlice.injectEndpoints({
       query: (category) => `products?categoryId=${category}`,
       providesTags: ["product"],
     }),
+    getProductsForAdmin: builder.query({
+      query: () => `products/productsForAdmin`,
+      providesTags: ["product"],
+    }),
     getProductById: builder.query({
       query: (id) => `/products/${id}`,
       providesTags: ["product"],
@@ -28,7 +32,24 @@ const productApi = apiSlice.injectEndpoints({
         method: "POST",
         body: item,
       }),
-      invalidatesTags: ["cart"],
+      invalidatesTags: ["product"],
+    }),
+    deleteProduct: builder.mutation({
+      query: (id) => ({
+        url: `/products/${id}`,
+        method: "DELETE",
+        body: { id },
+      }),
+      invalidatesTags: ["product"],
+    }),
+
+    discountToProduct: builder.mutation({
+      query: (item) => ({
+        url: `/products/${item.id}/descount`,
+        method: "PUT",
+        body: item.discount,
+      }),
+      invalidatesTags: ["product"],
     }),
   }),
 });
@@ -38,4 +59,7 @@ export const {
   useFavouriteMutation,
   useGetProductsByCategoryQuery,
   useAddProductMutation,
+  useGetProductsForAdminQuery,
+  useDeleteProductMutation,
+  useDiscountToProductMutation,
 } = productApi;

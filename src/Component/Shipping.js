@@ -62,9 +62,6 @@ function Shipping() {
                   {formik.errors.phone}
                 </span>
               ) : null}
-              {/* <span className="text-red-400 text-sm">
-                {formik.errors.phone}
-              </span> */}
             </div>
             <div className=" mt-5 w-full lg:w-80 xl:w-96">
               <Box width="full">
@@ -91,37 +88,6 @@ function Shipping() {
                 </span>
               ) : null}
             </div>
-            {/* <div className="flex flex-col bg-gray-50">
-              <select
-                placeholder="City"
-                option="city"
-                name="city"
-                id="city"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.city}
-                className="w-full lg:w-80 xl:w-96 border-2 text-gray-400 focus:text-gray-800 bg-gray-50 border-gray-200 focus:border-greeen focus:outline-none mt-5 px-1 py-1"
-              >
-                <option className="w-full rounded-none lg:w-80 xl:w-96  text-gray-400 focus:text-gray-800 bg-gray-50  focus:bg-greeen active:bg-greeen focus:outline-none mt-5 px-1 py-1">
-                  Erbil
-                </option>
-                <option className="w-full lg:w-80 xl:w-96 border-2 text-gray-400 focus:text-gray-800 bg-gray-50 border-gray-200 focus:border-greeen focus:outline-none mt-5 px-1 py-1">
-                  Sulaymaniah
-                </option>
-                <option className="w-full lg:w-80 xl:w-96 border-2 text-gray-400 focus:text-gray-800 bg-gray-50 border-gray-200 focus:border-greeen focus:outline-none mt-5 px-1 py-1">
-                  Duhok
-                </option>
-                <option className="w-full lg:w-80 xl:w-96 border-2 text-gray-400 focus:text-gray-800 bg-gray-50 border-gray-200 focus:border-greeen focus:outline-none mt-5 px-1 py-1">
-                  Halabja
-                </option>
-              </select>{" "}
-              {formik.touched.city && formik.errors.city ? (
-                <span className="text-red-400 text-sm">
-                  {formik.errors.city}
-                </span>
-              ) : null}
-              {/* <span className="text-red-400 text-sm">{formik.errors.city}</span> */}
-            {/* </div> */}
             <div className="flex flex-col">
               <InputField
                 type="text"
@@ -137,9 +103,6 @@ function Shipping() {
                   {formik.errors.street}
                 </span>
               ) : null}
-              {/* <span className="text-red-400 text-sm">
-                {formik.errors.street}
-              </span> */}
             </div>
             <button
               onClick={notify}

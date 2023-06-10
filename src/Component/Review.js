@@ -9,6 +9,7 @@ function Review({ id }) {
   };
   const addreviewHandler = () => {
     addReview({ message: review, product: id });
+    setReview("");
   };
   const widthOfButton = () => {
     return 40;
@@ -32,7 +33,7 @@ function Review({ id }) {
         <Button
           type="submit"
           text="Send"
-          width={widthOfButton()}
+          width={widthOfButton}
           onClick={addreviewHandler}
         />
       </div>

@@ -1,17 +1,12 @@
 import React from "react";
 import { Formik, useFormik, Form } from "formik";
-import {
-  useAddToCategoryMutation,
-  useGetCategoryQuery,
-} from "../features/api/category";
+import { useAddToCategoryMutation } from "../features/api/category";
 import * as Yup from "yup";
 import InputField from "./InputField";
 import Button from "./Button";
 function AddCategoryForm() {
   const [addToCategory] = useAddToCategoryMutation();
-  // console.log(addToCategory);
-  const { data: allcategory } = useGetCategoryQuery();
-  // console.log(allcategory);
+
   const widthOfButton = () => {
     if (window.innerWidth < 640) {
       return "full";

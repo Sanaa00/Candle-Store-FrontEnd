@@ -19,9 +19,9 @@ function TotalPrice() {
   let totalQuantity = 0;
   let totalprice = 0;
   cart?.data[0]?.products.forEach((item) => {
-    totalQuantity = totalQuantity + item.quantity;
+    totalQuantity = totalQuantity + item?.quantity;
 
-    totalprice += item.productId.price * item.quantity;
+    totalprice += item?.productId?.price * item?.quantity;
   });
   const addTotalHandler = () => {
     addToCart({ totalprice: `${totalprice}` });
@@ -44,15 +44,15 @@ function TotalPrice() {
     <div className="flex w-full sm:justify-center">
       <div className="bg-greeen bg-opacity-10 p-5 w-full lg:w-fit h-fit flex flex-col items-center my-5 lg:my-0">
         <div className="grid grid-cols-1 w-full lg:w-80 xl:w-96 border-b-2 border-greeen">
-          {cart?.data[0]?.products.map((bag) => {
+          {cart?.data[0]?.products?.map((bag) => {
             return (
               <div
-                key={bag.productId._id}
+                key={bag?.productId?._id}
                 className="w-full flex justify-between items-centr pb-5"
               >
-                <p>{bag.productId.productName}</p>
+                <p>{bag?.productId?.productName}</p>
                 <p>
-                  {bag.productId.price}*{bag.quantity}$
+                  {bag?.productId?.price}*{bag?.quantity}$
                 </p>
               </div>
             );

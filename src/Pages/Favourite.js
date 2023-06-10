@@ -1,30 +1,15 @@
 import React from "react";
-import { useGetProductsQuery } from "../features/api/productApi";
 import Container from "../Component/Container";
 import CandleCard from "../Component/CandleCard";
 import emptyBag from "../images/EmptyBag.png";
-import {
-  useGetfavouriteQuery,
-  useGetfavouritebyUserIdQuery,
-} from "../features/api/favourite";
+import { useGetfavouritebyUserIdQuery } from "../features/api/favourite";
 import { useSelector } from "react-redux";
 function Favourite() {
   const { user } = useSelector((state) => state.user);
   const userId = user?._id;
   const { data: fav } = useGetfavouritebyUserIdQuery(userId) || [];
   console.log("fav list", fav);
-  // cons
-  // const { data: products } = useGetProductsQuery({
-  //   search: "",
-  //   category: "",
-  //   page: null,
-  // });
-  // console.log(favourite);
-  // const favItems = favourite?.data?.filter((item) => {
-  //   return item.favourite === true;
-  // });
 
-  // console.log(fav);
   return (
     <div className="bg-gray-50">
       <Container>
@@ -43,7 +28,6 @@ function Favourite() {
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-between items-center ">
               {fav?.data[0]?.products?.map((candle) => {
-                // console.log("candley ka narduma", candle);
                 return <CandleCard candle={candle} key={candle._id} />;
               })}
             </div>
