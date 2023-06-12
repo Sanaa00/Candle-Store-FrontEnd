@@ -19,6 +19,7 @@ function TableOrder() {
             <TableCell>name</TableCell>
             <TableCell>address</TableCell>
             <TableCell>total price</TableCell>
+            <TableCell>Status</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -27,6 +28,7 @@ function TableOrder() {
               <TableCell>{row?.user?.firstName}</TableCell>
               <TableCell>{row?.address[0]?.city}</TableCell>
               <TableCell>{row?.totalprice}</TableCell>
+              <TableCell>{row?.status}</TableCell>
             </TableRow>
           ))}
         </TableBody>

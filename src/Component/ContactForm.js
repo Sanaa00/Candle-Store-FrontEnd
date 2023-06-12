@@ -5,6 +5,8 @@ import { useAddContactMutation } from "../features/api/contact";
 import InputField from "./InputField";
 import Button from "./Button";
 
+import { toast } from "react-toastify";
+
 function ContactForm() {
   const [addContact] = useAddContactMutation();
 
@@ -21,15 +23,16 @@ function ContactForm() {
       return 96;
     }
   };
-
+  const contactMessage = () => toast("Message send Successfully");
   const formik = useFormik({
     initialValues: {
       name: "",
       email: "",
       message: "",
     },
-    onSubmit: (values) => {
+    onSubmit: (values, { resetForm }) => {
       addContact(values);
+      resetForm({ values: "" });
     },
     validationSchema: Yup.object({
       name: Yup.string().label("Name").required(),
@@ -50,17 +53,23 @@ function ContactForm() {
             name="name"
             id="name"
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             value={formik.values.name}
           />
-          <span className="text-red-400 text-sm">{formik.errors.name}</span>
+          {formik.errors.name && formik.touched.name && (
+            <span className="text-red-400 text-sm">{formik.errors.name}</span>
+          )}
           <InputField
             placeholder="Email"
             name="email"
             id="email"
             value={formik.values.email}
+            onBlur={formik.handleBlur}
             onChange={formik.handleChange}
           />{" "}
-          <span className="text-red-400 text-sm">{formik.errors.email}</span>
+          {formik.errors.email && formik.touched.email && (
+            <span className="text-red-400 text-sm">{formik.errors.email}</span>
+          )}
           <div className="flex flex-col my-5 ">
             <textarea
               cols={20}
@@ -69,14 +78,22 @@ function ContactForm() {
               id="message"
               name="message"
               value={formik.values.message}
+              onBlur={formik.handleBlur}
               onChange={formik.handleChange}
               className="pl-3 w-full lg:w-80 xl:w-96 border-2 rounded-sm resize-none border-gray-300 bg-gray-50 focus:border-greeen focus:outline-none px-1 py-1"
             />{" "}
-            <span className="text-red-400 text-sm bottom-full">
-              {formik.errors.message}
-            </span>
+            {formik.errors.message && formik.touched.message && (
+              <span className="text-red-400 text-sm">
+                {formik.errors.message}
+              </span>
+            )}
           </div>
-          <Button type="submit" text="Send" width={widthOfButton()} />
+          <Button
+            type="submit"
+            text="Send"
+            width={widthOfButton()}
+            onClick={contactMessage}
+          />
         </Form>
       </div>
     </Formik>

@@ -8,11 +8,12 @@ import { useAddProductMutation } from "../features/api/productApi";
 import { Box, MenuItem, TextField } from "@mui/material";
 import { useGetCategoryQuery } from "../features/api/category";
 import { useUploadMutation } from "../features/api/upload";
+import { Slide, ToastContainer, toast } from "react-toastify";
 function AddProductForm() {
   const [addproduct] = useAddProductMutation();
   const [upload, { data: uploadResponse }] = useUploadMutation();
   const { data: allcategory } = useGetCategoryQuery();
-
+  const addProduct = () => toast("add product Successfully");
   const widthOfButton = () => {
     if (window.innerWidth < 640) {
       return "full";
@@ -33,8 +34,9 @@ function AddProductForm() {
       categoryId: "",
     },
 
-    onSubmit: (values) => {
+    onSubmit: (values, { resetForm }) => {
       addproduct({ ...values, images: uploadResponse?.path });
+      resetForm({ values: "" });
     },
 
     validationSchema: Yup.object({
@@ -52,6 +54,20 @@ function AddProductForm() {
   return (
     <div className="grid grid-cols-2 justify-between gap-44  text-gray-800">
       <div>
+        <ToastContainer
+          position="bottom-center"
+          autoClose={3000}
+          hideProgressBar
+          newestOnTop
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss={false}
+          draggable={false}
+          pauseOnHover
+          theme="light"
+          transition={Slide}
+          className="h-32"
+        />
         <p className=" font-semibold">Add New Product</p>
         <Formik>
           <div className="w-full lg:w-fit">
@@ -147,7 +163,12 @@ function AddProductForm() {
                 ) : null}
               </div>
               <div className="mt-5 flex flex-col justify-center items-center">
-                <Button text="Add" width={widthOfButton()} type="submit" />{" "}
+                <Button
+                  text="Add"
+                  width={widthOfButton()}
+                  type="submit"
+                  onClick={addProduct}
+                />{" "}
               </div>
             </Form>{" "}
           </div>

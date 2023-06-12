@@ -9,6 +9,7 @@ import Button from "../Component/Button";
 import Container from "../Component/Container";
 import Colors from "../Component/Colors";
 import ProductImageSlider from "../Component/ProductImageSlider";
+import { Slide, ToastContainer } from "react-toastify";
 
 function Product() {
   const { _id } = useParams();
@@ -55,6 +56,20 @@ function Product() {
   return (
     <div className="bg-gray-50 pt-10">
       <Container>
+        <ToastContainer
+          position="bottom-center"
+          autoClose={3000}
+          hideProgressBar
+          newestOnTop
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss={false}
+          draggable={false}
+          pauseOnHover
+          theme="light"
+          transition={Slide}
+          className="h-32"
+        />
         {singleProduct.data ? (
           <div
             key={singleProduct._id}

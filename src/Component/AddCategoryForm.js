@@ -4,6 +4,7 @@ import { useAddToCategoryMutation } from "../features/api/category";
 import * as Yup from "yup";
 import InputField from "./InputField";
 import Button from "./Button";
+import { toast } from "react-toastify";
 function AddCategoryForm() {
   const [addToCategory] = useAddToCategoryMutation();
 
@@ -18,12 +19,15 @@ function AddCategoryForm() {
       return "full";
     }
   };
+  const addCategory = () => toast("add Category Successfully");
+
   const formik = useFormik({
     initialValues: {
       category: "",
     },
-    onSubmit: (values) => {
+    onSubmit: (values, { resetForm }) => {
       addToCategory(values);
+      resetForm({ values: "" });
     },
 
     validationSchema: Yup.object({
@@ -53,7 +57,12 @@ function AddCategoryForm() {
               </span>
             )}{" "}
             <div className="mt-5 flex flex-col justify-center items-center">
-              <Button text="Add" width={widthOfButton()} type="submit" />{" "}
+              <Button
+                text="Add"
+                width={widthOfButton()}
+                type="submit"
+                onClick={addCategory}
+              />{" "}
             </div>
           </Form>{" "}
         </div>

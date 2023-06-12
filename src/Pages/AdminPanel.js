@@ -1,7 +1,7 @@
 import React from "react";
 import { RiTableAltLine } from "react-icons/ri";
 import { AiOutlineForm } from "react-icons/ai";
-import { RxDashboard } from "react-icons/rx";
+
 import { NavLink, Navigate, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { MdOutlineFeedback } from "react-icons/md";
@@ -9,15 +9,15 @@ import { MdOutlineFeedback } from "react-icons/md";
 function AdminPanel() {
   const { user } = useSelector((state) => state.user);
   const options = [
-    {
-      id: 1,
-      name: "Dashboard",
-      url: "dashboard",
-      icon: <RxDashboard className="w-6 h-6" />,
-    },
+    // {
+    //   id: 1,
+    //   name: "Dashboard",
+    //   url: "dashboard",
+    //   icon: <RxDashboard className="w-6 h-6" />,
+    // },
     {
       id: 2,
-      name: "Form",
+      name: "Add Product",
       url: "form",
       icon: <AiOutlineForm className="w-6 h-6" />,
     },

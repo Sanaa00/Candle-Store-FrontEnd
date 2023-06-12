@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import Button from "./Button";
 import { useReviewMutation } from "../features/api/review";
+import { toast } from "react-toastify";
 function Review({ id }) {
   const [review, setReview] = useState("");
   const [addReview] = useReviewMutation();
   const reviewHandler = (e) => {
     setReview(e.target.value);
   };
+  const reviewMessage = () => toast("Feedback send Successfully");
   const addreviewHandler = () => {
     addReview({ message: review, product: id });
     setReview("");
@@ -34,7 +36,10 @@ function Review({ id }) {
           type="submit"
           text="Send"
           width={widthOfButton}
-          onClick={addreviewHandler}
+          onClick={() => {
+            addreviewHandler();
+            reviewMessage();
+          }}
         />
       </div>
     </div>
