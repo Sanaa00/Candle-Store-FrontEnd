@@ -35,8 +35,7 @@ function CandleCard({ candle }) {
   return (
     <div
       key={candle?.productId?._id || candle._id}
-      className="hover:duration-500 duration-500 rounded hover:rounded m-2 flex relative"
-    >
+      className="hover:duration-500 duration-500 rounded hover:rounded m-2 flex relative">
       <div className="absolute top-2 right-2 bg-gray-50 w-7 h-7 rounded-full flex justify-center items-center z-40">
         {candle?.favourite === true ? (
           <button onClick={() => handleRemoveFavourite(candle)}>
@@ -50,8 +49,7 @@ function CandleCard({ candle }) {
       </div>
       <Link
         to={`/products/${candle?.productId?._id || candle._id}`}
-        className="w-full h-full relative overflow-hidden z-0"
-      >
+        className="w-full h-full relative overflow-hidden z-0">
         <div className="relative overflow-hidden">
           <img
             alt="candles"
@@ -85,8 +83,7 @@ function CandleCard({ candle }) {
                       ? "text-gray-600  font-medium line-through text-lg ml-3"
                       : "text-greeen font-medium text-lg ml-3"
                     : "text-greeen font-medium text-lg ml-3"
-                }  `}
-              >
+                }  `}>
                 {candle?.productId?.price || candle?.price}$
               </p>
             </div>

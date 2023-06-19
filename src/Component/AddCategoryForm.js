@@ -7,7 +7,6 @@ import Button from "./Button";
 import { toast } from "react-toastify";
 function AddCategoryForm() {
   const [addToCategory] = useAddToCategoryMutation();
-
   const widthOfButton = () => {
     if (window.innerWidth < 640) {
       return "full";
@@ -16,9 +15,22 @@ function AddCategoryForm() {
     } else if (window.innerWidth < 1024) {
       return "full";
     } else if (window.innerWidth < 1280) {
-      return "full";
+      return 80;
+    } else {
+      return 96;
     }
   };
+  // const widthOfButton = () => {
+  //   if (window.innerWidth < 640) {
+  //     return "full";
+  //   } else if (window.innerWidth < 768) {
+  //     return "full";
+  //   } else if (window.innerWidth < 1024) {
+  //     return "full";
+  //   } else if (window.innerWidth < 1280) {
+  //     return "full";
+  //   }
+  // };
   const addCategory = () => toast("add Category Successfully");
 
   const formik = useFormik({
@@ -41,8 +53,7 @@ function AddCategoryForm() {
         <div className="w-full lg:w-fit">
           <Form
             onSubmit={formik.handleSubmit}
-            className="grid grid-cols-1 mb-10 w-full lg:w-fit"
-          >
+            className="grid grid-cols-1 mb-10 w-full lg:w-fit">
             <InputField
               placeholder="category"
               name="category"

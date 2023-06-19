@@ -52,7 +52,7 @@ function AddProductForm() {
   });
 
   return (
-    <div className="grid grid-cols-2 justify-between gap-44  text-gray-800">
+    <div className="grid ml-10 xl:ml-0 grid-cols-1 xl:grid-cols-2 justify-between  xl:gap-44  text-gray-800">
       <div>
         <ToastContainer
           position="bottom-center"
@@ -73,8 +73,7 @@ function AddProductForm() {
           <div className="w-full lg:w-fit">
             <Form
               onSubmit={formik.handleSubmit}
-              className="grid grid-cols-1 mb-10 w-full lg:w-fit"
-            >
+              className="grid grid-cols-1 mb-10 w-full lg:w-fit">
               <InputField
                 placeholder="Product Name"
                 name="productName"
@@ -144,8 +143,7 @@ function AddProductForm() {
                     value={formik.values.categoryId}
                     label="category"
                     select
-                    fullWidth
-                  >
+                    fullWidth>
                     {" "}
                     {allcategory?.data?.map((category) => {
                       return (

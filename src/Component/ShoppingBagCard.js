@@ -2,7 +2,6 @@ import React from "react";
 import { SlClose } from "react-icons/sl";
 import { BarLoader } from "react-spinners";
 import {
-  useGetCartQuery,
   useDeleteFromCartMutation,
   useQuantityChangeMutation,
   useGetCartByUserIdQuery,
@@ -14,15 +13,18 @@ function ShoppingBagCard() {
   const { user } = useSelector((state) => state.user);
   const userId = user?._id;
 
-  const { data: cart } = useGetCartQuery();
+  // const { data: cart } = useGetCartQuery();
+  // console.log("cart", cart);
   const {
     data: cartByUser,
     cartByUserisLoading,
     cartByUserisError,
     cartByUsererror,
   } = useGetCartByUserIdQuery(userId);
+  console.log("cartByuser id", cartByUser);
 
-  const cartId = cart?.data[0]?._id;
+  // const cartId = cart?.data[0]?._id;
+  const cartId = cartByUser?.data[0]?._id;
 
   const [quantityChange] = useQuantityChangeMutation();
   const [deleteFromCart] = useDeleteFromCartMutation();
@@ -78,8 +80,7 @@ function ShoppingBagCard() {
                   </p>
                   <div className="flex ">
                     <button
-                      onClick={() => deleteFromCartHandle(bag?.productId?._id)}
-                    >
+                      onClick={() => deleteFromCartHandle(bag?.productId?._id)}>
                       <SlClose className="w-5 h-5 text-gray-700" />
                     </button>
                   </div>

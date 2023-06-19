@@ -49,8 +49,7 @@ function AdminPanel() {
                 className={({ isActive }) =>
                   (isActive ? " text-greeen bg-greeen bg-opacity-10 " : "") +
                   "flex flex-row w-full h-12 p-1 hover:bg-greeen hover:bg-opacity-10 pl-10 hover:duration-500 duration-500  items-center"
-                }
-              >
+                }>
                 <div>{option.icon}</div>
                 <p className="pl-2">{option.name}</p>
               </NavLink>
@@ -58,7 +57,7 @@ function AdminPanel() {
           })}
         </div>
       </div>
-      <div className="ml-10 mt-8 w-4/6">
+      <div className="xl:ml-5 2xl:ml-10 mt-8 w-4/6">
         <Outlet />
       </div>
     </div>
